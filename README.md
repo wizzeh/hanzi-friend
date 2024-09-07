@@ -19,6 +19,9 @@ Currently the app assumes there is only one user and is designed to be run local
 ### Handling of Radicals, Antiquated Words, etc.
 Because of the character order approach the app will sometimes attempt to teach radicals that aren't used by themselves, antiquated words, etc. A better approach would filter out antiquated meanings and only quiz the meaning of radicals.
 
+### Manually Learning Words
+It would be good if you could add words that you learn in the wild into the rotation ahead of time.
+
 
 ### Minor Bugs
 - Always marks pronunciation answers wrong on multi-character words or characters with multiple pronunciations.
