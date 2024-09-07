@@ -24,4 +24,5 @@ Because of the character order approach the app will sometimes attempt to teach 
 - Always marks pronunciation answers wrong on multi-character words or characters with multiple pronunciations.
 - AI sometimes generates phrases which do not contain the target word.
 - AI sometimes generates malformatted output.
+- Sometimes includes "no character found" in character decompositions. These could be removed or alternatively a high-lift alternative would be to make SVG implementations of some of the shapes.
 - Code cleanup
