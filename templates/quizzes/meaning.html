@@ -1,0 +1,30 @@
+<article id="meaning-quiz">
+  <h5>Definition</h5>
+  <p class="large">{{hanzi}}</p>
+  <button
+    _="
+    on click
+    show #meaning-answer
+    show .feedback
+    js play_pronounce() end
+    hide me
+    "
+  >
+    Reveal definition
+  </button>
+  <div id="meaning-answer" style="text-align: left; display: none">
+    <ul>
+      {% for item in meaning %}
+      <li>{{item}}</li>
+      {% endfor %}
+    </ul>
+
+    <form hx-post="/{{hanzi}}/update-definition" hx-swap="none">
+      <textarea name="definition">{{user_definition}}</textarea>
+      <button type="submit" class="secondary">Update</button>
+    </form>
+  </div>
+</article>
+
+<audio src="pronounce/{{hanzi}}" id="pronounce"></audio>
+{% include 'quizzes/feedback.html' %}

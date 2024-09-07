@@ -1,0 +1,20 @@
+<article>
+  <h5>New Word</h5>
+  <p class="large">
+    <a href="https://hanzicraft.com/character/{{hanzi}}">{{hanzi}}</a>
+  </p>
+  <p>
+    Components: {% for item in decomposition.radicals %} {% if item.is_real %}
+    <a href="https://hanzicraft.com/character/{{item.hanzi}}">{{item.hanzi}}</a>
+    {% endif %} {% endfor %}
+  </p>
+  <p>{{pinyin}}</p>
+  <ul style="text-align: left">
+    {% for item in meaning %}
+    <li>{{item}}</li>
+    {% endfor %}
+  </ul>
+  <button hx-post="/learn/{{hanzi}}" hx-target="#quiz" hx-swap="innerHTML">
+    Learn word {{words_known + 1}}
+  </button>
+</article>

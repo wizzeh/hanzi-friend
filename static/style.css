@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Source Han Sans SC';
+    src: url('fonts/SourceHanSansSC-Normal.otf');
+    unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('fonts/Raleway-VariableFont_wght.ttf');
+    unicode-range:U+00-52F, U+1E00-1FFF, U+2200-22FF;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand-VariableFont_wght.ttf');
+    unicode-range:U+00-52F, U+1E00-1FFF, U+2200-22FF;
+}
+
+body {
+    font-family: 'Quicksand', 'Source Han Sans SC';
+}
+
+button.answer.red {
+    background-color: var(--pico-color-red-500);
+    border-color: var(--pico-color-red-500);
+    box-shadow: none;
+}
+
+button.answer.green {
+    background-color: var(--pico-color-green-500);
+    border-color: var(--pico-color-green-500);
+    box-shadow: none;
+}
+
+input.red {
+    background-color: var(--pico-color-red-500);
+    border-color: var(--pico-color-red-500);
+    box-shadow: none;
+}
+
+input.green {
+    background-color: var(--pico-color-green-500);
+    border-color: var(--pico-color-green-500);
+    box-shadow: none;
+}
+
+button.grey {
+    background-color: var(--pico-color-zinc-500);
+    border-color: var(--pico-color-zinc-500);
+    box-shadow: none;
+}
+
+.large {
+    font-size: 72pt;
+}
+
+article {
+    max-width: 576px;
+}
+
+.feedback {
+    max-width: 576px;
+}
+
+.answer {
+    margin: 10px;
+}
+
+
+table#pinyin-table {
+    font-size: 12pt;
+}
+
+table#pinyin-table td {
+    padding: 5px;
+}

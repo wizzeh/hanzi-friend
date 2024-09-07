@@ -1,0 +1,45 @@
+<article
+  id="component-quiz"
+  style="display: inline-block"
+  remaining={{decomposition.true_length}}
+  _="
+    on mutation of @remaining
+    if @remaining is 0
+      add @disabled to .answer
+      add .grey to .answer
+      show .large
+      js play_success() end
+      show .feedback
+      js play_pronounce() end
+    end"
+  >
+  <h5>Decomposition</h5>
+  <p class="large" style="display: none;">{{hanzi}}</p>
+  <p>{{pinyin}}</p>
+  <ul id="meaning-answer" style="text-align: left;">
+    {% for item in meaning %}
+    <li>{{item}}</li>
+    {% endfor %}
+  </ul>
+  {% for item in decomposition.radicals %}
+  {% if item.is_real %}
+    <button class="answer" _="
+      on click
+      set #component-quiz's @remaining to #component-quiz's @remaining - 1
+      add .green to me
+      add @disabled to me
+    ">
+  {% else %}
+    <button class="answer" _="
+      on click
+      add .red to me
+      add @disabled to me
+      ">
+  {% endif %}
+    {{item.hanzi}}
+  </button>
+  {% endfor %}
+</article>
+
+<audio src="pronounce/{{hanzi}}" id="pronounce"></audio>
+{% include 'quizzes/feedback.html' %}

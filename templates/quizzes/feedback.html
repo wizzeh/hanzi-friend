@@ -1,0 +1,30 @@
+<div class="grid feedback" style="display: none">
+  <button
+    hx-post="/{{hanzi}}/{{quiz_type}}/again"
+    hx-target="#quiz"
+    hx-swap="innerHTML"
+  >
+    Again
+  </button>
+  <button
+    hx-post="/{{hanzi}}/{{quiz_type}}/hard"
+    hx-target="#quiz"
+    hx-swap="innerHTML"
+  >
+    Hard
+  </button>
+  <button
+    hx-post="/{{hanzi}}/{{quiz_type}}/good"
+    hx-target="#quiz"
+    hx-swap="innerHTML"
+  >
+    Good
+  </button>
+  <button
+    hx-post="/{{hanzi}}/{{quiz_type}}/easy"
+    hx-target="#quiz"
+    hx-swap="innerHTML"
+  >
+    Easy
+  </button>
+</div>

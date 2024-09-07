@@ -1,0 +1,27 @@
+<article>
+  <h5>Translation</h5>
+  <p>{{to_translate}}</p>
+
+  <p id="translation-answer" style="display: none">
+    {{translation}} ({{hanzi}})
+  </p>
+  <form
+    _="
+    on submit
+    halt the event's default
+    show #translation-answer
+    hide the first <button /> in me
+    show .feedback
+    js play_pronounce() end
+    "
+  >
+    <input type="text" autocomplete="off" />
+    <button type="submit">Reveal translation</button>
+  </form>
+</article>
+
+{% if is_english %}
+<audio src="pronounce/{{translation}}" id="pronounce"></audio>
+{% else %}
+<audio src="pronounce/{{to_translate}}" id="pronounce"></audio>
+{% endif %} {% include 'quizzes/feedback.html' %}

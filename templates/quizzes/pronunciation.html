@@ -1,0 +1,29 @@
+<article id="meaning-quiz">
+  <h5>Pronunciation</h5>
+  <p class="large">{{hanzi}}</p>
+  <p id="pronunciation-answer" style="display: none">{{pinyin}}</p>
+  <form
+    _="
+    on submit
+    halt the event's default
+    show #pronunciation-answer
+    hide the first <button /> in me
+    if the value of #pronunciation-input is '{{pinyin_numbers}}'
+      add .green to #pronunciation-input
+      js play_success() end
+      js play_pronounce() end
+    else
+      add .red to #pronunciation-input
+      js play_failure() end
+      js play_pronounce() end
+    end
+    show .feedback
+    "
+  >
+    <input type="text" id="pronunciation-input" autocomplete="off" />
+    <button type="submit">Reveal pinyin</button>
+  </form>
+</article>
+
+<audio src="pronounce/{{hanzi}}" id="pronounce"></audio>
+{% include 'quizzes/feedback.html' %}

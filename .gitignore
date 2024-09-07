@@ -1,0 +1,7 @@
+.env
+.python-version
+*.json
+*.txt
+.vscode
+__pycache__
+static/audio/*.mp3

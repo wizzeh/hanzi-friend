@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask and HTMX Example</title>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script
+      src="https://unpkg.com/htmx.org@2.0.1"
+      integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+
+    <audio
+      src="{{url_for('static', filename='success.wav')}}"
+      id="success-audio"
+    ></audio>
+    <audio
+      src="{{url_for('static', filename='failure.wav')}}"
+      id="failure-audio"
+    ></audio>
+
+    <script type="text/javascript">
+      const play_success = () => {
+        document.getElementById("success-audio").play()
+      }
+      const play_failure = () => {
+        document.getElementById("failure-audio").play()
+      }
+      const play_pronounce = () => {
+        document.getElementById("pronounce").play()
+      }
+    </script>
+  </head>
+  <body>
+    <main class="container small">
+      <center>
+        <h1>Hanzi Friend</h1>
+        <div id="quiz">
+          <button hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">
+            Start
+          </button>
+        </div>
+      </center>
+    </main>
+  </body>
+</html>
