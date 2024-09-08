@@ -27,4 +27,7 @@
   >
     Easy
   </button>
+  {% if translation %}
+  <button hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">Retest</button>
+  {% endif %}
 </div>
