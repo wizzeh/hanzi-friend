@@ -5,7 +5,7 @@ from hanzipy.dictionary import HanziDictionary
 from hanzipy.exceptions import NotAHanziCharacter
 from typing import NamedTuple, List
 from radicals import radicals as all_radicals
-from random import sample, shuffle, choice
+from random import sample, shuffle, choice, random
 import fsrs
 from tinydb import TinyDB, Query
 import tinydb.operations as dbops
@@ -265,6 +265,7 @@ def next_quiz_query():
 
     if len(cards) > 0:
         quiz_card = choice(cards)
+        print(quiz_card)
         quiz = quiz_card["quiz_type"]
         next_hanzi = quiz_card["word"]
     else:
@@ -351,6 +352,11 @@ def next_quiz(hanzi, quiz_type, difficulty):
         rating = fsrs.Rating.Again
 
     new_card, _ = fsrs_system.review_card(card, rating)
+
+    diff = new_card.due - datetime.now(timezone.utc)
+    if diff.total_seconds() > 0:
+        jiggle = ((random() * 0.2) + 0.9) * diff
+        new_card.due = datetime.now(timezone.utc) + jiggle
 
     db.update(dbops.set("card", new_card.to_dict()), doc_ids=[card_id])
 
