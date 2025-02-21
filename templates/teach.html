@@ -17,14 +17,15 @@
     />
   </head>
   <body>
-    <h1>Hanzi Friend</h1>
+    <h1>Hanzi Friend -- Learn A New Word</h1>
 
-    <!-- <div id="content">
-      <p>This content will be updated when you click the button.</p>
-    </div>
-
-    <button hx-post="/update" hx-target="#content" hx-swap="innerHTML">
-      Update Content
-    </button> -->
+    <article id="meaning-quiz">
+      <h5>Learn</h5>
+      <form method="POST" action="/teach">
+        <input type="text" name="word" id="word-learn" />
+        <button type="submit">Learn Word</button>
+      </form>
+      </form>
+    </article>
   </body>
 </html>

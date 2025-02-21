@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from pypinyin.contrib.tone_convert import to_tone3, to_tone
 from hanzipy.decomposer import HanziDecomposer
 from hanzipy.dictionary import HanziDictionary
@@ -211,8 +211,13 @@ class Translation(NamedTuple):
 
     @staticmethod
     def for_hanzi(word: str):
-        num_characters = db.search(Query().type_ == "characters_seen")[0]["number_seen"]
-        avail_characters = word_order[:num_characters]
+        cards = Query()
+        avail_characters = [
+            card["word"]
+            for card in db.search(
+                (cards.type_ == "card") & (cards.quiz_type == "meaning")
+            )
+        ]
 
         word_chars = ""
 
@@ -269,6 +274,11 @@ def next_quiz_query():
         quiz = quiz_card["quiz_type"]
         next_hanzi = quiz_card["word"]
     else:
+        while db.search(Cards.word == word_order[num_characters]):
+            num_characters = num_characters + 1
+        db.update(
+            dbops.set("number_seen", num_characters), Cards.type_ == "characters_seen"
+        )
         next_hanzi = word_order[num_characters]
         quiz = "intro"
 
@@ -332,6 +342,21 @@ def start():
     return render_next()
 
 
+@app.route("/teach", methods=["GET"])
+def teach():
+    return render_template("teach.html")
+
+
+@app.route("/teach", methods=["POST"])
+def teach_post():
+    hanzi = request.form.get("word")
+    if hanzi:
+        for card in generate_cards_for_hanzi(hanzi):
+            db.insert(card.serialize())
+
+    return redirect("/")
+
+
 @app.route("/<hanzi>/<quiz_type>/<difficulty>", methods=["POST"])
 def next_quiz(hanzi, quiz_type, difficulty):
     Cards = Query()
@@ -374,7 +399,7 @@ def table():
 def difficult():
     Cards = Query()
     cards = list(
-        db.search((Cards.type_ == "card") & (Cards.quiz_type == "pronunciation"))
+        db.search((Cards.type_ == "card") & (Cards.quiz_type == "translation-chinese"))
     )
 
     cards.sort(key=lambda card: card["card"]["difficulty"], reverse=True)
