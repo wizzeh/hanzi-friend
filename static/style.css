@@ -7,13 +7,13 @@
 @font-face {
     font-family: 'Raleway';
     src: url('fonts/Raleway-VariableFont_wght.ttf');
-    unicode-range:U+00-52F, U+1E00-1FFF, U+2200-22FF;
+    unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
 }
 
 @font-face {
     font-family: 'Quicksand';
     src: url('fonts/Quicksand-VariableFont_wght.ttf');
-    unicode-range:U+00-52F, U+1E00-1FFF, U+2200-22FF;
+    unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
 }
 
 body {
@@ -56,6 +56,13 @@ button.grey {
 
 article {
     max-width: 650px;
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    right: 20px;
+    color: var(--fbc-secondary-text);
 }
 
 .feedback {

@@ -270,7 +270,6 @@ def next_quiz_query():
 
     if len(cards) > 0:
         quiz_card = choice(cards)
-        print(quiz_card)
         quiz = quiz_card["quiz_type"]
         next_hanzi = quiz_card["word"]
     else:
@@ -284,10 +283,10 @@ def next_quiz_query():
 
     info = hanzi_info(next_hanzi)
 
-    return (info, quiz)
+    return (info, quiz, len(cards))
 
 
-def render_quiz(info, quiz):
+def render_quiz(info, quiz, remaining_cards):
     if quiz.startswith("translation"):
         translation = Translation.for_hanzi(info.hanzi)
         return render_template(
@@ -306,6 +305,7 @@ def render_quiz(info, quiz):
             else translation.english,
             is_english=quiz.endswith("english"),
             user_definition=info.user_definition,
+            remaining_cards=remaining_cards,
         )
     else:
         return render_template(
@@ -318,13 +318,14 @@ def render_quiz(info, quiz):
             quiz_type=quiz,
             words_known=db.search(Query().type_ == "characters_seen")[0]["number_seen"],
             user_definition=info.user_definition,
+            remaining_cards=remaining_cards,
         )
 
 
 def render_next():
     db.all()
-    info, quiz = next_quiz_query()
-    return render_quiz(info, quiz)
+    info, quiz, remaining_cards = next_quiz_query()
+    return render_quiz(info, quiz, remaining_cards)
 
 
 @app.route("/learn/<hanzi>", methods=["POST"])
