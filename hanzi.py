@@ -32,6 +32,7 @@ class HanziInfo(NamedTuple):
     meaning: List[str]
     decomposition: Decomposition
     user_definition: str
+    story: str
 
 
 def try_define(hanzi):
@@ -69,23 +70,56 @@ def numbered_pinyin(pinyin):
     )
 
 
-def hanzi_info(hanzi: str) -> HanziInfo:
-    entries = filter_definitions(try_define(hanzi))
+def format_sense(sense) -> str:
+    formatted = fixed_tone_convert(sense["pinyin"]) + ": " + sense["gloss"]
+    if sense["note"]:
+        formatted += " ({})".format(sense["note"])
+    return formatted
 
-    pinyin_result = "/".join(
-        sorted(
-            set(
-                fixed_tone_convert(entry["pinyin"])
-                if "pinyin" in entry
-                else "no pinyin"
-                for entry in entries
+
+def hanzi_info(hanzi: str) -> HanziInfo:
+    lexicon_entry = db.get_lexicon(hanzi)
+    story = ""
+
+    if lexicon_entry:
+        # Our AI-curated senses; fall back to everything if none are
+        # marked learnable.
+        senses = [s for s in lexicon_entry["senses"] if s["learn"]]
+        senses = senses or lexicon_entry["senses"]
+
+        pinyin_result = "/".join(
+            sorted(set(fixed_tone_convert(s["pinyin"]) for s in senses))
+        )
+        pinyin_variants = sorted(set(s["pinyin"] for s in senses))
+        meaning = [format_sense(s) for s in senses]
+        story = lexicon_entry["components"]
+    else:
+        # Raw CC-CEDICT for words we haven't enriched yet.
+        entries = filter_definitions(try_define(hanzi))
+
+        pinyin_result = "/".join(
+            sorted(
+                set(
+                    fixed_tone_convert(entry["pinyin"])
+                    if "pinyin" in entry
+                    else "no pinyin"
+                    for entry in entries
+                )
             )
         )
-    )
 
-    pinyin_variants = sorted(
-        set(numbered_pinyin(entry["pinyin"]) for entry in entries if "pinyin" in entry)
-    )
+        pinyin_variants = sorted(
+            set(
+                numbered_pinyin(entry["pinyin"])
+                for entry in entries
+                if "pinyin" in entry
+            )
+        )
+
+        meaning = [
+            (entry["pinyin"] if "pinyin" in entry else "?") + ": " + entry["definition"]
+            for entry in entries
+        ]
 
     decomposition = decomposer.decompose(hanzi, 2)
 
@@ -99,11 +133,6 @@ def hanzi_info(hanzi: str) -> HanziInfo:
         if component != decomposer.noglyph
     ]
 
-    meaning = [
-        (entry["pinyin"] if "pinyin" in entry else "?") + ": " + entry["definition"]
-        for entry in entries
-    ]
-
     return HanziInfo(
         hanzi=hanzi,
         pinyin=pinyin_result,
@@ -111,6 +140,7 @@ def hanzi_info(hanzi: str) -> HanziInfo:
         meaning=meaning,
         decomposition=Decomposition(radicals=decomp, true_length=len(decomp)),
         user_definition=db.user_definition(hanzi),
+        story=story,
     )
 
 

@@ -9,6 +9,9 @@
     {% endif %} {% endfor %}
   </p>
   <p>{{pinyin}}</p>
+  {% if story %}
+  <p><em>{{story}}</em></p>
+  {% endif %}
   <ul style="text-align: left">
     {% for item in meaning %}
     <li>{{item}}</li>

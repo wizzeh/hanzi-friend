@@ -47,6 +47,7 @@ def render_quiz(info, quiz_type, remaining_cards):
             quiz_type=quiz_type,
             words_known=store.characters_seen(),
             user_definition=info.user_definition,
+            story=info.story,
             remaining_cards=remaining_cards,
         )
 
