@@ -78,6 +78,26 @@ article {
     text-align: center;
 }
 
+.prelearn-queue {
+    padding: 0;
+}
+
+.prelearn-queue li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+}
+
+.prelearn-queue li span {
+    font-size: 2rem;
+}
+
+.prelearn-queue form {
+    margin-bottom: 0;
+}
+
 .logout-form {
     margin-bottom: 0;
 }

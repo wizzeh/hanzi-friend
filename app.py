@@ -14,6 +14,7 @@ from hanzi import (
     generate_component_test,
     fixed_tone_convert,
     recognition_only,
+    is_known_word,
 )
 from translation import Translation
 
@@ -86,26 +87,45 @@ def start():
 @login_required
 def learn(hanzi):
     reading = request.args.get("reading")
+    # Pre-learned words don't advance our position in the frequency
+    # order; the order catches up to them on its own.
+    was_prelearned = store.remove_prelearn(current_user(), hanzi)
     quiz.learn_word(current_user(), hanzi, reading)
-    if reading is None:
+    if reading is None and not was_prelearned:
         store.increment_characters_seen(current_user())
     return render_next()
+
+
+def render_teach(error=None):
+    return render_template(
+        "teach.html", error=error, queue=store.prelearn_queue(current_user())
+    )
 
 
 @app.route("/teach", methods=["GET"])
 @login_required
 def teach():
-    return render_template("teach.html")
+    return render_teach()
 
 
 @app.route("/teach", methods=["POST"])
 @login_required
 def teach_post():
-    hanzi = request.form.get("word")
-    if hanzi:
-        quiz.learn_word(current_user(), hanzi)
+    word = request.form.get("word", "").strip()
+    if not word or not is_known_word(word):
+        return render_teach(error="Not in the dictionary: {}".format(word))
+    if store.has_cards_for_word(current_user(), word):
+        return render_teach(error="Already learning {}".format(word))
 
-    return redirect("/")
+    store.queue_prelearn(current_user(), word)
+    return redirect("/teach")
+
+
+@app.route("/teach/<word>/remove", methods=["POST"])
+@login_required
+def teach_remove(word):
+    store.remove_prelearn(current_user(), word)
+    return redirect("/teach")
 
 
 @app.route("/review/<int:card_id>/<difficulty>", methods=["POST"])

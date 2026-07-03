@@ -55,6 +55,13 @@ CREATE TABLE IF NOT EXISTS pending_pairs (
     UNIQUE (user_id, word, reading)
 );
 
+CREATE TABLE IF NOT EXISTS prelearn (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    word TEXT NOT NULL,
+    UNIQUE (user_id, word)
+);
+
 CREATE TABLE IF NOT EXISTS definitions (
     user_id INTEGER NOT NULL REFERENCES users(id),
     word TEXT NOT NULL,
@@ -234,6 +241,44 @@ def remove_pending_pair(user_id: int, word: str, reading: str):
             "DELETE FROM pending_pairs WHERE user_id = ? AND word = ? AND reading = ?",
             (user_id, word, reading),
         )
+
+
+# --- pre-learn queue ---------------------------------------------------------
+
+
+def queue_prelearn(user_id: int, word: str):
+    conn = connect()
+    with conn:
+        conn.execute(
+            "INSERT OR IGNORE INTO prelearn (user_id, word) VALUES (?, ?)",
+            (user_id, word),
+        )
+
+
+def next_prelearn(user_id: int):
+    row = connect().execute(
+        "SELECT word FROM prelearn WHERE user_id = ? ORDER BY id LIMIT 1",
+        (user_id,),
+    ).fetchone()
+    return row["word"] if row else None
+
+
+def prelearn_queue(user_id: int):
+    return [
+        row["word"]
+        for row in connect().execute(
+            "SELECT word FROM prelearn WHERE user_id = ? ORDER BY id", (user_id,)
+        )
+    ]
+
+
+def remove_prelearn(user_id: int, word: str) -> bool:
+    conn = connect()
+    with conn:
+        cur = conn.execute(
+            "DELETE FROM prelearn WHERE user_id = ? AND word = ?", (user_id, word)
+        )
+    return cur.rowcount > 0
 
 
 # --- user definitions --------------------------------------------------------

@@ -4,13 +4,40 @@
 <article>
   <h1>Teach a word</h1>
   <p>
-    Add a word you met in the wild. It gets cards right away and joins
-    the review rotation.
+    Met a word in the wild? Queue it here and it will be introduced
+    ahead of the usual character order, next time nothing is due.
   </p>
+  {% if error %}
+  <p id="teach-error" class="pico-color-red-500" role="alert">{{error}}</p>
+  {% endif %}
   <form method="POST" action="/teach">
     <label for="word-learn">Word (汉字)</label>
-    <input type="text" id="word-learn" name="word" required />
-    <button type="submit">Learn word</button>
+    <input
+      type="text"
+      id="word-learn"
+      name="word"
+      required
+      {% if error %}aria-describedby="teach-error"{% endif %}
+    />
+    <button type="submit">Queue word</button>
   </form>
 </article>
+
+{% if queue %}
+<article>
+  <h2>Waiting to be introduced</h2>
+  <ul class="prelearn-queue">
+    {% for word in queue %}
+    <li>
+      <span lang="zh">{{word}}</span>
+      <form method="POST" action="/teach/{{word}}/remove">
+        <button type="submit" class="secondary outline">
+          Remove {{word}}
+        </button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+</article>
+{% endif %}
 {% endblock %}

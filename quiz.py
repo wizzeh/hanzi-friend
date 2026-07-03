@@ -84,8 +84,9 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
 
 
 def next_quiz(user_id: int) -> QuizPick:
-    """Pick a due card at random; else introduce a queued secondary
-    reading; else introduce the next new word."""
+    """Pick a due card at random; else introduce, in order of priority:
+    a pre-learn word from the wild, a queued secondary reading, or the
+    next new word from the frequency order."""
     cards = store.due_cards(user_id)
 
     if cards:
@@ -96,6 +97,16 @@ def next_quiz(user_id: int) -> QuizPick:
             reading=card["reading"] or None,
             card_id=card["id"],
             remaining=len(cards),
+        )
+
+    prelearn = store.next_prelearn(user_id)
+    if prelearn:
+        return QuizPick(
+            word=prelearn,
+            quiz_type="intro",
+            reading=None,
+            card_id=None,
+            remaining=0,
         )
 
     pending = store.next_pending_pair(user_id)

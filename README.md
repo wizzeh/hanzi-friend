@@ -3,7 +3,9 @@
 A multi-user spaced repetition app I built to help me learn 汉字. Words are
 taught as character-pronunciation pairs (相-xiāng and 相-xiàng are separate
 cards) using senses curated by an AI pass over CC-CEDICT, scheduled with
-FSRS, with AI-generated translation sentences and Azure TTS audio.
+FSRS, with AI-generated translation sentences and Azure TTS audio. Words
+you meet in the wild can be queued on the Teach page; they get introduced
+ahead of the usual frequency order.
 
 ## Configuration
 
