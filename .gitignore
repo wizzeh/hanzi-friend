@@ -1,5 +1,7 @@
 .env
 .python-version
+.direnv/
+*.npz
 *.json
 *.txt
 .vscode
