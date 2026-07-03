@@ -1,0 +1,56 @@
+import os
+
+import requests
+
+from loach_word_order import word_order
+
+SSML = """
+    <speak version='1.0' xml:lang='zh-CN'><voice xml:lang='en-US' xml:gender='Female'
+        name='zh-CN-XiaoxiaoNeural'>
+            {}
+    </voice></speak>
+    """
+
+
+def audio_path(text: str) -> str:
+    return "static/audio/{}.mp3".format(text)
+
+
+def pronounce(text: str):
+    """Return mp3 audio for our text, from the cache when we have it.
+
+    Single words get cached on first fetch; full sentences are streamed
+    through without caching."""
+    cache = False
+    if text in word_order:
+        try:
+            with open(audio_path(text), "rb") as f:
+                return f.read()
+        except FileNotFoundError:
+            cache = not text.strip().endswith("。")
+
+    def cache_as_stream(content, do_cache):
+        if not do_cache:
+            yield from content
+            return
+
+        with open(audio_path(text), "wb") as f:
+            for item in content:
+                f.write(item)
+                yield item
+
+    key = os.environ.get("SPEECH_KEY")
+
+    url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1"
+
+    headers = {
+        "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
+        "Content-Type": "application/ssml+xml",
+        "Host": "eastus.tts.speech.microsoft.com",
+        "Ocp-Apim-Subscription-Key": key,
+        "User-Agent": "hanzi-tts",
+    }
+
+    r = requests.post(url, headers=headers, data=SSML.format(text))
+
+    return cache_as_stream(r.iter_content(chunk_size=128), cache)

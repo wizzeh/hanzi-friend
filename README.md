@@ -21,7 +21,3 @@ Because of the character order approach the app will sometimes attempt to teach 
 
 ### Manually Learning Words
 It would be good if you could add words that you learn in the wild into the rotation ahead of time.
-
-
-### Minor Bugs
-- Code cleanup
