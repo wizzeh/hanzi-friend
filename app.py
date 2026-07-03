@@ -27,7 +27,10 @@ load_dotenv()
 
 decomposer = HanziDecomposer()
 dictionary = HanziDictionary()
-fsrs_system = fsrs.FSRS()
+fsrs_system = fsrs.Scheduler(
+    desired_retention=0.7,
+    enable_fuzzing=True,
+)
 db = TinyDB("db.json")
 ai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -90,7 +93,6 @@ def hanzi_info(hanzi: str) -> HanziInfo:
             )
         )
     )
-    print(pinyin_result)
 
     decomposition = decomposer.decompose(hanzi, 2)
     decomp = decomposition["components"]
@@ -156,7 +158,8 @@ def generate_component_test(decomposition: Decomposition) -> Decomposition:
 
 def card_is_due(val):
     due = datetime.fromisoformat(val["due"])
-    return datetime.now(timezone.utc) > due
+
+    return datetime.now().timestamp() > due.timestamp()
 
 
 @app.route("/")
@@ -364,6 +367,11 @@ def next_quiz(hanzi, quiz_type, difficulty):
     card = db.search(
         (Cards.type_ == "card") & (Cards.word == hanzi) & (Cards.quiz_type == quiz_type)
     )[0]
+
+    if "review_logs" not in card["card"]:
+        card["card"]["review_logs"] = []
+    review_logs = card["card"]["review_logs"]
+
     card_id = card.doc_id
     card = fsrs.Card.from_dict(card["card"])
 
@@ -377,16 +385,20 @@ def next_quiz(hanzi, quiz_type, difficulty):
     else:
         rating = fsrs.Rating.Again
 
-    new_card, _ = fsrs_system.review_card(card, rating)
+    print("===")
+    print(card.due)
+    new_card, review_log = fsrs_system.review_card(card, rating)
+    print(new_card.due)
+    print(datetime.fromisoformat(new_card.due.isoformat()).timestamp())
+    print(datetime.now().timestamp())
+    print("===")
 
-    diff = new_card.due - datetime.now(timezone.utc)
-    if diff.total_seconds() > 0:
-        jiggle = ((random() * 0.2) + 0.9) * diff
-        new_card.due = datetime.now(timezone.utc) + jiggle
 
     db.update(dbops.set("card", new_card.to_dict()), doc_ids=[card_id])
 
-    db.all()
+    review_logs.append(review_log.to_dict())
+    db.update(dbops.set("review_logs", review_logs), doc_ids=[card_id])
+    db.update(dbops.set("last_migration", 1), doc_ids=[card_id])
 
     return render_next()
 
