@@ -1,6 +1,6 @@
 {
     description = "Hanzi Friend in Python";
-    
+
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
@@ -8,12 +8,12 @@
     };
 
     outputs = { self, nixpkgs, flake-utils }:
-        flake-utils.lib.eachDefaultSystem(system:
+        (flake-utils.lib.eachDefaultSystem(system:
             let
                 pkgs = import nixpkgs {
                     inherit system;
                 };
-               
+
                 hanzipy = pkgs.python312Packages.buildPythonPackage {
                     pname = "hanzi-py";
                     version = "1.0.4";
@@ -42,15 +42,42 @@
                     openai
                     python-dotenv
                     requests
+                    waitress
                     pillow
                     numpy
                     torch
                     transformers
                 ]);
+
+                # Just the app; our db, caches, and experiments stay out
+                # of the nix store.
+                appSrc = pkgs.lib.fileset.toSource {
+                    root = ./.;
+                    fileset = pkgs.lib.fileset.unions [
+                        ./app.py
+                        ./auth.py
+                        ./db.py
+                        ./enrich.py
+                        ./hanzi.py
+                        ./quiz.py
+                        ./serve.py
+                        ./translation.py
+                        ./tts.py
+                        ./filter_defs.py
+                        ./loach_word_order.py
+                        ./radicals.py
+                        ./migrate
+                        ./templates
+                        ./static/style.css
+                        ./static/fonts
+                        ./static/success.wav
+                        ./static/failure.wav
+                    ];
+                };
             in {
                 devShells.default = pkgs.mkShell {
                     name = "hanzipy-dev-shell";
-                    
+
                     buildInputs = [
                         pythonEnv
                         pkgs.git
@@ -61,6 +88,62 @@
                         echo "Entering python dev shell."
                     '';
                 };
+
+                packages.default = pkgs.writeShellApplication {
+                    name = "hanzi-friend";
+                    runtimeInputs = [ pythonEnv ];
+                    text = ''
+                        cd ${appSrc}
+                        exec python serve.py
+                    '';
+                };
             }
-        );
+        )) // {
+            nixosModules.default = { config, lib, pkgs, ... }:
+                let
+                    cfg = config.services.hanzi-friend;
+                in {
+                    options.services.hanzi-friend = {
+                        enable = lib.mkEnableOption "Hanzi Friend";
+
+                        port = lib.mkOption {
+                            type = lib.types.port;
+                            default = 8089;
+                            description = "Port to listen on (localhost); front with your reverse proxy.";
+                        };
+
+                        environmentFile = lib.mkOption {
+                            type = lib.types.nullOr lib.types.path;
+                            default = null;
+                            description = ''
+                                Secrets: OPENAI_API_KEY, SPEECH_KEY,
+                                FLASK_SECRET, and INVITE_CODE (unset
+                                keeps registration closed).
+                            '';
+                        };
+                    };
+
+                    config = lib.mkIf cfg.enable {
+                        systemd.services.hanzi-friend = {
+                            wantedBy = [ "multi-user.target" ];
+                            after = [ "network.target" ];
+
+                            environment = {
+                                HANZI_DATA_DIR = "/var/lib/hanzi-friend";
+                                HOST = "127.0.0.1";
+                                PORT = toString cfg.port;
+                            };
+
+                            serviceConfig = {
+                                ExecStart = "${self.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/hanzi-friend";
+                                DynamicUser = true;
+                                StateDirectory = "hanzi-friend";
+                                Restart = "on-failure";
+                            } // lib.optionalAttrs (cfg.environmentFile != null) {
+                                EnvironmentFile = cfg.environmentFile;
+                            };
+                        };
+                    };
+                };
+        };
 }

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Log in — Hanzi Friend{% endblock %}
+{% block content %}
+<article>
+  <h1>Log in</h1>
+  {% if error %}
+  <p id="login-error" class="pico-color-red-500" role="alert">{{error}}</p>
+  {% endif %}
+  <form method="POST" action="/login">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      autocomplete="username"
+      required
+      {% if error %}aria-describedby="login-error"{% endif %}
+    />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      autocomplete="current-password"
+      required
+      {% if error %}aria-describedby="login-error"{% endif %}
+    />
+    <button type="submit">Log in</button>
+  </form>
+  <p><a href="/register">Register with an invite code</a></p>
+</article>
+{% endblock %}

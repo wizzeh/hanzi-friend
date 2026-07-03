@@ -145,9 +145,8 @@ def ensure_lexicon(word: str):
 
 def backfill():
     from concurrent.futures import ThreadPoolExecutor
-    from tinydb import Query
 
-    words = sorted(set(card["word"] for card in store.db.search(Query().type_ == "card")))
+    words = store.all_card_words()
     todo = [
         word
         for word in words
@@ -156,7 +155,7 @@ def backfill():
     ]
     print("{} words, {} to enrich".format(len(words), len(todo)))
 
-    # Enrich in parallel but write from this thread; TinyDB isn't thread-safe.
+    # Enrich in parallel; the API calls are the slow part, writes are cheap.
     with ThreadPoolExecutor(max_workers=8) as pool:
         done = 0
         failed = []

@@ -1,23 +1,46 @@
 # Hanzi Friend
 
-This is a spaced repetition app I learned to help me learn 汉字. To get it working, you will need a .env file with the following keys:
+A multi-user spaced repetition app I built to help me learn 汉字. Words are
+taught as character-pronunciation pairs (相-xiāng and 相-xiàng are separate
+cards) using senses curated by an AI pass over CC-CEDICT, scheduled with
+FSRS, with AI-generated translation sentences and Azure TTS audio.
 
-- `OPENAI_API_KEY`
+## Configuration
+
+Environment variables (a `.env` file works for development):
+
+- `OPENAI_API_KEY` -- lexicon enrichment and translation sentences
 - `SPEECH_KEY` -- Azure TTS key
-- `SPEECH_REGION` -- Azure TTS region
+- `FLASK_SECRET` -- session signing key
+- `INVITE_CODE` -- enables registration; leave unset to keep it closed
+- `HANZI_DATA_DIR` -- where `hanzi.db` and the audio cache live (default `.`)
+
+## Running
+
+Development: `nix develop`, then `python app.py`.
+
+Production: `nix run`, or on NixOS import `nixosModules.default` and set:
+
+```nix
+services.hanzi-friend = {
+    enable = true;
+    port = 8089;
+    environmentFile = "/run/secrets/hanzi-friend.env";
+};
+```
+
+The service listens on localhost; front it with your reverse proxy.
+
+## Migrating from the TinyDB era
+
+```
+python -m migrate.to_sqlite <username> [db.json]
+```
+
+creates your user and imports cards, review history, and the lexicon into
+`HANZI_DATA_DIR/hanzi.db`.
 
 ## Todo
+
 ### Character Order
-This app uses the optimal character learning order computed by Loach and Wang in [doi:10.1371/journal.pone.0163623](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5051716/). This order is based on usage frequency subject to the constraint of learning character components before they appear in other characters. A problem with this learning order is that it can create (by chance) clusters of characters with similar pronunciations which can make them hard to distinguish when learning. A future improvement would involve recomputing the character order subject to a constraint that nearby characters not be too similar in pronunciation.
-
-### Distinction by Meaning
-The app is currently designed around the idea of teaching 汉字. However there are many characters which have multiple meanings with their own pronunciation. For example, 相 can mean "one another" when pronounced xiang1 but "appearance" when pronounced xiang4. An improvement would be to teach character-pronunciation pairs instead of just characters.
-
-### Database Migration/Session Support
-Currently the app assumes there is only one user and is designed to be run locally. Adding session support and switching to a more robust database could allow Hanzi Friend to be hosted, which would also have the benefit of letting you practice on any device.
-
-### Handling of Radicals, Antiquated Words, etc.
-Because of the character order approach the app will sometimes attempt to teach radicals that aren't used by themselves, antiquated words, etc. A better approach would filter out antiquated meanings and only quiz the meaning of radicals.
-
-### Manually Learning Words
-It would be good if you could add words that you learn in the wild into the rotation ahead of time.
+This app uses the optimal character learning order computed by Loach and Wang in [doi:10.1371/journal.pone.0163623](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5051716/). This order is based on usage frequency subject to the constraint of learning character components before they appear in other characters. A problem with this learning order is that it can create (by chance) clusters of characters with similar pronunciations or shapes which can make them hard to distinguish when learning. A future improvement would involve recomputing the character order subject to a constraint that nearby characters not be too similar (see `data/confusion` for an embedding-based similarity experiment).

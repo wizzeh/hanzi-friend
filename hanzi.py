@@ -120,7 +120,7 @@ def primary_reading(word: str, readings_list: List[str]) -> str:
     return readings_list[0] if readings_list else default
 
 
-def hanzi_info(hanzi: str, reading: str = None) -> HanziInfo:
+def hanzi_info(hanzi: str, reading: str = None, user_id: int = None) -> HanziInfo:
     """Info for our word, restricted to one pronunciation when a pair
     card names it."""
     lexicon_entry = db.get_lexicon(hanzi)
@@ -194,7 +194,7 @@ def hanzi_info(hanzi: str, reading: str = None) -> HanziInfo:
         meaning=meaning,
         glosses=glosses,
         decomposition=Decomposition(radicals=decomp, true_length=len(decomp)),
-        user_definition=db.user_definition(hanzi),
+        user_definition=db.user_definition(user_id, hanzi) if user_id else "",
         story=story,
     )
 

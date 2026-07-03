@@ -3,9 +3,8 @@ import os
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from tinydb import Query
 
-from db import db
+import db as store
 from hanzi import try_define
 from filter_defs import filter_definitions
 
@@ -48,16 +47,8 @@ class Translation(NamedTuple):
         return Translation(english=definitions[0]["definition"], chinese=word)
 
     @staticmethod
-    def for_hanzi(word: str, reading=None, glosses=None):
-        cards = Query()
-        avail_characters = sorted(
-            set(
-                card["word"]
-                for card in db.search(
-                    (cards.type_ == "card") & (cards.quiz_type == "meaning")
-                )
-            )
-        )
+    def for_hanzi(user_id: int, word: str, reading=None, glosses=None):
+        avail_characters = store.known_words(user_id, "meaning")
 
         sense_hint = ""
         if reading and glosses:

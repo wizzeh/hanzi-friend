@@ -1,12 +1,9 @@
 from typing import NamedTuple, List, Optional
 from random import choice
-from datetime import datetime
+import json
 
 import fsrs
-from tinydb import Query
-import tinydb.operations as dbops
 
-from db import db
 import db as store
 import hanzi
 from loach_word_order import word_order
@@ -41,16 +38,6 @@ class QuizPick(NamedTuple):
     remaining: int
 
 
-def serialize_card(card: fsrs.Card, word: str, quiz_type: str, reading):
-    return {
-        "type_": "card",
-        "card": card.to_dict(),
-        "word": word,
-        "quiz_type": quiz_type,
-        "pinyin": reading,
-    }
-
-
 def try_enrich(word: str):
     try:
         import enrich
@@ -60,7 +47,7 @@ def try_enrich(word: str):
         print("enrichment failed for {}: {}".format(word, e))
 
 
-def learn_word(word: str, reading: Optional[str] = None):
+def learn_word(user_id: int, word: str, reading: Optional[str] = None):
     """Create cards for our word.
 
     Without a reading: the word is newly introduced. Cards are created
@@ -68,16 +55,10 @@ def learn_word(word: str, reading: Optional[str] = None):
     readings are queued to be introduced later.
 
     With a reading: a queued secondary reading is being introduced."""
-    Pending = Query()
-
     if reading is not None:
         for quiz_type in PER_READING_QUIZZES:
-            db.insert(serialize_card(fsrs.Card(), word, quiz_type, reading))
-        db.remove(
-            (Pending.type_ == "pending_pair")
-            & (Pending.word == word)
-            & (Pending.pinyin == reading)
-        )
+            store.insert_card(user_id, word, quiz_type, reading, fsrs.Card().to_dict())
+        store.remove_pending_pair(user_id, word, reading)
         return
 
     if not hanzi.is_known_word(word):
@@ -87,58 +68,50 @@ def learn_word(word: str, reading: Optional[str] = None):
 
     # Components and non-words just get a single recognition card.
     if hanzi.recognition_only(word):
-        db.insert(serialize_card(fsrs.Card(), word, "meaning", None))
+        store.insert_card(user_id, word, "meaning", None, fsrs.Card().to_dict())
         return
 
     readings = hanzi.readings(word)
     primary = hanzi.primary_reading(word, readings)
 
-    db.insert(serialize_card(fsrs.Card(), word, "component", None))
+    store.insert_card(user_id, word, "component", None, fsrs.Card().to_dict())
     for quiz_type in PER_READING_QUIZZES:
-        db.insert(serialize_card(fsrs.Card(), word, quiz_type, primary))
+        store.insert_card(user_id, word, quiz_type, primary, fsrs.Card().to_dict())
 
     for secondary in readings:
         if secondary != primary:
-            db.insert({"type_": "pending_pair", "word": word, "pinyin": secondary})
+            store.queue_pending_pair(user_id, word, secondary)
 
 
-def card_is_due(val):
-    due = datetime.fromisoformat(val["due"])
-
-    return datetime.now().timestamp() > due.timestamp()
-
-
-def next_quiz() -> QuizPick:
+def next_quiz(user_id: int) -> QuizPick:
     """Pick a due card at random; else introduce a queued secondary
     reading; else introduce the next new word."""
-    Cards = Query()
-    cards = db.search((Cards.type_ == "card") & (Cards.card.test(card_is_due)))
+    cards = store.due_cards(user_id)
 
-    if len(cards) > 0:
+    if cards:
         card = choice(cards)
         return QuizPick(
             word=card["word"],
             quiz_type=card["quiz_type"],
-            reading=card.get("pinyin"),
-            card_id=card.doc_id,
+            reading=card["reading"] or None,
+            card_id=card["id"],
             remaining=len(cards),
         )
 
-    pending = db.search(Cards.type_ == "pending_pair")
+    pending = store.next_pending_pair(user_id)
     if pending:
-        pair = pending[0]
         return QuizPick(
-            word=pair["word"],
+            word=pending["word"],
             quiz_type="intro",
-            reading=pair["pinyin"],
+            reading=pending["reading"],
             card_id=None,
             remaining=0,
         )
 
-    num_characters = store.characters_seen()
-    while db.search(Cards.word == word_order[num_characters]):
+    num_characters = store.characters_seen(user_id)
+    while store.has_cards_for_word(user_id, word_order[num_characters]):
         num_characters = num_characters + 1
-    store.set_characters_seen(num_characters)
+    store.set_characters_seen(user_id, num_characters)
 
     return QuizPick(
         word=word_order[num_characters],
@@ -149,29 +122,17 @@ def next_quiz() -> QuizPick:
     )
 
 
-def review(card_id: int, difficulty: str):
-    doc = db.get(doc_id=card_id)
+def review(user_id: int, card_id: int, difficulty: str):
+    doc = store.get_card(card_id)
+    if doc is None or doc["user_id"] != user_id:
+        return
 
-    # Logs live at the doc level; older cards kept them inside the card dict.
-    review_logs = doc.get("review_logs", doc["card"].get("review_logs", []))
-
-    card = fsrs.Card.from_dict(doc["card"])
+    card = fsrs.Card.from_dict(json.loads(doc["fsrs"]))
     rating = RATINGS.get(difficulty, fsrs.Rating.Again)
 
     new_card, review_log = scheduler.review_card(card, rating)
-    review_logs.append(review_log.to_dict())
-
-    db.update(dbops.set("card", new_card.to_dict()), doc_ids=[card_id])
-    db.update(dbops.set("review_logs", review_logs), doc_ids=[card_id])
-    db.update(dbops.set("last_migration", 1), doc_ids=[card_id])
+    store.update_card(card_id, new_card.to_dict(), review_log.to_dict(), int(rating))
 
 
-def most_difficult_words() -> List[str]:
-    Cards = Query()
-    cards = list(
-        db.search((Cards.type_ == "card") & (Cards.quiz_type == "translation-chinese"))
-    )
-
-    cards.sort(key=lambda card: card["card"]["difficulty"], reverse=True)
-
-    return [c["word"] for c in cards]
+def most_difficult_words(user_id: int) -> List[str]:
+    return store.hardest_words(user_id, "translation-chinese")

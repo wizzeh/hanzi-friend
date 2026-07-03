@@ -2,6 +2,9 @@
 .python-version
 .direnv/
 *.npz
+*.db
+*.db-wal
+*.db-shm
 *.json
 *.txt
 .vscode

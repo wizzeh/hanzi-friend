@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Register — Hanzi Friend{% endblock %}
+{% block content %}
+<article>
+  <h1>Register</h1>
+  {% if error %}
+  <p id="register-error" class="pico-color-red-500" role="alert">{{error}}</p>
+  {% endif %}
+  <form method="POST" action="/register">
+    <label for="invite">Invite code</label>
+    <input
+      type="text"
+      id="invite"
+      name="invite"
+      required
+      {% if error %}aria-describedby="register-error"{% endif %}
+    />
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      autocomplete="username"
+      required
+    />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      autocomplete="new-password"
+      required
+    />
+    <button type="submit">Register</button>
+  </form>
+  <p><a href="/login">Already have an account? Log in</a></p>
+</article>
+{% endblock %}

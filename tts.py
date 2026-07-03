@@ -2,7 +2,11 @@ import os
 
 import requests
 
+from db import DATA_DIR
 from loach_word_order import word_order
+
+AUDIO_DIR = os.path.join(DATA_DIR, "static", "audio")
+os.makedirs(AUDIO_DIR, exist_ok=True)
 
 SSML = """
     <speak version='1.0' xml:lang='zh-CN'><voice xml:lang='en-US' xml:gender='Female'
@@ -13,7 +17,7 @@ SSML = """
 
 
 def audio_path(text: str) -> str:
-    return "static/audio/{}.mp3".format(text)
+    return os.path.join(AUDIO_DIR, "{}.mp3".format(text))
 
 
 def pronounce(text: str):

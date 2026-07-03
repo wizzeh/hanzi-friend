@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flask and HTMX Example</title>
-    <script
-      src="https://unpkg.com/htmx.org@2.0.1"
-      integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <h1>Hanzi Friend -- Learn A New Word</h1>
-
-    <article id="meaning-quiz">
-      <h5>Learn</h5>
-      <form method="POST" action="/teach">
-        <input type="text" name="word" id="word-learn" />
-        <button type="submit">Learn Word</button>
-      </form>
-      </form>
-    </article>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Teach — Hanzi Friend{% endblock %}
+{% block content %}
+<article>
+  <h1>Teach a word</h1>
+  <p>
+    Add a word you met in the wild. It gets cards right away and joins
+    the review rotation.
+  </p>
+  <form method="POST" action="/teach">
+    <label for="word-learn">Word (汉字)</label>
+    <input type="text" id="word-learn" name="word" required />
+    <button type="submit">Learn word</button>
+  </form>
+</article>
+{% endblock %}

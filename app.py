@@ -8,6 +8,7 @@ load_dotenv()
 import db as store
 import quiz
 import tts
+from auth import bp as auth_bp, login_required, current_user
 from hanzi import (
     hanzi_info,
     generate_component_test,
@@ -17,11 +18,13 @@ from hanzi import (
 from translation import Translation
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET")
+app.secret_key = os.environ.get("FLASK_SECRET") or os.urandom(24)
+app.register_blueprint(auth_bp)
 
 
 def render_quiz(pick: quiz.QuizPick):
-    info = hanzi_info(pick.word, pick.reading)
+    user = current_user()
+    info = hanzi_info(pick.word, pick.reading, user_id=user)
 
     common = dict(
         hanzi=info.hanzi,
@@ -41,7 +44,7 @@ def render_quiz(pick: quiz.QuizPick):
     )
 
     if pick.quiz_type.startswith("translation"):
-        translation = Translation.for_hanzi(pick.word, pick.reading, info.glosses)
+        translation = Translation.for_hanzi(user, pick.word, pick.reading, info.glosses)
         return render_template(
             "quizzes/translation.html",
             to_translate=translation.english
@@ -56,16 +59,17 @@ def render_quiz(pick: quiz.QuizPick):
     else:
         return render_template(
             "quizzes/" + pick.quiz_type + ".html",
-            words_known=store.characters_seen(),
+            words_known=store.characters_seen(user),
             **common,
         )
 
 
 def render_next():
-    return render_quiz(quiz.next_quiz())
+    return render_quiz(quiz.next_quiz(current_user()))
 
 
 @app.route("/")
+@login_required
 def index():
     return render_template(
         "hanzi.html",
@@ -73,57 +77,66 @@ def index():
 
 
 @app.route("/learn", methods=["POST"])
+@login_required
 def start():
     return render_next()
 
 
 @app.route("/learn/<hanzi>", methods=["POST"])
+@login_required
 def learn(hanzi):
     reading = request.args.get("reading")
-    quiz.learn_word(hanzi, reading)
+    quiz.learn_word(current_user(), hanzi, reading)
     if reading is None:
-        store.increment_characters_seen()
+        store.increment_characters_seen(current_user())
     return render_next()
 
 
 @app.route("/teach", methods=["GET"])
+@login_required
 def teach():
     return render_template("teach.html")
 
 
 @app.route("/teach", methods=["POST"])
+@login_required
 def teach_post():
     hanzi = request.form.get("word")
     if hanzi:
-        quiz.learn_word(hanzi)
+        quiz.learn_word(current_user(), hanzi)
 
     return redirect("/")
 
 
 @app.route("/review/<int:card_id>/<difficulty>", methods=["POST"])
+@login_required
 def rate(card_id, difficulty):
-    quiz.review(card_id, difficulty)
+    quiz.review(current_user(), card_id, difficulty)
     return render_next()
 
 
 @app.route("/table")
+@login_required
 def table():
     return render_template("chart.html")
 
 
 @app.route("/difficult")
+@login_required
 def difficult():
-    return quiz.most_difficult_words()
+    return quiz.most_difficult_words(current_user())
 
 
 @app.route("/<hanzi>/update-definition", methods=["POST"])
+@login_required
 def set_definition(hanzi):
-    store.set_user_definition(hanzi, request.form["definition"])
+    store.set_user_definition(current_user(), hanzi, request.form["definition"])
 
     return ("", 200)
 
 
 @app.route("/pronounce/<text>", methods=["GET"])
+@login_required
 def pronounce(text):
     return tts.pronounce(text)
 
