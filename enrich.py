@@ -80,7 +80,7 @@ def valid_entry(entry, allowed_pinyin):
     )
 
 
-def enrich_word(word: str):
+def enrich_word(word: str, service_tier: str = "flex"):
     """Build a lexicon entry for our word. Returns None if the model can't
     produce a valid one."""
     entries = cedict_entries(word)
@@ -108,8 +108,8 @@ def enrich_word(word: str):
             model=MODEL,
             messages=[{"role": "user", "content": message}],
             # Flex processing: batch pricing on the live API, slower is fine.
-            extra_body={"service_tier": "flex"},
-            timeout=900,
+            extra_body={"service_tier": service_tier},
+            timeout=900 if service_tier == "flex" else 120,
             response_format={
                 "type": "json_schema",
                 "json_schema": {
@@ -136,7 +136,8 @@ def ensure_lexicon(word: str):
     if cached is not None and cached["version"] == LEXICON_VERSION:
         return cached
 
-    entry = enrich_word(word)
+    # Standard tier: this runs while the student waits on an intro screen.
+    entry = enrich_word(word, service_tier="default")
     if entry is not None:
         store.put_lexicon(word, entry)
     return entry

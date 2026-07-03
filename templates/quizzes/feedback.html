@@ -1,27 +1,27 @@
 <div class="grid feedback" style="display: none">
   <button
-    hx-post="/{{hanzi}}/{{quiz_type}}/again"
+    hx-post="/review/{{card_id}}/again"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
     Again
   </button>
   <button
-    hx-post="/{{hanzi}}/{{quiz_type}}/hard"
+    hx-post="/review/{{card_id}}/hard"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
     Hard
   </button>
   <button
-    hx-post="/{{hanzi}}/{{quiz_type}}/good"
+    hx-post="/review/{{card_id}}/good"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
     Good
   </button>
   <button
-    hx-post="/{{hanzi}}/{{quiz_type}}/easy"
+    hx-post="/review/{{card_id}}/easy"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >

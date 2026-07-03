@@ -30,6 +30,7 @@ class HanziInfo(NamedTuple):
     pinyin: str
     pinyin_variants: List[str]
     meaning: List[str]
+    glosses: List[str]
     decomposition: Decomposition
     user_definition: str
     story: str
@@ -77,25 +78,77 @@ def format_sense(sense) -> str:
     return formatted
 
 
-def hanzi_info(hanzi: str) -> HanziInfo:
+def learnable_senses(lexicon_entry):
+    # Fall back to everything if no sense is marked learnable.
+    senses = [s for s in lexicon_entry["senses"] if s["learn"]]
+    return senses or lexicon_entry["senses"]
+
+
+def recognition_only(word: str) -> bool:
+    """True for components and non-words: nothing here is worth studying
+    as a standalone word, we just want to recognize the shape's meaning."""
+    lexicon_entry = db.get_lexicon(word)
+    return bool(lexicon_entry) and not any(
+        s["learn"] for s in lexicon_entry["senses"]
+    )
+
+
+def readings(word: str) -> List[str]:
+    """The pronunciations of our word worth making cards for, curated
+    when we have a lexicon entry, else everything CC-CEDICT lists."""
+    lexicon_entry = db.get_lexicon(word)
+    if lexicon_entry:
+        return sorted(set(s["pinyin"] for s in learnable_senses(lexicon_entry)))
+    return sorted(
+        set(
+            numbered_pinyin(entry["pinyin"])
+            for entry in filter_definitions(try_define(word))
+            if "pinyin" in entry
+        )
+    )
+
+
+def primary_reading(word: str, readings_list: List[str]) -> str:
+    """The most common reading, per pypinyin's frequency-based default."""
+    from pypinyin import lazy_pinyin, Style
+
+    default = " ".join(
+        lazy_pinyin(word, style=Style.TONE3, neutral_tone_with_five=True)
+    )
+    if default in readings_list:
+        return default
+    return readings_list[0] if readings_list else default
+
+
+def hanzi_info(hanzi: str, reading: str = None) -> HanziInfo:
+    """Info for our word, restricted to one pronunciation when a pair
+    card names it."""
     lexicon_entry = db.get_lexicon(hanzi)
     story = ""
 
     if lexicon_entry:
-        # Our AI-curated senses; fall back to everything if none are
-        # marked learnable.
-        senses = [s for s in lexicon_entry["senses"] if s["learn"]]
-        senses = senses or lexicon_entry["senses"]
+        senses = learnable_senses(lexicon_entry)
+        if reading:
+            senses = [s for s in senses if s["pinyin"] == reading] or senses
 
         pinyin_result = "/".join(
             sorted(set(fixed_tone_convert(s["pinyin"]) for s in senses))
         )
         pinyin_variants = sorted(set(s["pinyin"] for s in senses))
         meaning = [format_sense(s) for s in senses]
+        glosses = [s["gloss"] for s in senses]
         story = lexicon_entry["components"]
     else:
         # Raw CC-CEDICT for words we haven't enriched yet.
-        entries = filter_definitions(try_define(hanzi))
+        entries = [
+            entry
+            for entry in filter_definitions(try_define(hanzi))
+            if not (
+                reading
+                and "pinyin" in entry
+                and numbered_pinyin(entry["pinyin"]) != reading
+            )
+        ]
 
         pinyin_result = "/".join(
             sorted(
@@ -120,6 +173,7 @@ def hanzi_info(hanzi: str) -> HanziInfo:
             (entry["pinyin"] if "pinyin" in entry else "?") + ": " + entry["definition"]
             for entry in entries
         ]
+        glosses = [entry["definition"] for entry in entries]
 
     decomposition = decomposer.decompose(hanzi, 2)
 
@@ -138,6 +192,7 @@ def hanzi_info(hanzi: str) -> HanziInfo:
         pinyin=pinyin_result,
         pinyin_variants=pinyin_variants,
         meaning=meaning,
+        glosses=glosses,
         decomposition=Decomposition(radicals=decomp, true_length=len(decomp)),
         user_definition=db.user_definition(hanzi),
         story=story,

@@ -2,6 +2,9 @@
   {% include 'count.html' %}
   <h5>Definition</h5>
   <p class="large">{{hanzi}}</p>
+  {% if reading_display %}
+  <p>{{reading_display}}</p>
+  {% endif %}
   <button
     _="
     on click

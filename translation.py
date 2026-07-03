@@ -21,7 +21,7 @@ An additional goal of your role in this program is to teach Chinese grammar, so 
 Your list of available characters is:
 {}
 
-The student is being quizzed on the character {}, so make sure to include that in your sentence.
+The student is being quizzed on the character {}, so make sure to include that in your sentence.{}
 
 Your response is being parsed by an API, so make sure to respond in the following two line format, and do not include any other text in your response:
 
@@ -48,17 +48,25 @@ class Translation(NamedTuple):
         return Translation(english=definitions[0]["definition"], chinese=word)
 
     @staticmethod
-    def for_hanzi(word: str):
+    def for_hanzi(word: str, reading=None, glosses=None):
         cards = Query()
-        avail_characters = [
-            card["word"]
-            for card in db.search(
-                (cards.type_ == "card") & (cards.quiz_type == "meaning")
+        avail_characters = sorted(
+            set(
+                card["word"]
+                for card in db.search(
+                    (cards.type_ == "card") & (cards.quiz_type == "meaning")
+                )
             )
-        ]
+        )
+
+        sense_hint = ""
+        if reading and glosses:
+            sense_hint = (
+                " Use it specifically in the sense \"{}\" (pronounced {})."
+            ).format("; ".join(glosses), reading)
 
         word_chars = "".join("- {}\n".format(char) for char in avail_characters)
-        message = PROMPT.format(word_chars, word)
+        message = PROMPT.format(word_chars, word, sense_hint)
 
         for _ in range(5):
             chat_completion = ai_client.chat.completions.create(

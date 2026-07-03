@@ -1,5 +1,5 @@
 <article>
-  <h5>New Word</h5>
+  <h5>{% if is_component %}New Component{% elif reading %}New Reading{% else %}New Word{% endif %}</h5>
   <p class="large">
     <a href="https://hanzicraft.com/character/{{hanzi}}">{{hanzi}}</a>
   </p>
@@ -17,7 +17,11 @@
     <li>{{item}}</li>
     {% endfor %}
   </ul>
-  <button hx-post="/learn/{{hanzi}}" hx-target="#quiz" hx-swap="innerHTML">
-    Learn word {{words_known + 1}}
+  <button
+    hx-post="/learn/{{hanzi}}{% if reading %}?reading={{reading}}{% endif %}"
+    hx-target="#quiz"
+    hx-swap="innerHTML"
+  >
+    {% if is_component %}Learn component{% elif reading %}Learn reading{% else %}Learn word {{words_known + 1}}{% endif %}
   </button>
 </article>

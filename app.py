@@ -8,53 +8,61 @@ load_dotenv()
 import db as store
 import quiz
 import tts
-from hanzi import hanzi_info, generate_component_test
+from hanzi import (
+    hanzi_info,
+    generate_component_test,
+    fixed_tone_convert,
+    recognition_only,
+)
 from translation import Translation
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET")
 
 
-def render_quiz(info, quiz_type, remaining_cards):
-    if quiz_type.startswith("translation"):
-        translation = Translation.for_hanzi(info.hanzi)
+def render_quiz(pick: quiz.QuizPick):
+    info = hanzi_info(pick.word, pick.reading)
+
+    common = dict(
+        hanzi=info.hanzi,
+        pinyin=info.pinyin,
+        meaning=info.meaning,
+        glosses=info.glosses,
+        decomposition=generate_component_test(info.decomposition),
+        pinyin_numbers=info.pinyin_variants,
+        quiz_type=pick.quiz_type,
+        user_definition=info.user_definition,
+        story=info.story,
+        remaining_cards=pick.remaining,
+        card_id=pick.card_id,
+        reading=pick.reading,
+        reading_display=fixed_tone_convert(pick.reading) if pick.reading else "",
+        is_component=recognition_only(pick.word),
+    )
+
+    if pick.quiz_type.startswith("translation"):
+        translation = Translation.for_hanzi(pick.word, pick.reading, info.glosses)
         return render_template(
             "quizzes/translation.html",
-            hanzi=info.hanzi,
-            pinyin=info.pinyin,
-            meaning=info.meaning,
-            decomposition=generate_component_test(info.decomposition),
-            pinyin_numbers=info.pinyin_variants,
-            quiz_type=quiz_type,
             to_translate=translation.english
-            if quiz_type.endswith("english")
+            if pick.quiz_type.endswith("english")
             else translation.chinese,
             translation=translation.chinese
-            if quiz_type.endswith("english")
+            if pick.quiz_type.endswith("english")
             else translation.english,
-            is_english=quiz_type.endswith("english"),
-            user_definition=info.user_definition,
-            remaining_cards=remaining_cards,
+            is_english=pick.quiz_type.endswith("english"),
+            **common,
         )
     else:
         return render_template(
-            "quizzes/" + quiz_type + ".html",
-            hanzi=info.hanzi,
-            pinyin=info.pinyin,
-            meaning=info.meaning,
-            decomposition=generate_component_test(info.decomposition),
-            pinyin_numbers=info.pinyin_variants,
-            quiz_type=quiz_type,
+            "quizzes/" + pick.quiz_type + ".html",
             words_known=store.characters_seen(),
-            user_definition=info.user_definition,
-            story=info.story,
-            remaining_cards=remaining_cards,
+            **common,
         )
 
 
 def render_next():
-    word, quiz_type, remaining_cards = quiz.next_quiz()
-    return render_quiz(hanzi_info(word), quiz_type, remaining_cards)
+    return render_quiz(quiz.next_quiz())
 
 
 @app.route("/")
@@ -71,8 +79,10 @@ def start():
 
 @app.route("/learn/<hanzi>", methods=["POST"])
 def learn(hanzi):
-    quiz.learn_word(hanzi)
-    store.increment_characters_seen()
+    reading = request.args.get("reading")
+    quiz.learn_word(hanzi, reading)
+    if reading is None:
+        store.increment_characters_seen()
     return render_next()
 
 
@@ -90,9 +100,9 @@ def teach_post():
     return redirect("/")
 
 
-@app.route("/<hanzi>/<quiz_type>/<difficulty>", methods=["POST"])
-def rate(hanzi, quiz_type, difficulty):
-    quiz.review(hanzi, quiz_type, difficulty)
+@app.route("/review/<int:card_id>/<difficulty>", methods=["POST"])
+def rate(card_id, difficulty):
+    quiz.review(card_id, difficulty)
     return render_next()
 
 
