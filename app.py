@@ -5,7 +5,7 @@ from hanzipy.dictionary import HanziDictionary
 from hanzipy.exceptions import NotAHanziCharacter
 from typing import NamedTuple, List
 from radicals import radicals as all_radicals
-from random import sample, shuffle, choice, random
+from random import sample, shuffle, choice
 import fsrs
 from tinydb import TinyDB, Query
 import tinydb.operations as dbops
@@ -19,7 +19,7 @@ import os
 
 from loach_word_order import word_order
 
-from datetime import datetime, timezone
+from datetime import datetime
 
 import requests
 
@@ -59,12 +59,10 @@ class Decomposition(NamedTuple):
 class HanziInfo(NamedTuple):
     hanzi: str
     pinyin: str
+    pinyin_variants: List[str]
     meaning: List[str]
     decomposition: Decomposition
     user_definition: str
-
-    def pinyin_numbers(self):
-        return to_tone3(self.pinyin, neutral_tone_with_five=True)
 
 
 def try_define(hanzi):
@@ -76,26 +74,43 @@ def try_define(hanzi):
         return [{"definition": "No definition found"}]
 
 
+def normalize_cedict_pinyin(pinyin):
+    # CC-CEDICT writes ü as "u:", which pypinyin doesn't understand.
+    return pinyin.lower().replace("u:", "v")
+
+
 def fixed_tone_convert(tone):
-    return " ".join([to_tone(part.lower()) for part in tone.split(" ")])
+    return " ".join(
+        to_tone(part) for part in normalize_cedict_pinyin(tone).split(" ")
+    )
+
+
+def numbered_pinyin(pinyin):
+    return " ".join(
+        to_tone3(syllable, neutral_tone_with_five=True)
+        for syllable in normalize_cedict_pinyin(pinyin).split(" ")
+    )
 
 
 def hanzi_info(hanzi: str) -> HanziInfo:
+    entries = filter_definitions(try_define(hanzi))
+
     pinyin_result = "/".join(
-        list(
+        sorted(
             set(
-                [
-                    fixed_tone_convert(entry["pinyin"])
-                    if "pinyin" in entry
-                    else "no pinyin"
-                    for entry in filter_definitions(try_define(hanzi))
-                ]
+                fixed_tone_convert(entry["pinyin"])
+                if "pinyin" in entry
+                else "no pinyin"
+                for entry in entries
             )
         )
     )
 
+    pinyin_variants = sorted(
+        set(numbered_pinyin(entry["pinyin"]) for entry in entries if "pinyin" in entry)
+    )
+
     decomposition = decomposer.decompose(hanzi, 2)
-    decomp = decomposition["components"]
 
     decomp = [
         Component(
@@ -103,20 +118,13 @@ def hanzi_info(hanzi: str) -> HanziInfo:
             meaning=try_define(component)[0]["definition"],
             is_real=True,
         )
-        for component in decomp
+        for component in decomposition["components"]
+        if component != decomposer.noglyph
     ]
-
-    # decomp = [
-    #     component
-    #     + " ("
-    #     + dictionary.definition_lookup(component)[0]["definition"]
-    #     + ")"
-    #     for component in decomp
-    # ]
 
     meaning = [
         (entry["pinyin"] if "pinyin" in entry else "?") + ": " + entry["definition"]
-        for entry in filter_definitions(try_define(hanzi))
+        for entry in entries
     ]
 
     Definitions = Query()
@@ -132,6 +140,7 @@ def hanzi_info(hanzi: str) -> HanziInfo:
     return HanziInfo(
         hanzi=hanzi,
         pinyin=pinyin_result,
+        pinyin_variants=pinyin_variants,
         meaning=meaning,
         decomposition=Decomposition(radicals=decomp, true_length=len(decomp)),
         user_definition=user_definition,
@@ -207,10 +216,17 @@ class Translation(NamedTuple):
 
     @staticmethod
     def from_response(response: str):
-        chinese, english = response.split("\n")
-        chinese = chinese.strip()
-        english = english.strip()
+        lines = [line.strip() for line in response.strip().splitlines() if line.strip()]
+        if len(lines) != 2:
+            return None
+        chinese, english = lines
         return Translation(english=english, chinese=chinese)
+
+    @staticmethod
+    def fallback(word: str):
+        # If the AI keeps misbehaving, quiz the word on its own.
+        definitions = filter_definitions(try_define(word)) or try_define(word)
+        return Translation(english=definitions[0]["definition"], chinese=word)
 
     @staticmethod
     def for_hanzi(word: str):
@@ -242,7 +258,6 @@ Your response is being parsed by an API, so make sure to respond in the followin
 Chinese Sentence
 English Sentence""".format(word_chars, word)
 
-        content = ""
         for _ in range(5):
             chat_completion = ai_client.chat.completions.create(
                 messages=[
@@ -251,14 +266,15 @@ English Sentence""".format(word_chars, word)
                         "content": message,
                     }
                 ],
-                model="gpt-4o",
+                model="gpt-5.2",
             )
             content = chat_completion.choices[0].message.content
 
-            if word in content:
-                break
+            translation = Translation.from_response(content)
+            if translation is not None and word in translation.chinese:
+                return translation
 
-        return Translation.from_response(content)
+        return Translation.fallback(word)
 
 
 def next_quiz_query():
@@ -298,7 +314,7 @@ def render_quiz(info, quiz, remaining_cards):
             pinyin=info.pinyin,
             meaning=info.meaning,
             decomposition=generate_component_test(info.decomposition),
-            pinyin_numbers=info.pinyin_numbers(),
+            pinyin_numbers=info.pinyin_variants,
             quiz_type=quiz,
             to_translate=translation.english
             if quiz.endswith("english")
@@ -317,7 +333,7 @@ def render_quiz(info, quiz, remaining_cards):
             pinyin=info.pinyin,
             meaning=info.meaning,
             decomposition=generate_component_test(info.decomposition),
-            pinyin_numbers=info.pinyin_numbers(),
+            pinyin_numbers=info.pinyin_variants,
             quiz_type=quiz,
             words_known=db.search(Query().type_ == "characters_seen")[0]["number_seen"],
             user_definition=info.user_definition,
@@ -385,14 +401,7 @@ def next_quiz(hanzi, quiz_type, difficulty):
     else:
         rating = fsrs.Rating.Again
 
-    print("===")
-    print(card.due)
     new_card, review_log = fsrs_system.review_card(card, rating)
-    print(new_card.due)
-    print(datetime.fromisoformat(new_card.due.isoformat()).timestamp())
-    print(datetime.now().timestamp())
-    print("===")
-
 
     db.update(dbops.set("card", new_card.to_dict()), doc_ids=[card_id])
 
@@ -446,8 +455,8 @@ def pronounce(text):
 
     def cache_as_stream(content, do_cache):
         if not do_cache:
-            for item in content:
-                yield item
+            yield from content
+            return
 
         with open("static/audio/{}.mp3".format(text), "wb") as f:
             for item in content:

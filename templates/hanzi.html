@@ -40,6 +40,21 @@
       const play_pronounce = () => {
         document.getElementById("pronounce").play()
       }
+      // Accept any of the pronunciations the dictionary lists, with or
+      // without spaces between syllables, and with ü typed as v or u:.
+      const check_pronunciation = (value) => {
+        const answers = JSON.parse(
+          document.getElementById("pronunciation-answers").textContent
+        )
+        const normalize = (pinyin) =>
+          pinyin
+            .trim()
+            .toLowerCase()
+            .replaceAll("u:", "v")
+            .replaceAll("ü", "v")
+            .replace(/\s+/g, "")
+        return answers.some((answer) => normalize(answer) === normalize(value))
+      }
     </script>
   </head>
   <body>

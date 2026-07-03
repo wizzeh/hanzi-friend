@@ -3,13 +3,17 @@
   <h5>Pronunciation</h5>
   <p class="large">{{hanzi}}</p>
   <p id="pronunciation-answer" style="display: none">{{pinyin}}</p>
+  <script type="application/json" id="pronunciation-answers">
+    {{ pinyin_numbers | tojson }}
+  </script>
   <form
     _="
     on submit
     halt the event's default
     show #pronunciation-answer
     hide the first <button /> in me
-    if the value of #pronunciation-input is '{{pinyin_numbers}}'
+    call check_pronunciation(the value of #pronunciation-input)
+    if the result
       add .green to #pronunciation-input
       js play_success() end
       js play_pronounce() end
