@@ -18,6 +18,9 @@
                     pname = "hanzi-py";
                     version = "1.0.4";
 
+                    pyproject = true;
+                    build-system = [ pkgs.python312Packages.setuptools ];
+
                     src = pkgs.fetchzip {
                         url = "https://github.com/Synkied/hanzipy/archive/refs/tags/v1.0.4.zip";
                         sha256 = "sha256-PXIitMnzL6BETKu4waYUWB45W5N5VAfY/Gno41cf3Rg=";
@@ -28,12 +31,15 @@
                     pname = "fsrs";
                     version = "6.1.0";
 
+                    pyproject = true;
+                    build-system = [ pkgs.python312Packages.setuptools ];
+
                     src = pkgs.fetchzip {
                         url = "https://github.com/open-spaced-repetition/py-fsrs/archive/refs/tags/v6.1.0.zip";
                         sha256 = "sha256-zN0Ga6Jb0qTwlwlSr61jIGgafRWrbPHCMJT1km46RFA=";
                     };
                 };
-                pythonEnv = pkgs.python312.withPackages (ps: with ps; [
+                appPackages = ps: with ps; [
                     flask
                     pypinyin
                     hanzipy
@@ -43,11 +49,18 @@
                     python-dotenv
                     requests
                     waitress
+                ];
+
+                # The dev shell adds the character-confusability experiment's
+                # deps; the server package shouldn't drag torch around.
+                pythonEnv = pkgs.python312.withPackages (ps: appPackages ps ++ (with ps; [
                     pillow
                     numpy
                     torch
                     transformers
-                ]);
+                ]));
+
+                appEnv = pkgs.python312.withPackages appPackages;
 
                 # Just the app; our db, caches, and experiments stay out
                 # of the nix store.
@@ -91,7 +104,7 @@
 
                 packages.default = pkgs.writeShellApplication {
                     name = "hanzi-friend";
-                    runtimeInputs = [ pythonEnv ];
+                    runtimeInputs = [ appEnv ];
                     text = ''
                         cd ${appSrc}
                         exec python serve.py
@@ -106,10 +119,16 @@
                     options.services.hanzi-friend = {
                         enable = lib.mkEnableOption "Hanzi Friend";
 
+                        host = lib.mkOption {
+                            type = lib.types.str;
+                            default = "127.0.0.1";
+                            description = "Address to bind; front with your reverse proxy.";
+                        };
+
                         port = lib.mkOption {
                             type = lib.types.port;
                             default = 8089;
-                            description = "Port to listen on (localhost); front with your reverse proxy.";
+                            description = "Port to listen on.";
                         };
 
                         environmentFile = lib.mkOption {
@@ -130,7 +149,7 @@
 
                             environment = {
                                 HANZI_DATA_DIR = "/var/lib/hanzi-friend";
-                                HOST = "127.0.0.1";
+                                HOST = cfg.host;
                                 PORT = toString cfg.port;
                             };
 
