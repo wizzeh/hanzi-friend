@@ -78,6 +78,12 @@ article {
     text-align: center;
 }
 
+/* text-align doesn't center the block-level card itself. */
+.quiz-shell article,
+.quiz-shell .feedback {
+    margin-inline: auto;
+}
+
 .prelearn-queue {
     padding: 0;
 }

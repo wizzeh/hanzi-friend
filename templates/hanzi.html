@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% block head %}
 <script type="text/javascript">
-  const play_success = () => {
-    document.getElementById("success-audio").play()
+  // play() rejects if the audio element is swapped out mid-play
+  // (e.g. answering quickly); that interruption is fine to ignore.
+  const play = (id) => {
+    document.getElementById(id).play().catch(() => {})
   }
-  const play_failure = () => {
-    document.getElementById("failure-audio").play()
-  }
-  const play_pronounce = () => {
-    document.getElementById("pronounce").play()
-  }
+  const play_success = () => play("success-audio")
+  const play_failure = () => play("failure-audio")
+  const play_pronounce = () => play("pronounce")
   // Accept any of the pronunciations the dictionary lists, with or
   // without spaces between syllables, and with ü typed as v or u:.
-  const check_pronunciation = (value) => {
+  // On window because hyperscript resolves bare names via window[...],
+  // which can't see top-level consts.
+  window.check_pronunciation = (value) => {
     const answers = JSON.parse(
       document.getElementById("pronunciation-answers").textContent
     )
