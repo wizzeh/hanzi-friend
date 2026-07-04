@@ -14,7 +14,10 @@ from collections import Counter
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 
-CURATED_PATH = Path(__file__).parent / "data" / "confusion" / "same_stroke.txt"
+CURATED_PATHS = [
+    Path(__file__).parent / "data" / "confusion" / "same_stroke.txt",
+    Path(__file__).parent / "data" / "confusion" / "llm_confusables.txt",
+]
 
 # Weighted-Jaccard score at which two characters count as confusable
 # enough to warrant a contrast card.
@@ -61,13 +64,16 @@ def _ensure_idf():
 
 
 def _ensure_curated():
-    if _curated or not CURATED_PATH.exists():
+    if _curated:
         return
-    with open(CURATED_PATH, encoding="utf-8") as f:
-        for line in f:
-            group = [c for c in line.strip().split("\t") if c]
-            for c in group:
-                _curated.setdefault(c, set()).update(x for x in group if x != c)
+    for path in CURATED_PATHS:
+        if not path.exists():
+            continue
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                group = [c for c in line.strip().split("\t") if c]
+                for c in group:
+                    _curated.setdefault(c, set()).update(x for x in group if x != c)
 
 
 def visual_score(a: str, b: str) -> float:

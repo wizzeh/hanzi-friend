@@ -81,6 +81,7 @@
                         ./radicals.py
                         ./similarity.py
                         ./data/confusion/same_stroke.txt
+                        ./data/confusion/llm_confusables.txt
                         ./migrate
                         ./templates
                         ./static/style.css
