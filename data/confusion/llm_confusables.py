@@ -9,8 +9,10 @@ same_stroke.txt as curated (full-score) pairs.
 
 Run from the project root:
 
-    python -m data.confusion.llm_confusables           # sample run
-    python -m data.confusion.llm_confusables --full    # every relevant char
+    python -m data.confusion.llm_confusables                  # sample run
+    python -m data.confusion.llm_confusables --full           # sync, flex tier
+    python -m data.confusion.llm_confusables --batch-submit   # queue on the Batch API
+    python -m data.confusion.llm_confusables --batch-collect  # merge results when done
 """
 
 import json
@@ -22,6 +24,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 OUT_PATH = HERE / "llm_confusables.txt"
 DONE_PATH = HERE / "llm_confusables.done"
+BATCH_PATH = HERE / "llm_confusables.batch"
 
 PROMPT = """You are helping a Chinese-learning app detect confusable characters.
 
@@ -71,23 +74,140 @@ def confusables_for(char: str, universe, service_tier: str):
     return [c for c in answer if len(c) == 1 and c != char and c in universe]
 
 
+def _request_body(char: str):
+    import enrich
+
+    return {
+        "model": enrich.MODEL,
+        "messages": [{"role": "user", "content": PROMPT.format(char=char)}],
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {"name": "confusables", "strict": True, "schema": SCHEMA},
+        },
+    }
+
+
+def _load_state():
+    already = set()
+    if DONE_PATH.exists():
+        already = set(DONE_PATH.read_text(encoding="utf-8").split())
+    pairs = set()
+    if OUT_PATH.exists():
+        for line in OUT_PATH.read_text(encoding="utf-8").splitlines():
+            parts = line.split("\t")
+            if len(parts) == 2:
+                pairs.add(tuple(parts))
+    return already, pairs
+
+
+def _write_state(pairs, done_chars):
+    with open(OUT_PATH, "w", encoding="utf-8") as f:
+        for a, b in sorted(pairs):
+            f.write("{}\t{}\n".format(a, b))
+    with open(DONE_PATH, "w", encoding="utf-8") as f:
+        f.write("\n".join(sorted(done_chars)))
+
+
+def batch_submit():
+    import io
+
+    import enrich
+
+    chars, _ = query_chars(full=True)
+    already, _ = _load_state()
+    chars = [c for c in chars if c not in already]
+    if not chars:
+        print("nothing left to query")
+        return
+    print("submitting batch for {} chars".format(len(chars)))
+
+    lines = "\n".join(
+        json.dumps(
+            {
+                "custom_id": char,
+                "method": "POST",
+                "url": "/v1/chat/completions",
+                "body": _request_body(char),
+            },
+            ensure_ascii=False,
+        )
+        for char in chars
+    )
+    client = enrich.env_client()
+    batch_file = client.files.create(
+        file=("confusables.jsonl", io.BytesIO(lines.encode("utf-8"))),
+        purpose="batch",
+    )
+    batch = client.batches.create(
+        input_file_id=batch_file.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h",
+    )
+    BATCH_PATH.write_text(batch.id, encoding="utf-8")
+    print("batch {} submitted; collect with --batch-collect".format(batch.id))
+
+
+def batch_collect() -> int:
+    """Returns 0 when the batch is done and merged, 2 while in progress."""
+    import enrich
+
+    if not BATCH_PATH.exists():
+        print("no batch in flight")
+        return 1
+    client = enrich.env_client()
+    batch = client.batches.retrieve(BATCH_PATH.read_text(encoding="utf-8").strip())
+    if batch.status in ("validating", "in_progress", "finalizing"):
+        counts = batch.request_counts
+        print("batch {}: {} ({}/{} done)".format(
+            batch.id, batch.status, counts.completed, counts.total))
+        return 2
+    if batch.status != "completed":
+        print("batch {}: {}".format(batch.id, batch.status))
+        return 1
+
+    _, universe = query_chars(full=True)
+    already, pairs = _load_state()
+    done_chars = set(already)
+    parsed = 0
+    for line in client.files.content(batch.output_file_id).text.splitlines():
+        result = json.loads(line)
+        char = result["custom_id"]
+        response = result.get("response") or {}
+        if response.get("status_code") != 200:
+            continue
+        content = response["body"]["choices"][0]["message"]["content"]
+        try:
+            answer = json.loads(content)["confusables"]
+        except (KeyError, ValueError):
+            continue
+        parsed += 1
+        done_chars.add(char)
+        for other in answer:
+            if len(other) == 1 and other != char and other in universe:
+                pairs.add(tuple(sorted((char, other))))
+
+    _write_state(pairs, done_chars)
+    BATCH_PATH.unlink()
+    print("merged {} chars; {} pairs total, {} chars done".format(
+        parsed, len(pairs), len(done_chars)))
+    return 0
+
+
 def main():
+    if "--batch-submit" in sys.argv:
+        batch_submit()
+        return
+    if "--batch-collect" in sys.argv:
+        sys.exit(batch_collect())
+
     full = "--full" in sys.argv
     chars, universe = query_chars(full)
     tier = "flex" if full else "default"
 
     # Resume support: don't re-query chars from previous runs, and merge
     # into the existing pair file rather than replacing it.
-    already = set()
-    if full and DONE_PATH.exists():
-        already = set(DONE_PATH.read_text(encoding="utf-8").split())
-        chars = [c for c in chars if c not in already]
-    pairs = set()
-    if full and OUT_PATH.exists():
-        for line in OUT_PATH.read_text(encoding="utf-8").splitlines():
-            parts = line.split("\t")
-            if len(parts) == 2:
-                pairs.add(tuple(parts))
+    already, pairs = _load_state() if full else (set(), set())
+    chars = [c for c in chars if c not in already]
     print("{} chars to query ({} tier, {} already done)".format(
         len(chars), tier, len(already)))
 
@@ -122,11 +242,7 @@ def main():
                 print("  {} -> {}".format(char, " ".join(found) or "(none)"))
 
     if full:
-        with open(OUT_PATH, "w", encoding="utf-8") as f:
-            for a, b in sorted(pairs):
-                f.write("{}\t{}\n".format(a, b))
-        with open(DONE_PATH, "w", encoding="utf-8") as f:
-            f.write("\n".join(sorted(already | set(queried))))
+        _write_state(pairs, already | set(queried))
         print("wrote {} ({} pairs, {} chars queried total)".format(
             OUT_PATH, len(pairs), len(already) + len(queried)))
         if stop.is_set():
