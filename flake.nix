@@ -72,18 +72,20 @@
                         ./db.py
                         ./enrich.py
                         ./hanzi.py
+                        ./pow.py
                         ./quiz.py
                         ./serve.py
+                        ./similarity.py
                         ./translation.py
                         ./tts.py
                         ./filter_defs.py
                         ./loach_word_order.py
                         ./radicals.py
-                        ./similarity.py
                         ./data/confusion/same_stroke.txt
                         ./data/confusion/llm_confusables.txt
                         ./migrate
                         ./templates
+                        ./static/pow.js
                         ./static/style.css
                         ./static/fonts
                         ./static/success.wav
