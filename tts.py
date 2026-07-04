@@ -20,8 +20,9 @@ def audio_path(text: str) -> str:
     return os.path.join(AUDIO_DIR, "{}.mp3".format(text))
 
 
-def pronounce(text: str):
-    """Return mp3 audio for our text, from the cache when we have it.
+def pronounce(text: str, key: str, region: str):
+    """Return mp3 audio for our text, from the cache when we have it,
+    else fetched on the user's own Azure Speech key.
 
     Single words get cached on first fetch; full sentences are streamed
     through without caching."""
@@ -43,14 +44,13 @@ def pronounce(text: str):
                 f.write(item)
                 yield item
 
-    key = os.environ.get("SPEECH_KEY")
-
-    url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1"
+    host = "{}.tts.speech.microsoft.com".format(region or "eastus")
+    url = "https://{}/cognitiveservices/v1".format(host)
 
     headers = {
         "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
         "Content-Type": "application/ssml+xml",
-        "Host": "eastus.tts.speech.microsoft.com",
+        "Host": host,
         "Ocp-Apim-Subscription-Key": key,
         "User-Agent": "hanzi-tts",
     }

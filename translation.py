@@ -1,5 +1,4 @@
 from typing import NamedTuple
-import os
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -9,8 +8,6 @@ from hanzi import try_define
 from filter_defs import filter_definitions
 
 load_dotenv()
-
-ai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 PROMPT = """
 You are an astute and culturally aware AI working as part of a Chinese language learning application. You will be given a list of characters which the student is expected to know. Your job is to generate a sentence containing only those words, which the student will be expected to translate.
@@ -48,6 +45,10 @@ class Translation(NamedTuple):
 
     @staticmethod
     def for_hanzi(user_id: int, word: str, reading=None, glosses=None):
+        # BYOK: sentences are generated on the user's own key. Routes
+        # that get here are gated on the key existing.
+        ai_client = OpenAI(api_key=store.user_keys(user_id)["openai_api_key"])
+
         avail_characters = store.known_words(user_id, "meaning")
 
         sense_hint = ""

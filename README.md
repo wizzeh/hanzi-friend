@@ -9,13 +9,18 @@ ahead of the usual frequency order.
 
 ## Configuration
 
+The app is bring-your-own-key: each user supplies their own OpenAI and
+Azure Speech keys on the Settings page, and can't study until they do.
+Login and registration are gated by a browser proof-of-work challenge.
+
 Environment variables (a `.env` file works for development):
 
-- `OPENAI_API_KEY` -- lexicon enrichment and translation sentences
-- `SPEECH_KEY` -- Azure TTS key
-- `FLASK_SECRET` -- session signing key
+- `FLASK_SECRET` -- session and proof-of-work signing key
 - `INVITE_CODE` -- enables registration; leave unset to keep it closed
+- `POW_DIFFICULTY` -- leading zero bits for the login proof-of-work (default 15)
 - `HANZI_DATA_DIR` -- where `hanzi.db` and the audio cache live (default `.`)
+- `OPENAI_API_KEY` -- only for offline scripts like the lexicon backfill;
+  the app itself always uses the logged-in user's key
 
 ## Running
 

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Settings — Hanzi Friend{% endblock %}
+{% block content %}
+<article>
+  <h1>Settings</h1>
+  {% if not (keys["openai_api_key"] and keys["speech_key"]) %}
+  <p role="alert">
+    <strong>Bring your own keys.</strong> Studying here runs on your own
+    API keys: OpenAI generates your translation sentences and
+    definitions, Azure Speech pronounces them. Nothing works until both
+    are set.
+  </p>
+  {% endif %}
+  {% if saved %}
+  <p role="status" class="pico-color-green-500">Saved.</p>
+  {% endif %}
+  <form method="POST" action="/settings">
+    <label for="openai-key">OpenAI API key</label>
+    <input
+      type="password"
+      id="openai-key"
+      name="openai_api_key"
+      value="{{keys['openai_api_key']}}"
+      autocomplete="off"
+    />
+    <label for="speech-key">Azure Speech key</label>
+    <input
+      type="password"
+      id="speech-key"
+      name="speech_key"
+      value="{{keys['speech_key']}}"
+      autocomplete="off"
+    />
+    <label for="speech-region">Azure Speech region</label>
+    <input
+      type="text"
+      id="speech-region"
+      name="speech_region"
+      value="{{keys['speech_region']}}"
+    />
+    <button type="submit">Save</button>
+  </form>
+</article>
+{% endblock %}

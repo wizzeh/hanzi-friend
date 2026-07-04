@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Log in — Hanzi Friend{% endblock %}
+{% block head %}
+<script defer src="{{url_for('static', filename='pow.js')}}"></script>
+{% endblock %}
 {% block content %}
 <article>
   <h1>Log in</h1>
   {% if error %}
   <p id="login-error" class="pico-color-red-500" role="alert">{{error}}</p>
   {% endif %}
-  <form method="POST" action="/login">
+  <form method="POST" action="/login" data-pow>
+    <input type="hidden" name="pow_nonce" value="{{pow.nonce}}" />
+    <input type="hidden" name="pow_expiry" value="{{pow.expiry}}" />
+    <input type="hidden" name="pow_difficulty" value="{{pow.difficulty}}" />
+    <input type="hidden" name="pow_sig" value="{{pow.sig}}" />
+    <input type="hidden" name="pow_solution" value="" />
     <label for="username">Username</label>
     <input
       type="text"

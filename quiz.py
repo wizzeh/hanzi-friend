@@ -38,11 +38,12 @@ class QuizPick(NamedTuple):
     remaining: int
 
 
-def try_enrich(word: str):
+def try_enrich(user_id: int, word: str):
     try:
         import enrich
 
-        enrich.ensure_lexicon(word)
+        api_key = store.user_keys(user_id)["openai_api_key"] or None
+        enrich.ensure_lexicon(word, api_key=api_key)
     except Exception as e:
         print("enrichment failed for {}: {}".format(word, e))
 
@@ -64,7 +65,7 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
     if not hanzi.is_known_word(word):
         return
 
-    try_enrich(word)
+    try_enrich(user_id, word)
 
     # Components and non-words just get a single recognition card.
     if hanzi.recognition_only(word):

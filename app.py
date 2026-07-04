@@ -8,7 +8,7 @@ load_dotenv()
 import db as store
 import quiz
 import tts
-from auth import bp as auth_bp, login_required, current_user
+from auth import bp as auth_bp, login_required, keys_required, current_user
 from hanzi import (
     hanzi_info,
     generate_component_test,
@@ -70,7 +70,7 @@ def render_next():
 
 
 @app.route("/")
-@login_required
+@keys_required
 def index():
     return render_template(
         "hanzi.html",
@@ -78,13 +78,13 @@ def index():
 
 
 @app.route("/learn", methods=["POST"])
-@login_required
+@keys_required
 def start():
     return render_next()
 
 
 @app.route("/learn/<hanzi>", methods=["POST"])
-@login_required
+@keys_required
 def learn(hanzi):
     reading = request.args.get("reading")
     # Pre-learned words don't advance our position in the frequency
@@ -103,13 +103,13 @@ def render_teach(error=None):
 
 
 @app.route("/teach", methods=["GET"])
-@login_required
+@keys_required
 def teach():
     return render_teach()
 
 
 @app.route("/teach", methods=["POST"])
-@login_required
+@keys_required
 def teach_post():
     word = request.form.get("word", "").strip()
     if not word or not is_known_word(word):
@@ -129,10 +129,32 @@ def teach_remove(word):
 
 
 @app.route("/review/<int:card_id>/<difficulty>", methods=["POST"])
-@login_required
+@keys_required
 def rate(card_id, difficulty):
     quiz.review(current_user(), card_id, difficulty)
     return render_next()
+
+
+@app.route("/settings", methods=["GET"])
+@login_required
+def settings():
+    return render_template(
+        "settings.html",
+        keys=store.user_keys(current_user()),
+        saved=request.args.get("saved"),
+    )
+
+
+@app.route("/settings", methods=["POST"])
+@login_required
+def settings_post():
+    store.set_user_keys(
+        current_user(),
+        request.form.get("openai_api_key", "").strip(),
+        request.form.get("speech_key", "").strip(),
+        request.form.get("speech_region", "").strip(),
+    )
+    return redirect("/settings?saved=1")
 
 
 @app.route("/table")
@@ -156,9 +178,10 @@ def set_definition(hanzi):
 
 
 @app.route("/pronounce/<text>", methods=["GET"])
-@login_required
+@keys_required
 def pronounce(text):
-    return tts.pronounce(text)
+    keys = store.user_keys(current_user())
+    return tts.pronounce(text, keys["speech_key"], keys["speech_region"])
 
 
 if __name__ == "__main__":

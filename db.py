@@ -80,6 +80,13 @@ CREATE TABLE IF NOT EXISTS lexicon (
 _local = threading.local()
 
 
+MIGRATIONS = [
+    "ALTER TABLE users ADD COLUMN openai_api_key TEXT NOT NULL DEFAULT ''",
+    "ALTER TABLE users ADD COLUMN speech_key TEXT NOT NULL DEFAULT ''",
+    "ALTER TABLE users ADD COLUMN speech_region TEXT NOT NULL DEFAULT 'eastus'",
+]
+
+
 def connect() -> sqlite3.Connection:
     if getattr(_local, "conn", None) is None:
         conn = sqlite3.connect(DB_PATH)
@@ -87,6 +94,11 @@ def connect() -> sqlite3.Connection:
         conn.execute("PRAGMA journal_mode=WAL")
         conn.execute("PRAGMA foreign_keys=ON")
         conn.executescript(SCHEMA)
+        for migration in MIGRATIONS:
+            try:
+                conn.execute(migration)
+            except sqlite3.OperationalError:
+                pass  # Column already exists.
         _local.conn = conn
     return _local.conn
 
@@ -108,6 +120,25 @@ def get_user(username: str):
     return connect().execute(
         "SELECT * FROM users WHERE username = ?", (username,)
     ).fetchone()
+
+
+def user_keys(user_id: int):
+    """The user's own API keys. AI features run on these -- there is no
+    fallback to the server's keys."""
+    return connect().execute(
+        "SELECT openai_api_key, speech_key, speech_region FROM users WHERE id = ?",
+        (user_id,),
+    ).fetchone()
+
+
+def set_user_keys(user_id: int, openai_api_key: str, speech_key: str, speech_region: str):
+    conn = connect()
+    with conn:
+        conn.execute(
+            """UPDATE users SET openai_api_key = ?, speech_key = ?, speech_region = ?
+               WHERE id = ?""",
+            (openai_api_key, speech_key, speech_region or "eastus", user_id),
+        )
 
 
 def characters_seen(user_id: int) -> int:

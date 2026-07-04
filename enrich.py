@@ -23,7 +23,11 @@ from hanzi import try_define, numbered_pinyin, decomposer
 
 load_dotenv()
 
-ai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+def env_client() -> OpenAI:
+    """Client on the server-wide key, for offline scripts like the
+    backfill. Request-path enrichment passes the user's own key."""
+    return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 LEXICON_VERSION = 1
 MODEL = "gpt-5.5"
@@ -80,9 +84,11 @@ def valid_entry(entry, allowed_pinyin):
     )
 
 
-def enrich_word(word: str, service_tier: str = "flex"):
+def enrich_word(word: str, service_tier: str = "flex", api_key: str = None):
     """Build a lexicon entry for our word. Returns None if the model can't
     produce a valid one."""
+    ai_client = OpenAI(api_key=api_key) if api_key else env_client()
+
     entries = cedict_entries(word)
     if not entries:
         return None
@@ -130,14 +136,18 @@ def enrich_word(word: str, service_tier: str = "flex"):
     return None
 
 
-def ensure_lexicon(word: str):
-    """Fetch our cached lexicon entry, enriching and caching it if new."""
+def ensure_lexicon(word: str, api_key: str = None):
+    """Fetch our cached lexicon entry, enriching and caching it if new.
+
+    Without an api_key, only the cache is consulted."""
     cached = store.get_lexicon(word)
     if cached is not None and cached["version"] == LEXICON_VERSION:
         return cached
+    if api_key is None:
+        return cached
 
     # Standard tier: this runs while the student waits on an intro screen.
-    entry = enrich_word(word, service_tier="default")
+    entry = enrich_word(word, service_tier="default", api_key=api_key)
     if entry is not None:
         store.put_lexicon(word, entry)
     return entry
