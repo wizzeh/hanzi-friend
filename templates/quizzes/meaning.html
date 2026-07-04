@@ -22,6 +22,15 @@
       <li>{{item}}</li>
       {% endfor %}
     </ul>
+    {% if lookalikes %}
+    <ul class="lookalikes">
+      {% for l in lookalikes %}
+      <li>
+        Don't confuse with {{l.char}} {{l.reading}} — {{l.gloss}} ({{l.kind}} it)
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
     <form hx-post="/{{hanzi}}/update-definition" hx-swap="none">
       <textarea name="definition">{{user_definition}}</textarea>

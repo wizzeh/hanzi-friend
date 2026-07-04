@@ -17,6 +17,15 @@
     <li>{{item}}</li>
     {% endfor %}
   </ul>
+  {% if lookalikes %}
+  <ul class="lookalikes">
+    {% for l in lookalikes %}
+    <li>
+      Don't confuse with {{l.char}} {{l.reading}} — {{l.gloss}} ({{l.kind}} it)
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
   <button
     hx-post="/learn/{{hanzi}}{% if reading %}?reading={{reading}}{% endif %}"
     hx-target="#quiz"

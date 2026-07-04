@@ -6,6 +6,7 @@ import fsrs
 
 import db as store
 import hanzi
+import similarity
 from loach_word_order import word_order
 
 scheduler = fsrs.Scheduler(
@@ -78,6 +79,13 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
     store.insert_card(user_id, word, "component", None, fsrs.Card().to_dict())
     for quiz_type in PER_READING_QUIZZES:
         store.insert_card(user_id, word, quiz_type, primary, fsrs.Card().to_dict())
+
+    # If this word has a known lookalike, quiz them against each other.
+    if len(word) == 1:
+        learned = [w for w in store.user_words(user_id) if w != word]
+        lookalikes = similarity.top_visual(word, learned, k=1)
+        if lookalikes and lookalikes[0][1] >= similarity.CONTRAST_THRESHOLD:
+            store.insert_card(user_id, word, "contrast", None, fsrs.Card().to_dict())
 
     for secondary in readings:
         if secondary != primary:

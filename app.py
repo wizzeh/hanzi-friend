@@ -17,10 +17,46 @@ from hanzi import (
     is_known_word,
 )
 from translation import Translation
+import similarity
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET") or os.urandom(24)
 app.register_blueprint(auth_bp)
+
+
+def describe_char(char: str):
+    entry = store.get_lexicon(char)
+    if not entry:
+        return {"char": char, "reading": "", "gloss": ""}
+    senses = [s for s in entry["senses"] if s["learn"]] or entry["senses"]
+    return {
+        "char": char,
+        "reading": fixed_tone_convert(senses[0]["pinyin"]),
+        "gloss": senses[0]["gloss"],
+    }
+
+
+def lookalikes_for(user: int, word: str):
+    """Learned characters worth a 'don't confuse' warning: strong visual
+    matches plus same-sounding characters."""
+    if len(word) != 1:
+        return []
+    learned = [w for w in store.user_words(user) if w != word]
+
+    visual = [
+        dict(describe_char(c), kind="looks like")
+        for c, score in similarity.top_visual(word, learned, 3)
+        if score >= similarity.CONTRAST_THRESHOLD
+    ]
+    shown = {v["char"] for v in visual}
+    phonetic = [
+        dict(describe_char(c), kind="sounds like")
+        for c in learned
+        if c not in shown
+        and len(c) == 1
+        and similarity.phonetic_score(word, c) >= 1.0
+    ][:3]
+    return visual + phonetic
 
 
 def render_quiz(pick: quiz.QuizPick):
@@ -42,7 +78,28 @@ def render_quiz(pick: quiz.QuizPick):
         reading=pick.reading,
         reading_display=fixed_tone_convert(pick.reading) if pick.reading else "",
         is_component=recognition_only(pick.word),
+        lookalikes=lookalikes_for(user, pick.word)
+        if pick.quiz_type in ("intro", "meaning")
+        else [],
     )
+
+    if pick.quiz_type == "contrast":
+        distractors = [
+            c
+            for c, _ in similarity.top_visual(
+                pick.word, [w for w in store.user_words(user) if w != pick.word], 3
+            )
+        ]
+        choices = distractors + [pick.word]
+        from random import shuffle as _shuffle
+
+        _shuffle(choices)
+        return render_template(
+            "quizzes/contrast.html",
+            choices=choices,
+            words_known=store.characters_seen(user),
+            **common,
+        )
 
     if pick.quiz_type.startswith("translation"):
         translation = Translation.for_hanzi(user, pick.word, pick.reading, info.glosses)

@@ -227,6 +227,15 @@ def update_card(card_id: int, fsrs_dict: dict, review_log: dict, rating: int):
         )
 
 
+def user_words(user_id: int):
+    return [
+        row["word"]
+        for row in connect().execute(
+            "SELECT DISTINCT word FROM cards WHERE user_id = ?", (user_id,)
+        )
+    ]
+
+
 def known_words(user_id: int, quiz_type: str):
     return [
         row["word"]

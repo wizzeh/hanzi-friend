@@ -1,0 +1,37 @@
+<article id="contrast-quiz">
+  {% include 'count.html' %}
+  <h5>Which one?</h5>
+  <p>{{pinyin}}</p>
+  <ul style="text-align: left">
+    {% for item in meaning %}
+    <li>{{item}}</li>
+    {% endfor %}
+  </ul>
+  {% for choice in choices %}
+  {% if choice == hanzi %}
+  <button class="answer large-answer" id="contrast-correct" _="
+    on click
+    add @disabled to .answer
+    add .green to me
+    js play_success() end
+    js play_pronounce() end
+    show .feedback
+  ">
+  {% else %}
+  <button class="answer large-answer" _="
+    on click
+    add @disabled to .answer
+    add .red to me
+    add .green to #contrast-correct
+    js play_failure() end
+    js play_pronounce() end
+    show .feedback
+  ">
+  {% endif %}
+    {{choice}}
+  </button>
+  {% endfor %}
+</article>
+
+<audio src="pronounce/{{hanzi}}" id="pronounce"></audio>
+{% include 'quizzes/feedback.html' %}

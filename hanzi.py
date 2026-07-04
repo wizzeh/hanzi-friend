@@ -9,6 +9,7 @@ from pypinyin.contrib.tone_convert import to_tone3, to_tone
 from radicals import radicals as all_radicals
 from filter_defs import filter_definitions
 import db
+import similarity
 
 decomposer = HanziDecomposer()
 dictionary = HanziDictionary()
@@ -205,7 +206,19 @@ def generate_component_test(decomposition: Decomposition) -> Decomposition:
     false_radicals = list(filter(lambda x: x not in component_hanzi, all_radicals))
 
     number_false_radicals = max(3, 8 - len(decomposition.radicals))
-    included_false_radicals = sample(false_radicals, number_false_radicals)
+
+    # Adversarial distractors first: radicals that look like the real
+    # components; pad out with random ones.
+    included_false_radicals = []
+    for component in component_hanzi:
+        for radical in similarity.similar_radicals(component, false_radicals, 2):
+            if radical not in included_false_radicals:
+                included_false_radicals.append(radical)
+    included_false_radicals = included_false_radicals[:number_false_radicals]
+    remaining = [r for r in false_radicals if r not in included_false_radicals]
+    included_false_radicals += sample(
+        remaining, number_false_radicals - len(included_false_radicals)
+    )
 
     false_components = [
         Component(hanzi=radical, meaning="", is_real=False)

@@ -79,6 +79,8 @@
                         ./filter_defs.py
                         ./loach_word_order.py
                         ./radicals.py
+                        ./similarity.py
+                        ./data/confusion/same_stroke.txt
                         ./migrate
                         ./templates
                         ./static/style.css

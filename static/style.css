@@ -73,6 +73,18 @@ article {
     margin: 10px;
 }
 
+.large-answer {
+    font-size: 28pt;
+}
+
+.lookalikes {
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 0.9em;
+    color: var(--pico-muted-color);
+}
+
 
 .quiz-shell {
     text-align: center;
