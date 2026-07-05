@@ -1,4 +1,5 @@
 import os
+import tempfile
 
 import requests
 
@@ -30,19 +31,38 @@ def pronounce(text: str, key: str, region: str):
     if text in word_order:
         try:
             with open(audio_path(text), "rb") as f:
-                return f.read()
+                data = f.read()
+            # Treat an empty file as a miss: past versions left 0-byte
+            # artifacts behind, and serving one would stick forever.
+            if data:
+                return data
         except FileNotFoundError:
-            cache = not text.strip().endswith("。")
+            pass
+        cache = not text.strip().endswith("。")
 
     def cache_as_stream(content, do_cache):
         if not do_cache:
             yield from content
             return
 
-        with open(audio_path(text), "wb") as f:
-            for item in content:
-                f.write(item)
-                yield item
+        # Write through a temp file and rename only once the stream
+        # completes, so an aborted download can't cache a truncated mp3.
+        fd, tmp = tempfile.mkstemp(dir=AUDIO_DIR, suffix=".tmp")
+        done = False
+        try:
+            with os.fdopen(fd, "wb") as f:
+                for item in content:
+                    f.write(item)
+                    yield item
+            done = True
+        finally:
+            if done:
+                os.replace(tmp, audio_path(text))
+            else:
+                try:
+                    os.remove(tmp)
+                except FileNotFoundError:
+                    pass
 
     host = "{}.tts.speech.microsoft.com".format(region or "eastus")
     url = "https://{}/cognitiveservices/v1".format(host)
@@ -56,5 +76,9 @@ def pronounce(text: str, key: str, region: str):
     }
 
     r = requests.post(url, headers=headers, data=SSML.format(text))
+    # A failed call must never reach the cache (or the client): before
+    # this check, an Azure error body would be saved as the word's mp3
+    # and served from the cache forever after.
+    r.raise_for_status()
 
     return cache_as_stream(r.iter_content(chunk_size=128), cache)

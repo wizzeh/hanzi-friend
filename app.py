@@ -1,5 +1,6 @@
 import os
 
+import requests
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect
 
@@ -239,7 +240,12 @@ def set_definition(hanzi):
 @keys_required
 def pronounce(text):
     keys = store.user_keys(current_user())
-    return tts.pronounce(text, keys["speech_key"], keys["speech_region"])
+    try:
+        return tts.pronounce(text, keys["speech_key"], keys["speech_region"])
+    except requests.HTTPError as e:
+        # Bad key, rate limit, etc. The audio element ignores failures,
+        # so a quiet 502 is the right shape for the client.
+        return "speech synthesis failed: {}".format(e), 502
 
 
 if __name__ == "__main__":
