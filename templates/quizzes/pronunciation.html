@@ -1,11 +1,11 @@
 <article id="meaning-quiz">
   {% include 'count.html' %}
-  <h5>Pronunciation</h5>
-  <p class="large">{{hanzi}}</p>
+  <h5 class="quiz-kind">Pronunciation</h5>
+  {% with glyph = hanzi %}{% include 'quizzes/glyph.html' %}{% endwith %}
   {% if reading %}
-  <p>{{glosses | join("; ")}}</p>
+  <p class="gloss-inline">{{glosses | join("; ")}}</p>
   {% endif %}
-  <p id="pronunciation-answer" style="display: none">{{pinyin}}</p>
+  <p id="pronunciation-answer" class="pinyin" style="display: none">{{pinyin}}</p>
   <script type="application/json" id="pronunciation-answers">
     {{ pinyin_numbers | tojson }}
   </script>

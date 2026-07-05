@@ -1,33 +1,39 @@
 <div class="grid feedback" style="display: none">
   <button
+    class="srs-again"
     hx-post="/review/{{card_id}}/again"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
-    Again
+    Again{% if intervals %} <small>{{intervals["again"]}}</small>{% endif %}
   </button>
   <button
+    class="srs-hard"
     hx-post="/review/{{card_id}}/hard"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
-    Hard
+    Hard{% if intervals %} <small>{{intervals["hard"]}}</small>{% endif %}
   </button>
   <button
+    class="srs-good"
     hx-post="/review/{{card_id}}/good"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
-    Good
+    Good{% if intervals %} <small>{{intervals["good"]}}</small>{% endif %}
   </button>
   <button
+    class="srs-easy"
     hx-post="/review/{{card_id}}/easy"
     hx-target="#quiz"
     hx-swap="innerHTML"
   >
-    Easy
+    Easy{% if intervals %} <small>{{intervals["easy"]}}</small>{% endif %}
   </button>
   {% if translation %}
-  <button hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">Retest</button>
+  <button class="srs-retest" hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">
+    Retest
+  </button>
   {% endif %}
 </div>

@@ -1,18 +1,18 @@
 <article>
-  <h5>{% if is_component %}New Component{% elif reading %}New Reading{% else %}New Word{% endif %}</h5>
-  <p class="large">
-    <a href="https://hanzicraft.com/character/{{hanzi}}">{{hanzi}}</a>
-  </p>
-  <p>
+  <h5 class="quiz-kind">{% if is_component %}New Component{% elif reading %}New Reading{% else %}New Word{% endif %}</h5>
+  {% with glyph = hanzi, glyph_href = "https://hanzicraft.com/character/" + hanzi %}
+  {% include 'quizzes/glyph.html' %}
+  {% endwith %}
+  <p class="components">
     Components: {% for item in decomposition.radicals %} {% if item.is_real %}
     <a href="https://hanzicraft.com/character/{{item.hanzi}}">{{item.hanzi}}</a>
     {% endif %} {% endfor %}
   </p>
-  <p>{{pinyin}}</p>
+  <p class="pinyin">{{pinyin}}</p>
   {% if story %}
-  <p><em>{{story}}</em></p>
+  <p class="story">{{story}}</p>
   {% endif %}
-  <ul style="text-align: left">
+  <ul class="gloss-list">
     {% for item in meaning %}
     <li>{{item}}</li>
     {% endfor %}

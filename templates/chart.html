@@ -3,21 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flask and HTMX Example</title>
-    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
-    <script
-      src="https://unpkg.com/htmx.org@2.0.1"
-      integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
-      crossorigin="anonymous"
-    ></script>
+    <title>Pinyin table — Hanzi Friend</title>
+    <script src="{{url_for('static', filename='vendor/hyperscript.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/htmx.min.js')}}"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-      crossorigin="anonymous"
+      href="{{url_for('static', filename='vendor/pico.min.css')}}"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+      href="{{url_for('static', filename='vendor/pico.colors.min.css')}}"
     />
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
 

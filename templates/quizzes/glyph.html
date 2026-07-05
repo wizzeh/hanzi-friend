@@ -1,0 +1,10 @@
+{# Draw our word in 田字格 practice cells, one per character.
+   Set `glyph`; optionally `glyph_hidden` (start hidden, for
+   hyperscript to reveal) and `glyph_href` (link the word). #}
+<p class="large"{% if glyph_hidden %} style="display: none"{% endif %}>
+  {%- if glyph_href %}<a href="{{glyph_href}}">{% endif -%}
+  <span class="tzbox">
+    {%- for ch in glyph -%}<span class="tzc">{{ch}}</span>{%- endfor -%}
+  </span>
+  {%- if glyph_href %}</a>{% endif -%}
+</p>

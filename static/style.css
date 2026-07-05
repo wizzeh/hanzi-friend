@@ -16,75 +16,209 @@
     unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
 }
 
+/* ---------------------------------------------------------------
+   Copybook (字帖) design tokens.
+
+   Paper cards on a quiet desk, ink text, one indigo accent; green,
+   red, and amber are reserved for answer feedback. Pico stays
+   underneath — we retheme it by mapping its variables onto ours.
+   The mapping is repeated in each theme block, matching the
+   specificity of Pico's own scheme selectors so ours win. */
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+    --hf-desk: #e8e9e3;
+    --hf-paper: #fcfbf7;
+    --hf-ink: #252a33;
+    --hf-muted: #6e7680;
+    --hf-accent: #3d5fa6;
+    --hf-on-accent: #ffffff;
+    --hf-line: #d9dad2;
+    --hf-grid: rgba(61, 95, 166, 0.25);
+    --hf-good: #3f8a5f;
+    --hf-good-soft: rgba(63, 138, 95, 0.14);
+    --hf-bad: #bc4b3c;
+    --hf-bad-soft: rgba(188, 75, 60, 0.12);
+    --hf-warn: #ad7c2c;
+    --hf-shadow: 0 1px 2px rgba(37, 42, 51, 0.06),
+        0 6px 20px rgba(37, 42, 51, 0.07);
+    --hf-hanzi-font: 'Source Han Sans SC', 'Noto Sans CJK SC', 'PingFang SC',
+        'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+
+    --pico-background-color: var(--hf-desk);
+    --pico-color: var(--hf-ink);
+    --pico-muted-color: var(--hf-muted);
+    --pico-muted-border-color: var(--hf-line);
+    --pico-primary: var(--hf-accent);
+    --pico-primary-background: var(--hf-accent);
+    --pico-primary-border: var(--hf-accent);
+    --pico-primary-hover: color-mix(in srgb, var(--hf-accent) 85%, var(--hf-ink));
+    --pico-primary-hover-background: color-mix(in srgb, var(--hf-accent) 85%, var(--hf-ink));
+    --pico-primary-hover-border: color-mix(in srgb, var(--hf-accent) 85%, var(--hf-ink));
+    --pico-primary-inverse: var(--hf-on-accent);
+    --pico-primary-focus: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+    --pico-card-background-color: var(--hf-paper);
+    --pico-card-border-color: var(--hf-line);
+    --pico-card-box-shadow: var(--hf-shadow);
+    --pico-form-element-background-color: var(--hf-paper);
+    --pico-form-element-border-color: var(--hf-line);
+    --pico-form-element-active-border-color: var(--hf-accent);
+    --pico-form-element-focus-color: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+    --pico-form-element-color: var(--hf-ink);
+    --pico-border-radius: 10px;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme=light]) {
+        --hf-desk: #14161b;
+        --hf-paper: #1e222a;
+        --hf-ink: #e9e8e2;
+        --hf-muted: #99a0aa;
+        --hf-accent: #92abe8;
+        --hf-on-accent: #171b26;
+        --hf-line: #333844;
+        --hf-grid: rgba(146, 171, 232, 0.3);
+        --hf-good: #6cba8d;
+        --hf-good-soft: rgba(108, 186, 141, 0.16);
+        --hf-bad: #dd8272;
+        --hf-bad-soft: rgba(221, 130, 114, 0.14);
+        --hf-warn: #d2a558;
+        --hf-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
+            0 8px 24px rgba(0, 0, 0, 0.35);
+
+        --pico-background-color: var(--hf-desk);
+        --pico-color: var(--hf-ink);
+        --pico-muted-color: var(--hf-muted);
+        --pico-muted-border-color: var(--hf-line);
+        --pico-primary: var(--hf-accent);
+        --pico-primary-background: var(--hf-accent);
+        --pico-primary-border: var(--hf-accent);
+        --pico-primary-hover: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+        --pico-primary-hover-background: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+        --pico-primary-hover-border: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+        --pico-primary-inverse: var(--hf-on-accent);
+        --pico-primary-focus: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+        --pico-card-background-color: var(--hf-paper);
+        --pico-card-border-color: var(--hf-line);
+        --pico-card-box-shadow: var(--hf-shadow);
+        --pico-form-element-background-color: var(--hf-paper);
+        --pico-form-element-border-color: var(--hf-line);
+        --pico-form-element-active-border-color: var(--hf-accent);
+        --pico-form-element-focus-color: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+        --pico-form-element-color: var(--hf-ink);
+        --pico-border-radius: 10px;
+    }
+}
+
+[data-theme=dark] {
+    --hf-desk: #14161b;
+    --hf-paper: #1e222a;
+    --hf-ink: #e9e8e2;
+    --hf-muted: #99a0aa;
+    --hf-accent: #92abe8;
+    --hf-on-accent: #171b26;
+    --hf-line: #333844;
+    --hf-grid: rgba(146, 171, 232, 0.3);
+    --hf-good: #6cba8d;
+    --hf-good-soft: rgba(108, 186, 141, 0.16);
+    --hf-bad: #dd8272;
+    --hf-bad-soft: rgba(221, 130, 114, 0.14);
+    --hf-warn: #d2a558;
+    --hf-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.35);
+
+    --pico-background-color: var(--hf-desk);
+    --pico-color: var(--hf-ink);
+    --pico-muted-color: var(--hf-muted);
+    --pico-muted-border-color: var(--hf-line);
+    --pico-primary: var(--hf-accent);
+    --pico-primary-background: var(--hf-accent);
+    --pico-primary-border: var(--hf-accent);
+    --pico-primary-hover: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+    --pico-primary-hover-background: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+    --pico-primary-hover-border: color-mix(in srgb, var(--hf-accent) 85%, #ffffff);
+    --pico-primary-inverse: var(--hf-on-accent);
+    --pico-primary-focus: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+    --pico-card-background-color: var(--hf-paper);
+    --pico-card-border-color: var(--hf-line);
+    --pico-card-box-shadow: var(--hf-shadow);
+    --pico-form-element-background-color: var(--hf-paper);
+    --pico-form-element-border-color: var(--hf-line);
+    --pico-form-element-active-border-color: var(--hf-accent);
+    --pico-form-element-focus-color: color-mix(in srgb, var(--hf-accent) 40%, transparent);
+    --pico-form-element-color: var(--hf-ink);
+    --pico-border-radius: 10px;
+}
+
+/* ---------------------------------------------------------------
+   Base */
+
 body {
-    font-family: 'Quicksand', 'Source Han Sans SC';
+    font-family: 'Quicksand', var(--hf-hanzi-font);
+    font-weight: 450;
 }
 
-button.answer.red {
-    background-color: var(--pico-color-red-500);
-    border-color: var(--pico-color-red-500);
-    box-shadow: none;
-}
-
-button.answer.green {
-    background-color: var(--pico-color-green-500);
-    border-color: var(--pico-color-green-500);
-    box-shadow: none;
-}
-
-input.red {
-    background-color: var(--pico-color-red-500);
-    border-color: var(--pico-color-red-500);
-    box-shadow: none;
-}
-
-input.green {
-    background-color: var(--pico-color-green-500);
-    border-color: var(--pico-color-green-500);
-    box-shadow: none;
-}
-
-button.grey {
-    background-color: var(--pico-color-zinc-500);
-    border-color: var(--pico-color-zinc-500);
-    box-shadow: none;
-}
-
-.large {
-    font-size: 72pt;
+h1, h2, h3, h4, h5, h6 {
+    color: var(--hf-ink);
+    font-weight: 650;
 }
 
 article {
     max-width: 650px;
     position: relative;
+    border: 1px solid var(--hf-line);
 }
 
-.count {
+/* ---------------------------------------------------------------
+   Header */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    flex: none;
+    border: 1.5px solid var(--hf-accent);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    isolation: isolate;
+    font-family: var(--hf-hanzi-font);
+    font-size: 19px;
+    line-height: 1;
+    color: var(--hf-accent);
+    background: var(--hf-paper);
+}
+
+.logo-mark::before,
+.logo-mark::after {
+    content: '';
     position: absolute;
-    right: 20px;
-    color: var(--fbc-secondary-text);
+    z-index: -1;
 }
 
-.feedback {
-    max-width: 650px;
+.logo-mark::before {
+    left: 10%;
+    right: 10%;
+    top: 50%;
+    border-top: 1px dashed var(--hf-grid);
 }
 
-.answer {
-    margin: 10px;
+.logo-mark::after {
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    border-left: 1px dashed var(--hf-grid);
 }
 
-.large-answer {
-    font-size: 28pt;
-}
-
-.lookalikes {
-    padding: 0;
-    list-style: none;
-    text-align: left;
-    font-size: 0.9em;
-    color: var(--pico-muted-color);
-}
-
+/* ---------------------------------------------------------------
+   Quiz cards */
 
 .quiz-shell {
     text-align: center;
@@ -95,6 +229,270 @@ article {
 .quiz-shell .feedback {
     margin-inline: auto;
 }
+
+.quiz-kind {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hf-muted);
+    font-weight: 650;
+    margin-bottom: 1.25rem;
+}
+
+.count {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: var(--hf-accent);
+    background: color-mix(in srgb, var(--hf-accent) 12%, transparent);
+    border-radius: 99px;
+    padding: 2px 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* The word in 田字格 practice cells: one cell per character, dashed
+   guides behind the glyph. */
+.large {
+    font-size: 68px;
+    line-height: 1;
+    margin: 0 0 0.5rem;
+    font-family: var(--hf-hanzi-font);
+    font-weight: 400;
+}
+
+.large a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tzbox {
+    display: inline-block;
+    line-height: 0;
+    border: 1.5px solid var(--hf-grid);
+    border-radius: 12px;
+    position: relative;
+    isolation: isolate;
+}
+
+.tzc {
+    display: inline-block;
+    position: relative;
+    width: 1.6em;
+    height: 1.6em;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.tzc + .tzc {
+    border-left: 1px dashed var(--hf-grid);
+}
+
+.tzc::before,
+.tzc::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+.tzc::before {
+    left: 8%;
+    right: 8%;
+    top: 50%;
+    border-top: 1px dashed var(--hf-grid);
+}
+
+.tzc::after {
+    top: 8%;
+    bottom: 8%;
+    left: 50%;
+    border-left: 1px dashed var(--hf-grid);
+}
+
+.pinyin {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    color: var(--hf-muted);
+}
+
+.gloss-inline {
+    font-size: 0.9rem;
+    color: var(--hf-muted);
+    max-width: 42ch;
+    margin-inline: auto;
+}
+
+.gloss-list {
+    text-align: left;
+    max-width: 42ch;
+    margin-inline: auto;
+}
+
+.story {
+    font-style: italic;
+    color: var(--hf-muted);
+    max-width: 42ch;
+    margin-inline: auto;
+}
+
+.components {
+    font-size: 0.9rem;
+    color: var(--hf-muted);
+}
+
+.components a {
+    font-family: var(--hf-hanzi-font);
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.lookalikes {
+    list-style: none;
+    padding: 0.65rem 0.9rem;
+    margin: 1rem auto;
+    max-width: 46ch;
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--hf-muted);
+    border-left: 3px solid var(--hf-warn);
+    background: color-mix(in srgb, var(--hf-warn) 8%, transparent);
+    border-radius: 0 8px 8px 0;
+}
+
+.lookalikes li {
+    list-style: none;
+    margin: 0;
+}
+
+/* The definition editor tucks away so the answer stays calm. */
+.defn-edit {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.defn-edit summary {
+    font-size: 0.8rem;
+    font-weight: 650;
+    color: var(--hf-muted);
+}
+
+.defn-edit textarea {
+    margin-top: 0.5rem;
+}
+
+/* ---------------------------------------------------------------
+   Answer buttons (contrast and decomposition quizzes). Our
+   hyperscript adds .green/.red/.grey, so those hooks stay. */
+
+.answer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+button.answer {
+    margin: 0;
+    background: var(--hf-paper);
+    color: var(--hf-ink);
+    border: 1px solid var(--hf-line);
+    box-shadow: none;
+    font-family: var(--hf-hanzi-font);
+}
+
+button.answer:hover:not(:disabled) {
+    border-color: var(--hf-accent);
+}
+
+.large-answer {
+    font-size: 30px;
+    line-height: 1;
+    padding: 0.7rem 0.95rem;
+    min-width: 64px;
+}
+
+button.answer.green {
+    background: var(--hf-good-soft);
+    border-color: var(--hf-good);
+    color: var(--hf-good);
+    box-shadow: none;
+}
+
+button.answer.red {
+    background: var(--hf-bad-soft);
+    border-color: var(--hf-bad);
+    color: var(--hf-bad);
+    box-shadow: none;
+}
+
+/* Applied to every answer once the quiz resolves. */
+button.grey {
+    opacity: 0.45;
+    box-shadow: none;
+}
+
+input.green {
+    background: var(--hf-good-soft);
+    border-color: var(--hf-good);
+    box-shadow: none;
+}
+
+input.red {
+    background: var(--hf-bad-soft);
+    border-color: var(--hf-bad);
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------------
+   FSRS feedback bar: a colored top rule ranks the four buttons,
+   with the scheduled interval underneath. */
+
+.feedback {
+    max-width: 650px;
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+}
+
+.feedback button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 0.5rem 0.25rem 0.45rem;
+    background: var(--hf-paper);
+    color: var(--hf-ink);
+    border: 1px solid var(--hf-line);
+    border-top: 3px solid var(--srs-hue, var(--hf-line));
+    box-shadow: none;
+    font-weight: 650;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+.feedback button:hover {
+    border-color: var(--srs-hue, var(--hf-accent));
+    background: var(--hf-paper);
+    color: var(--hf-ink);
+}
+
+.feedback button small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--hf-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.srs-again { --srs-hue: var(--hf-bad); }
+.srs-hard  { --srs-hue: var(--hf-warn); }
+.srs-good  { --srs-hue: var(--hf-good); }
+.srs-easy  { --srs-hue: var(--hf-accent); }
+.srs-retest { --srs-hue: var(--hf-muted); }
+
+/* ---------------------------------------------------------------
+   Teach page queue */
 
 .prelearn-queue {
     padding: 0;
@@ -110,6 +508,7 @@ article {
 
 .prelearn-queue li span {
     font-size: 2rem;
+    font-family: var(--hf-hanzi-font);
 }
 
 .prelearn-queue form {

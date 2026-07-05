@@ -1,5 +1,6 @@
-from typing import NamedTuple, List, Optional
+from typing import NamedTuple, List, Optional, Dict
 from random import choice
+from datetime import datetime, timezone
 import json
 
 import fsrs
@@ -152,6 +153,35 @@ def review(user_id: int, card_id: int, difficulty: str):
 
     new_card, review_log = scheduler.review_card(card, rating)
     store.update_card(card_id, new_card.to_dict(), review_log.to_dict(), int(rating))
+
+
+def _humanize_interval(delta) -> str:
+    minutes = delta.total_seconds() / 60
+    if minutes < 60:
+        return "{}m".format(max(1, round(minutes)))
+    if minutes < 60 * 24:
+        return "{}h".format(round(minutes / 60))
+    days = minutes / (60 * 24)
+    if days < 32:
+        return "{}d".format(round(days))
+    return "{}mo".format(round(days / 30.4))
+
+
+def preview_intervals(card_id: int) -> Optional[Dict[str, str]]:
+    """What each rating would schedule, for the feedback buttons.
+    With fuzzing enabled the real review may land a little off these,
+    which is fine at the granularity we display."""
+    doc = store.get_card(card_id)
+    if doc is None:
+        return None
+
+    now = datetime.now(timezone.utc)
+    out = {}
+    for name, rating in RATINGS.items():
+        card = fsrs.Card.from_dict(json.loads(doc["fsrs"]))
+        new_card, _ = scheduler.review_card(card, rating, review_datetime=now)
+        out[name] = _humanize_interval(new_card.due - now)
+    return out
 
 
 def most_difficult_words(user_id: int) -> List[str]:

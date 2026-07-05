@@ -1,12 +1,13 @@
 <article id="contrast-quiz">
   {% include 'count.html' %}
-  <h5>Which one?</h5>
-  <p>{{pinyin}}</p>
-  <ul style="text-align: left">
+  <h5 class="quiz-kind">Which one?</h5>
+  <p class="pinyin">{{pinyin}}</p>
+  <ul class="gloss-list">
     {% for item in meaning %}
     <li>{{item}}</li>
     {% endfor %}
   </ul>
+  <div class="answer-row">
   {% for choice in choices %}
   {% if choice == hanzi %}
   <button class="answer large-answer" id="contrast-correct" _="
@@ -31,6 +32,7 @@
     {{choice}}
   </button>
   {% endfor %}
+  </div>
 </article>
 
 <audio src="pronounce/{{hanzi}}" id="pronounce"></audio>

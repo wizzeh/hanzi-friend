@@ -1,9 +1,9 @@
 <article id="meaning-quiz">
   {% include 'count.html' %}
-  <h5>Definition</h5>
-  <p class="large">{{hanzi}}</p>
+  <h5 class="quiz-kind">Definition</h5>
+  {% with glyph = hanzi %}{% include 'quizzes/glyph.html' %}{% endwith %}
   {% if reading_display %}
-  <p>{{reading_display}}</p>
+  <p class="pinyin">{{reading_display}}</p>
   {% endif %}
   <button
     _="
@@ -16,8 +16,8 @@
   >
     Reveal definition
   </button>
-  <div id="meaning-answer" style="text-align: left; display: none">
-    <ul>
+  <div id="meaning-answer" style="display: none">
+    <ul class="gloss-list">
       {% for item in meaning %}
       <li>{{item}}</li>
       {% endfor %}
@@ -32,10 +32,13 @@
     </ul>
     {% endif %}
 
-    <form hx-post="/{{hanzi}}/update-definition" hx-swap="none">
-      <textarea name="definition">{{user_definition}}</textarea>
-      <button type="submit" class="secondary">Update</button>
-    </form>
+    <details class="defn-edit">
+      <summary>Edit definition</summary>
+      <form hx-post="/{{hanzi}}/update-definition" hx-swap="none">
+        <textarea name="definition">{{user_definition}}</textarea>
+        <button type="submit" class="secondary">Update</button>
+      </form>
+    </details>
   </div>
 </article>
 

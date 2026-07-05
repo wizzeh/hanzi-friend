@@ -75,6 +75,7 @@ def render_quiz(pick: quiz.QuizPick):
         story=info.story,
         remaining_cards=pick.remaining,
         card_id=pick.card_id,
+        intervals=quiz.preview_intervals(pick.card_id) if pick.card_id else None,
         reading=pick.reading,
         reading_display=fixed_tone_convert(pick.reading) if pick.reading else "",
         is_component=recognition_only(pick.word),
