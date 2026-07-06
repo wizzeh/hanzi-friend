@@ -8,6 +8,7 @@ load_dotenv()
 
 import db as store
 import quiz
+import stats
 import tts
 from auth import bp as auth_bp, login_required, keys_required, current_user
 from hanzi import (
@@ -220,6 +221,12 @@ def settings_post():
 @login_required
 def table():
     return render_template("chart.html")
+
+
+@app.route("/stats")
+@login_required
+def stats_page():
+    return render_template("stats.html", **stats.page_data(current_user(), describe_char))
 
 
 @app.route("/difficult")

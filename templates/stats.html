@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Stats — Hanzi Friend{% endblock %}
+{% block content %}
+
+<div class="stat-chips">
+  <div class="stat-chip">
+    <strong>{{words_known}}</strong>
+    <span>words known</span>
+  </div>
+  <div class="stat-chip">
+    <strong>{{total_reviews}}</strong>
+    <span>reviews on {{review_days}} days</span>
+  </div>
+  <div class="stat-chip">
+    <strong>{{current_streak}}<small>d</small></strong>
+    <span>streak (best {{best_streak}}d)</span>
+  </div>
+  <div class="stat-chip">
+    <strong>{% if pass_rate is not none %}{{pass_rate}}<small>%</small>{% else %}—{% endif %}</strong>
+    <span>pass rate, 30 days</span>
+  </div>
+</div>
+
+<article class="stats-card">
+  <h2>A year of reviews</h2>
+  <div class="heatmap-scroll">
+    <div class="heatmap-months">
+      {% for label in heatmap.month_labels %}
+      <span>{{label}}</span>
+      {% endfor %}
+    </div>
+    <div class="heatmap" role="img" aria-label="Reviews per day over the last year">
+      {% for column in heatmap.columns %}
+      {% for cell in column %}
+      {% if cell %}
+      <div class="hm hm-{{cell.level}}" title="{{cell.date}}: {{cell.count}} review{{'' if cell.count == 1 else 's'}}"></div>
+      {% else %}
+      <div class="hm hm-future"></div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="heatmap-legend">
+      <span>less</span>
+      <div class="hm hm-0"></div>
+      <div class="hm hm-1"></div>
+      <div class="hm hm-2"></div>
+      <div class="hm hm-3"></div>
+      <div class="hm hm-4"></div>
+      <span>more</span>
+    </div>
+  </div>
+</article>
+
+{% if cumulative %}
+<article class="stats-card">
+  <h2>Words over time</h2>
+  <svg viewBox="0 0 {{chart_w}} {{chart_h}}" class="chart">
+    {% for tick in cumulative.y_ticks %}
+    <line x1="{{pad_left}}" y1="{{tick.y}}" x2="{{chart_w}}" y2="{{tick.y}}" class="gridline" />
+    <text x="{{pad_left - 6}}" y="{{tick.y + 3}}" class="tick" text-anchor="end">{{tick.value}}</text>
+    {% endfor %}
+    <path d="{{cumulative.area}}" class="area" />
+    <path d="{{cumulative.line}}" class="line" />
+    <line x1="{{pad_left}}" y1="{{cumulative.baseline}}" x2="{{chart_w}}" y2="{{cumulative.baseline}}" class="axis" />
+    {% for tick in cumulative.x_ticks %}
+    <text x="{{tick.x}}" y="{{chart_h - 4}}" class="tick" text-anchor="middle">{{tick.label}}</text>
+    {% endfor %}
+  </svg>
+</article>
+{% endif %}
+
+<article class="stats-card">
+  <h2>Last 30 days</h2>
+  <svg viewBox="0 0 {{chart_w}} {{chart_h}}" class="chart">
+    <text x="{{pad_left - 6}}" y="12" class="tick" text-anchor="end">{{activity.peak}}</text>
+    {% for bar in activity.bars %}
+    {% if bar.value %}
+    <rect x="{{bar.x}}" y="{{bar.y}}" width="{{bar.w}}" height="{{bar.h}}" class="bar"
+      ><title>{{bar.date}}: {{bar.value}} reviews{% if bar.second %}, {{bar.second}} again{% endif %}</title></rect>
+    {% if bar.second_h %}
+    <rect x="{{bar.x}}" y="{{activity.baseline - bar.second_h}}" width="{{bar.w}}" height="{{bar.second_h}}" class="bar-lapse" />
+    {% endif %}
+    {% endif %}
+    {% if bar.label %}
+    <text x="{{bar.x + bar.w / 2}}" y="{{chart_h - 4}}" class="tick" text-anchor="middle">{{bar.label}}</text>
+    {% endif %}
+    {% endfor %}
+    <line x1="{{pad_left}}" y1="{{activity.baseline}}" x2="{{chart_w}}" y2="{{activity.baseline}}" class="axis" />
+  </svg>
+  <p class="chart-note">The tinted base of a bar is reviews rated <em>again</em>.</p>
+</article>
+
+<article class="stats-card">
+  <h2>Coming due</h2>
+  <svg viewBox="0 0 {{chart_w}} {{chart_h}}" class="chart">
+    <text x="{{pad_left - 6}}" y="12" class="tick" text-anchor="end">{{forecast.peak}}</text>
+    {% for bar in forecast.bars %}
+    {% if bar.value %}
+    <rect x="{{bar.x}}" y="{{bar.y}}" width="{{bar.w}}" height="{{bar.h}}"
+      class="bar{% if bar.overdue %} bar-overdue{% endif %}"
+      ><title>{{bar.value}} cards</title></rect>
+    {% endif %}
+    <text x="{{bar.x + bar.w / 2}}" y="{{chart_h - 4}}" class="tick" text-anchor="middle">{{bar.label}}</text>
+    {% endfor %}
+    <line x1="{{pad_left}}" y1="{{forecast.baseline}}" x2="{{chart_w}}" y2="{{forecast.baseline}}" class="axis" />
+  </svg>
+  {% if forecast.overdue %}
+  <p class="chart-note">{{forecast.overdue}} cards are waiting right now.</p>
+  {% endif %}
+</article>
+
+{% if hardest %}
+<article class="stats-card">
+  <h2>Hardest words</h2>
+  <ul class="hard-list">
+    {% for word in hardest %}
+    <li>
+      <span class="hard-glyph" lang="zh">{{word.char}}</span>
+      <span class="hard-detail">{{word.reading}} — {{word.gloss}}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</article>
+{% endif %}
+
+{% endblock %}

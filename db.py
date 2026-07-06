@@ -381,3 +381,46 @@ def all_card_words():
         row["word"]
         for row in connect().execute("SELECT DISTINCT word FROM cards ORDER BY word")
     ]
+
+
+# --- stats -------------------------------------------------------------------
+
+
+def review_days(user_id: int):
+    """(day, reviews, lapses) per local day, oldest first."""
+    return connect().execute(
+        """SELECT date(reviewed_at, 'unixepoch', 'localtime') AS day,
+                  COUNT(*) AS reviews,
+                  SUM(CASE WHEN rating = 1 THEN 1 ELSE 0 END) AS lapses
+           FROM review_logs JOIN cards ON review_logs.card_id = cards.id
+           WHERE cards.user_id = ?
+           GROUP BY day ORDER BY day""",
+        (user_id,),
+    ).fetchall()
+
+
+def words_learned_by_day(user_id: int):
+    """(day, words) per local day, dating each word to its first review."""
+    return connect().execute(
+        """SELECT date(first, 'unixepoch', 'localtime') AS day,
+                  COUNT(*) AS words
+           FROM (SELECT MIN(reviewed_at) AS first
+                 FROM review_logs JOIN cards ON review_logs.card_id = cards.id
+                 WHERE cards.user_id = ?
+                 GROUP BY cards.word)
+           GROUP BY day ORDER BY day""",
+        (user_id,),
+    ).fetchall()
+
+
+def due_counts_by_day(user_id: int, horizon_ts: float):
+    """(day, cards coming due) per local day, up to our horizon.
+    Days in the past mean overdue cards."""
+    return connect().execute(
+        """SELECT date(due_ts, 'unixepoch', 'localtime') AS day,
+                  COUNT(*) AS cards
+           FROM cards
+           WHERE user_id = ? AND due_ts < ?
+           GROUP BY day ORDER BY day""",
+        (user_id, horizon_ts),
+    ).fetchall()
