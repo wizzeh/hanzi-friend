@@ -1,6 +1,7 @@
 <div class="grid feedback" style="display: none">
   <button
     class="srs-again"
+    title="Shortcut: 1"
     hx-post="/review/{{card_id}}/again"
     hx-target="#quiz"
     hx-swap="innerHTML"
@@ -9,6 +10,7 @@
   </button>
   <button
     class="srs-hard"
+    title="Shortcut: 2"
     hx-post="/review/{{card_id}}/hard"
     hx-target="#quiz"
     hx-swap="innerHTML"
@@ -17,6 +19,7 @@
   </button>
   <button
     class="srs-good"
+    title="Shortcut: 3"
     hx-post="/review/{{card_id}}/good"
     hx-target="#quiz"
     hx-swap="innerHTML"
@@ -25,6 +28,7 @@
   </button>
   <button
     class="srs-easy"
+    title="Shortcut: 4"
     hx-post="/review/{{card_id}}/easy"
     hx-target="#quiz"
     hx-swap="innerHTML"
@@ -32,7 +36,8 @@
     Easy{% if intervals %} <small>{{intervals["easy"]}}</small>{% endif %}
   </button>
   {% if translation %}
-  <button class="srs-retest" hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">
+  <button class="srs-retest"
+    title="Shortcut: 5" hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">
     Retest
   </button>
   {% endif %}

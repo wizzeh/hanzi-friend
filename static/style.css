@@ -428,6 +428,17 @@ button.answer.red {
     box-shadow: none;
 }
 
+/* Once the quiz resolves the answers disable; keep the verdict
+   colors at full strength and fade only the rest. */
+button.answer:disabled {
+    opacity: 0.45;
+}
+
+button.answer.green:disabled,
+button.answer.red:disabled {
+    opacity: 1;
+}
+
 /* Applied to every answer once the quiz resolves. */
 button.grey {
     opacity: 0.45;
@@ -490,6 +501,55 @@ input.red {
 .srs-good  { --srs-hue: var(--hf-good); }
 .srs-easy  { --srs-hue: var(--hf-accent); }
 .srs-retest { --srs-hue: var(--hf-muted); }
+
+/* ---------------------------------------------------------------
+   Loading state: while htmx has a request in flight it flags #quiz
+   (our hx-indicator), so dim the outgoing card and float a spinner.
+   The delays keep fast swaps from flickering. */
+
+#quiz {
+    position: relative;
+}
+
+#quiz.htmx-request {
+    pointer-events: none;
+}
+
+#quiz.htmx-request > * {
+    opacity: 0.45;
+    transition: opacity 0.15s ease 0.15s;
+}
+
+#quiz.htmx-request::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px;
+    border: 3px solid var(--hf-grid);
+    border-top-color: var(--hf-accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: hf-appear 0.15s ease 0.2s forwards,
+        hf-spin 0.8s linear infinite;
+}
+
+@keyframes hf-appear {
+    to { opacity: 1; }
+}
+
+@keyframes hf-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #quiz.htmx-request::after {
+        animation: hf-appear 0.15s ease 0.2s forwards;
+        border-color: var(--hf-accent);
+    }
+}
 
 /* ---------------------------------------------------------------
    Teach page queue */

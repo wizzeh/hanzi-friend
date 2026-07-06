@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block head %}
+<script defer src="{{url_for('static', filename='quiz.js')}}"></script>
 <script type="text/javascript">
   // play() rejects if the audio element is swapped out mid-play
   // (e.g. answering quickly); that interruption is fine to ignore.
@@ -39,7 +40,7 @@
 ></audio>
 
 <div class="quiz-shell">
-  <div id="quiz">
+  <div id="quiz" hx-indicator="#quiz">
     <button hx-post="/learn" hx-target="#quiz" hx-swap="innerHTML">
       Start
     </button>
