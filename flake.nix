@@ -76,6 +76,7 @@
                         ./quiz.py
                         ./serve.py
                         ./similarity.py
+                        ./stats.py
                         ./translation.py
                         ./tts.py
                         ./filter_defs.py
@@ -86,8 +87,10 @@
                         ./migrate
                         ./templates
                         ./static/pow.js
+                        ./static/quiz.js
                         ./static/style.css
                         ./static/fonts
+                        ./static/vendor
                         ./static/success.wav
                         ./static/failure.wav
                     ];

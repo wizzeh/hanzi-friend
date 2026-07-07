@@ -10,3 +10,4 @@
 .vscode
 __pycache__
 static/audio/*.mp3
+result
