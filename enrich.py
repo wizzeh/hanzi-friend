@@ -19,7 +19,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 import db as store
-from hanzi import try_define, numbered_pinyin, decomposer
+from chunking import word_chunks
+from hanzi import try_define, numbered_pinyin
 
 load_dotenv()
 
@@ -95,9 +96,9 @@ def enrich_word(word: str, service_tier: str = "flex", api_key: str = None):
 
     allowed_pinyin = set(numbered_pinyin(entry["pinyin"]) for entry in entries)
     components = [
-        component
-        for component in decomposer.decompose(word, 2)["components"]
-        if component != decomposer.noglyph
+        # Codepoint-less chunks read as their stacked parts, e.g. ⺍+冖.
+        chunk.text or "+".join(chunk.parts)
+        for chunk in word_chunks(word)
     ]
 
     message = PROMPT.format(

@@ -69,6 +69,7 @@
                     fileset = pkgs.lib.fileset.unions [
                         ./app.py
                         ./auth.py
+                        ./chunking.py
                         ./db.py
                         ./enrich.py
                         ./hanzi.py
@@ -84,6 +85,8 @@
                         ./radicals.py
                         ./data/confusion/same_stroke.txt
                         ./data/confusion/llm_confusables.txt
+                        ./data/chunks/chunk_svgs.json
+                        ./data/chunks/glyph_svgs.json.gz
                         ./migrate
                         ./templates
                         ./static/pow.js

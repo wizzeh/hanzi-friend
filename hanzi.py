@@ -1,17 +1,29 @@
-from typing import NamedTuple, List
+from typing import NamedTuple, List, Tuple
 from random import sample, shuffle
 
-from hanzipy.decomposer import HanziDecomposer
 from hanzipy.dictionary import HanziDictionary
 from hanzipy.exceptions import NotAHanziCharacter
 from pypinyin.contrib.tone_convert import to_tone3, to_tone
 
-from radicals import radicals as all_radicals
+from chunking import (
+    decomposer,
+    word_chunks,
+    component_pool,
+    character_pool,
+    glyph_svg,
+)
+
+
+def _svg_fields(piece: str) -> dict:
+    """Stroke-outline fields for a Component, when we have them."""
+    svg = glyph_svg(piece)
+    if not svg:
+        return {}
+    return {"svg_viewbox": svg["viewBox"], "svg_paths": tuple(svg["paths"])}
 from filter_defs import filter_definitions
 import db
 import similarity
 
-decomposer = HanziDecomposer()
 dictionary = HanziDictionary()
 
 
@@ -19,6 +31,13 @@ class Component(NamedTuple):
     hanzi: str
     meaning: str
     is_real: bool
+    # Chunks with no codepoint (the top of 学 is ⺍ over 冖) carry the
+    # true shape as stroke outlines, or their parts for the template to
+    # stack with CSS when no clean carving exists.
+    parts: Tuple[str, ...] = ()
+    arrangement: str = ""
+    svg_viewbox: str = ""
+    svg_paths: Tuple[str, ...] = ()
 
 
 class Decomposition(NamedTuple):
@@ -176,17 +195,23 @@ def hanzi_info(hanzi: str, reading: str = None, user_id: int = None) -> HanziInf
         ]
         glosses = [entry["definition"] for entry in entries]
 
-    decomposition = decomposer.decompose(hanzi, 2)
-
-    decomp = [
-        Component(
-            hanzi=component,
-            meaning=try_define(component)[0]["definition"],
-            is_real=True,
+    decomp = []
+    for chunk in word_chunks(hanzi):
+        svg = (
+            {"svg_viewbox": chunk.svg_viewbox, "svg_paths": chunk.svg_paths}
+            if chunk.svg_paths
+            else _svg_fields(chunk.text)
         )
-        for component in decomposition["components"]
-        if component != decomposer.noglyph
-    ]
+        decomp.append(
+            Component(
+                hanzi=chunk.text,
+                meaning=try_define(chunk.text)[0]["definition"] if chunk.text else "",
+                is_real=True,
+                parts=chunk.parts,
+                arrangement=chunk.arrangement,
+                **svg,
+            )
+        )
 
     return HanziInfo(
         hanzi=hanzi,
@@ -200,28 +225,44 @@ def hanzi_info(hanzi: str, reading: str = None, user_id: int = None) -> HanziInf
     )
 
 
-def generate_component_test(decomposition: Decomposition) -> Decomposition:
-    component_hanzi = [component.hanzi for component in decomposition.radicals]
+def generate_component_test(decomposition: Decomposition, word: str = "") -> Decomposition:
+    if len(word) > 1:
+        # Multi-character words quiz on their characters, so the traps
+        # are lookalike characters (门 for 们) — being visually inside
+        # a real answer is what makes them good discrimination practice.
+        false_pool = [c for c in character_pool() if c not in set(word)]
+    else:
+        # Anything visually inside our character is off-limits as a
+        # wrong answer: a learner who spots 母 inside 海 is right, not
+        # wrong.
+        inside = set(similarity.components(word)) if word else set()
+        for component in decomposition.radicals:
+            inside.add(component.hanzi)
+            inside.update(component.parts)
+        false_pool = [c for c in component_pool() if c not in inside]
 
-    false_radicals = list(filter(lambda x: x not in component_hanzi, all_radicals))
+    # Keep the answer grid in one visual style: only traps we can draw
+    # as stroke outlines (unless the outline data isn't built at all).
+    false_pool = [c for c in false_pool if glyph_svg(c)] or false_pool
 
     number_false_radicals = max(3, 8 - len(decomposition.radicals))
 
-    # Adversarial distractors first: radicals that look like the real
+    # Adversarial distractors first: pieces that look like the real
     # components; pad out with random ones.
     included_false_radicals = []
-    for component in component_hanzi:
-        for radical in similarity.similar_radicals(component, false_radicals, 2):
+    for component in decomposition.radicals:
+        lookalike_key = component.hanzi or "".join(component.parts)
+        for radical in similarity.similar_radicals(lookalike_key, false_pool, 2):
             if radical not in included_false_radicals:
                 included_false_radicals.append(radical)
     included_false_radicals = included_false_radicals[:number_false_radicals]
-    remaining = [r for r in false_radicals if r not in included_false_radicals]
+    remaining = [r for r in false_pool if r not in included_false_radicals]
     included_false_radicals += sample(
         remaining, number_false_radicals - len(included_false_radicals)
     )
 
     false_components = [
-        Component(hanzi=radical, meaning="", is_real=False)
+        Component(hanzi=radical, meaning="", is_real=False, **_svg_fields(radical))
         for radical in included_false_radicals
     ]
     ret = decomposition.radicals + false_components

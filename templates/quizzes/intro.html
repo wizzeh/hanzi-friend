@@ -5,7 +5,21 @@
   {% endwith %}
   <p class="components">
     Components: {% for item in decomposition.radicals %} {% if item.is_real %}
+    {# On the intro card only codepoint-less chunks draw as outlines;
+       real characters keep their hanzicraft links. #}
+    {% if item.parts and item.svg_paths %}
+    <svg class="chunk-svg" viewBox="{{item.svg_viewbox}}" aria-label="{{item.parts|join('+')}}">
+      <g transform="scale(1,-1) translate(0,-900)">
+        {%- for path in item.svg_paths %}<path d="{{path}}"/>{% endfor -%}
+      </g>
+    </svg>
+    {% elif item.parts %}
+    <span class="composite composite-{{item.arrangement}}">
+      {%- for part in item.parts %}<span>{{part}}</span>{% endfor -%}
+    </span>
+    {% else %}
     <a href="https://hanzicraft.com/character/{{item.hanzi}}">{{item.hanzi}}</a>
+    {% endif %}
     {% endif %} {% endfor %}
   </p>
   <p class="pinyin">{{pinyin}}</p>

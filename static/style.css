@@ -414,6 +414,42 @@ button.answer:hover:not(:disabled) {
     min-width: 64px;
 }
 
+/* Chunks with no codepoint of their own (the top of 学 is ⺍ over 冖)
+   render as the true shape carved from stroke data, sized and colored
+   like a glyph... */
+.chunk-svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: -0.08em;
+}
+
+/* ...or, when no clean carving exists, as their parts squeezed
+   together with CSS to suggest the shape. */
+.composite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.composite-v {
+    flex-direction: column;
+    font-size: 0.55em;
+    line-height: 1;
+}
+
+.composite-h {
+    flex-direction: row;
+    font-size: 0.6em;
+    letter-spacing: -0.12em;
+}
+
+.composite-h span:last-child {
+    letter-spacing: normal;
+}
+
 button.answer.green {
     background: var(--hf-good-soft);
     border-color: var(--hf-good);

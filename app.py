@@ -70,7 +70,7 @@ def render_quiz(pick: quiz.QuizPick):
         pinyin=info.pinyin,
         meaning=info.meaning,
         glosses=info.glosses,
-        decomposition=generate_component_test(info.decomposition),
+        decomposition=generate_component_test(info.decomposition, pick.word),
         pinyin_numbers=info.pinyin_variants,
         quiz_type=pick.quiz_type,
         user_definition=info.user_definition,

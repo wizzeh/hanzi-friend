@@ -38,7 +38,19 @@
       add @disabled to me
       ">
   {% endif %}
+    {% if item.svg_paths %}
+    <svg class="chunk-svg" viewBox="{{item.svg_viewbox}}" aria-label="{{item.parts|join('+') or item.hanzi}}">
+      <g transform="scale(1,-1) translate(0,-900)">
+        {%- for path in item.svg_paths %}<path d="{{path}}"/>{% endfor -%}
+      </g>
+    </svg>
+    {% elif item.parts %}
+    <span class="composite composite-{{item.arrangement}}">
+      {%- for part in item.parts %}<span>{{part}}</span>{% endfor -%}
+    </span>
+    {% else %}
     {{item.hanzi}}
+    {% endif %}
   </button>
   {% endfor %}
   </div>
