@@ -35,6 +35,8 @@ class Translation(NamedTuple):
         if len(lines) != 2:
             return None
         chinese, english = lines
+        # Curly apostrophes render in the CJK font, which looks off in English.
+        english = english.replace("’", "'")
         return Translation(english=english, chinese=chinese)
 
     @staticmethod
