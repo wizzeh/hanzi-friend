@@ -31,19 +31,20 @@ class Translation(NamedTuple):
 
     @staticmethod
     def from_response(response: str):
+        # Curly apostrophes render in the CJK font, which looks off in English.
+        response = response.replace("’", "'")
         lines = [line.strip() for line in response.strip().splitlines() if line.strip()]
         if len(lines) != 2:
             return None
         chinese, english = lines
-        # Curly apostrophes render in the CJK font, which looks off in English.
-        english = english.replace("’", "'")
         return Translation(english=english, chinese=chinese)
 
     @staticmethod
     def fallback(word: str):
         # If the AI keeps misbehaving, quiz the word on its own.
         definitions = filter_definitions(try_define(word)) or try_define(word)
-        return Translation(english=definitions[0]["definition"], chinese=word)
+        english = definitions[0]["definition"].replace("’", "'")
+        return Translation(english=english, chinese=word)
 
     @staticmethod
     def for_hanzi(user_id: int, word: str, reading=None, glosses=None):
