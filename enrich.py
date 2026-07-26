@@ -42,8 +42,8 @@ Rework the entries into study-ready senses:
 - Order senses from most to least worth studying.
 - Set "learn" to false for senses a learner should not be quizzed on: archaic or literary-only usage, unofficial variants, cross-reference stubs, surnames and other proper nouns, and readings that only occur in rare compounds. When in doubt about whether a sense is current, common usage, set "learn" to false.
 - "note" is one short clause of context when helpful (register, what it contrasts with, common word it appears in), else "".
-- Use the pinyin exactly as given in the entries (tone numbers). Never introduce a pronunciation that is not in the entries below.
-- "components": one memorable line explaining how the graphical components build the character, as a memory hook. If the components are unhelpful fragments, give the best honest hook you can or "".
+- Use the pinyin exactly as given in the entries (tone numbers). The only valid pronunciations for {word} are: {allowed}. Never introduce any other pronunciation.
+- "components": one memorable line explaining how the graphical components build the character(s), as a memory hook. If the components are unhelpful fragments, give the best honest hook you can or "".
 
 CC-CEDICT entries for {word}:
 {entries}
@@ -101,8 +101,10 @@ def enrich_word(word: str, service_tier: str = "flex", api_key: str = None):
         for chunk in word_chunks(word)
     ]
 
+    raw_pinyin = sorted(set(entry["pinyin"] for entry in entries))
     message = PROMPT.format(
         word=word,
+        allowed=", ".join(raw_pinyin),
         entries="\n".join(
             "- {}: {}".format(entry["pinyin"], entry["definition"])
             for entry in entries
@@ -110,10 +112,12 @@ def enrich_word(word: str, service_tier: str = "flex", api_key: str = None):
         components=" ".join(components) if components else "(none)",
     )
 
+    # Feed each rejection back to the model rather than retrying blind.
+    messages = [{"role": "user", "content": message}]
     for _ in range(3):
         completion = ai_client.chat.completions.create(
             model=MODEL,
-            messages=[{"role": "user", "content": message}],
+            messages=messages,
             # Flex processing: batch pricing on the live API, slower is fine.
             extra_body={"service_tier": service_tier},
             timeout=900 if service_tier == "flex" else 120,
@@ -126,13 +130,29 @@ def enrich_word(word: str, service_tier: str = "flex", api_key: str = None):
                 },
             },
         )
-        entry = json.loads(completion.choices[0].message.content)
+        content = completion.choices[0].message.content
+        entry = json.loads(content)
 
         if valid_entry(entry, allowed_pinyin):
             for sense in entry["senses"]:
                 sense["pinyin"] = numbered_pinyin(sense["pinyin"])
             entry["version"] = LEXICON_VERSION
             return entry
+
+        bad = [
+            sense["pinyin"]
+            for sense in entry["senses"]
+            if numbered_pinyin(sense["pinyin"]) not in allowed_pinyin
+        ]
+        feedback = (
+            "You returned no senses; every word has at least one. Try again."
+            if not entry["senses"]
+            else "The pronunciation(s) {} are not valid for {}. Use only: {}. Try again.".format(
+                ", ".join(bad), word, ", ".join(raw_pinyin)
+            )
+        )
+        messages.append({"role": "assistant", "content": content})
+        messages.append({"role": "user", "content": feedback})
 
     return None
 

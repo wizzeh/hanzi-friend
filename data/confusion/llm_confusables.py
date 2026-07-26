@@ -30,7 +30,7 @@ PROMPT = """You are helping a Chinese-learning app detect confusable characters.
 
 Which simplified Chinese characters do learners commonly confuse with {char} because they LOOK similar? Think of near-twin glyphs: same silhouette with a stroke added, lengthened, or hooked differently (like 未/末, 已/己/巳, 人/入, 土/士, 戊/戌/戍).
 
-Only list visual confusions -- not characters that merely sound alike or mean something similar. Only single characters. If nothing is genuinely confusable with {char}, return an empty list."""
+Only list visual confusions -- not characters that merely sound alike or mean something similar. Only single characters. Most characters have at most one or two genuine near-twins; precision matters more than recall here, so when unsure, omit. If nothing is genuinely confusable with {char}, return an empty list."""
 
 SCHEMA = {
     "type": "object",
