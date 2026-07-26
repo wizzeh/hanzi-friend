@@ -8,6 +8,10 @@
     <span>words known</span>
   </div>
   <div class="stat-chip">
+    <strong>{{grammar_seen}}</strong>
+    <span>grammar points{% if grammar_backlog %} ({{grammar_backlog}} behind){% endif %}</span>
+  </div>
+  <div class="stat-chip">
     <strong>{{total_reviews}}</strong>
     <span>reviews on {{review_days}} days</span>
   </div>

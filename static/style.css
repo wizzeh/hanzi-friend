@@ -342,6 +342,28 @@ article {
     color: var(--hf-muted);
 }
 
+/* Grammar pattern cards: the pattern skeleton reads as a formula, the
+   example as a normal sentence. */
+.grammar-name {
+    margin-bottom: 0.5rem;
+}
+
+.grammar-pattern {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    color: var(--hf-muted);
+}
+
+.grammar-example {
+    font-family: var(--hf-hanzi-font);
+    font-size: 1.25rem;
+}
+
+.grammar-link {
+    font-size: 0.9rem;
+}
+
 .components a {
     font-family: var(--hf-hanzi-font);
     font-size: 1.25rem;

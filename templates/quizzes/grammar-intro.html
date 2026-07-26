@@ -1,0 +1,28 @@
+<article>
+  <h5 class="quiz-kind">New Grammar · {{point.level}}</h5>
+  <h3 class="grammar-name">{{point.name}}</h3>
+  <p class="grammar-pattern">{{point.pattern}}</p>
+  <p class="grammar-example">{{point.example}}</p>
+  <p class="grammar-link">
+    <a href="{{article_url}}" target="_blank" rel="noopener">
+      Full article on the Chinese Grammar Wiki
+    </a>
+  </p>
+  <div class="grid">
+    <button
+      hx-post="/learn-grammar/{{point.id}}"
+      hx-target="#quiz"
+      hx-swap="innerHTML"
+    >
+      Learn pattern
+    </button>
+    <button
+      class="secondary"
+      hx-post="/learn-grammar/{{point.id}}?known=1"
+      hx-target="#quiz"
+      hx-swap="innerHTML"
+    >
+      I know this
+    </button>
+  </div>
+</article>

@@ -1,0 +1,29 @@
+<article>
+  {% include 'count.html' %}
+  <h5 class="quiz-kind">Grammar · {{point.name}}</h5>
+  <p>{{to_translate}}</p>
+
+  <div id="translation-answer" style="display: none">
+    <p>{{translation}}</p>
+    <p class="grammar-pattern">{{point.pattern}}</p>
+  </div>
+  <form
+    _="
+    on submit
+    halt the event's default
+    show #translation-answer
+    hide the first <button /> in me
+    show .feedback
+    js play_pronounce() end
+    "
+  >
+    <label for="translation-input" class="visually-hidden">
+      Your translation
+    </label>
+    <input type="text" id="translation-input" autocomplete="off" />
+    <button type="submit">Reveal translation</button>
+  </form>
+</article>
+
+<audio src="pronounce/{{translation}}" id="pronounce"></audio>
+{% include 'quizzes/feedback.html' %}

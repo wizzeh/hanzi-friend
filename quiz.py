@@ -6,6 +6,7 @@ import json
 import fsrs
 
 import db as store
+import grammar
 import hanzi
 import similarity
 from loach_word_order import word_order
@@ -67,6 +68,7 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
     if not hanzi.is_known_word(word):
         return
 
+    store.clear_last_intro_grammar(user_id)
     try_enrich(user_id, word)
 
     # Components and non-words just get a single recognition card.
@@ -93,10 +95,24 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
             store.queue_pending_pair(user_id, word, secondary)
 
 
+def learn_grammar(user_id: int, point_id: str, known: bool = False):
+    """Create the review card for our grammar point. A point the user
+    already commands still gets a card -- seeded with an Easy review so
+    it schedules weeks out and the claim gets verified eventually."""
+    store.insert_card(user_id, point_id, "grammar", None, fsrs.Card().to_dict())
+    store.advance_grammar_seen(user_id)
+
+    if known:
+        card_id = store.card_id_for(user_id, point_id, "grammar")
+        if card_id is not None:
+            review(user_id, card_id, "easy")
+
+
 def next_quiz(user_id: int) -> QuizPick:
     """Pick a due card at random; else introduce, in order of priority:
-    a pre-learn word from the wild, a queued secondary reading, or the
-    next new word from the frequency order."""
+    a pre-learn word from the wild, a queued secondary reading, or --
+    alternating so a grammar backlog never freezes vocabulary intake --
+    a due grammar point or the next new word from the frequency order."""
     cards = store.due_cards(user_id)
 
     if cards:
@@ -130,6 +146,17 @@ def next_quiz(user_id: int) -> QuizPick:
         )
 
     num_characters = store.characters_seen(user_id)
+
+    grammar_seen, last_was_grammar = store.grammar_state(user_id)
+    point = grammar.next_point(grammar_seen)
+    if point and point["position"] <= num_characters and not last_was_grammar:
+        return QuizPick(
+            word=point["id"],
+            quiz_type="grammar-intro",
+            reading=None,
+            card_id=None,
+            remaining=0,
+        )
     while store.has_cards_for_word(user_id, word_order[num_characters]):
         num_characters = num_characters + 1
     store.set_characters_seen(user_id, num_characters)

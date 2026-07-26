@@ -24,6 +24,19 @@ Your response is being parsed by an API, so make sure to respond in the followin
 Chinese Sentence
 English Sentence"""
 
+GRAMMAR_PROMPT = """
+You are an astute and culturally aware AI working as part of a Chinese language learning application. You will be given a list of characters which the student is expected to know. Your job is to generate a sentence containing only those words, which the student will be expected to translate.
+
+Your list of available characters is:
+{}
+
+The student is being quizzed on the grammar pattern "{}" ({}), so build your sentence around that pattern. The pattern must genuinely appear in the sentence -- not just its words used incidentally. For reference, an example of the pattern in use: {}
+
+Your response is being parsed by an API, so make sure to respond in the following two line format, and do not include any other text in your response:
+
+Chinese Sentence
+English Sentence"""
+
 
 class Translation(NamedTuple):
     english: str
@@ -80,3 +93,34 @@ class Translation(NamedTuple):
                 return translation
 
         return Translation.fallback(word)
+
+    @staticmethod
+    def for_grammar(user_id: int, point: dict):
+        """A sentence exercising our grammar point, built from known
+        vocabulary. Verification is necessarily loose -- a pattern isn't
+        a substring -- so we check that some trigger word made it in and
+        otherwise trust the model."""
+        ai_client = OpenAI(api_key=store.user_keys(user_id)["openai_api_key"])
+
+        avail_characters = store.known_words(user_id, "meaning")
+        word_chars = "".join("- {}\n".format(char) for char in avail_characters)
+        message = GRAMMAR_PROMPT.format(
+            word_chars, point["name"], point["pattern"], point["example"]
+        )
+
+        for _ in range(5):
+            chat_completion = ai_client.chat.completions.create(
+                messages=[{"role": "user", "content": message}],
+                model="gpt-5.2",
+            )
+            translation = Translation.from_response(
+                chat_completion.choices[0].message.content
+            )
+            if translation is not None and (
+                not point["triggers"]
+                or any(t in translation.chinese for t in point["triggers"])
+            ):
+                return translation
+
+        # The wiki's own example, untranslated, beats no quiz at all.
+        return Translation(english=point["pattern"], chinese=point["example"])

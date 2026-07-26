@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, redirect
 load_dotenv()
 
 import db as store
+import grammar
 import quiz
 import stats
 import tts
@@ -61,8 +62,36 @@ def lookalikes_for(user: int, word: str):
     return visual + phonetic
 
 
+def render_grammar(pick: quiz.QuizPick, user: int):
+    point = grammar.point(pick.word)
+    common = dict(
+        point=point,
+        article_url=grammar.article_url(point["id"]),
+        remaining_cards=pick.remaining,
+    )
+
+    if pick.quiz_type == "grammar-intro":
+        return render_template("quizzes/grammar-intro.html", **common)
+
+    translation = Translation.for_grammar(user, point)
+    return render_template(
+        "quizzes/grammar.html",
+        to_translate=translation.english,
+        translation=translation.chinese,
+        card_id=pick.card_id,
+        intervals=quiz.preview_intervals(pick.card_id),
+        **common,
+    )
+
+
 def render_quiz(pick: quiz.QuizPick):
     user = current_user()
+
+    # Grammar cards key on a pattern id, not a word, so they render
+    # before any dictionary lookups.
+    if pick.quiz_type in ("grammar-intro", "grammar"):
+        return render_grammar(pick, user)
+
     info = hanzi_info(pick.word, pick.reading, user_id=user)
 
     common = dict(
@@ -153,6 +182,17 @@ def learn(hanzi):
     quiz.learn_word(current_user(), hanzi, reading)
     if reading is None and not was_prelearned:
         store.increment_characters_seen(current_user())
+    return render_next()
+
+
+@app.route("/learn-grammar/<point_id>", methods=["POST"])
+@keys_required
+def learn_grammar(point_id):
+    if not grammar.is_point_id(point_id):
+        return ("unknown grammar point", 404)
+    quiz.learn_grammar(
+        current_user(), point_id, known=request.args.get("known") == "1"
+    )
     return render_next()
 
 

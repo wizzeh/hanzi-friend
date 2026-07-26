@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS users (
     username TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
     characters_seen INTEGER NOT NULL DEFAULT 0,
+    grammar_seen INTEGER NOT NULL DEFAULT 0,
+    last_intro_grammar INTEGER NOT NULL DEFAULT 0,
     created_at REAL NOT NULL
 );
 
@@ -84,6 +86,8 @@ MIGRATIONS = [
     "ALTER TABLE users ADD COLUMN openai_api_key TEXT NOT NULL DEFAULT ''",
     "ALTER TABLE users ADD COLUMN speech_key TEXT NOT NULL DEFAULT ''",
     "ALTER TABLE users ADD COLUMN speech_region TEXT NOT NULL DEFAULT 'eastus'",
+    "ALTER TABLE users ADD COLUMN grammar_seen INTEGER NOT NULL DEFAULT 0",
+    "ALTER TABLE users ADD COLUMN last_intro_grammar INTEGER NOT NULL DEFAULT 0",
 ]
 
 
@@ -165,6 +169,33 @@ def increment_characters_seen(user_id: int):
         )
 
 
+def grammar_state(user_id: int):
+    """(points introduced, whether the last intro was a grammar point)."""
+    row = connect().execute(
+        "SELECT grammar_seen, last_intro_grammar FROM users WHERE id = ?",
+        (user_id,),
+    ).fetchone()
+    return row["grammar_seen"], bool(row["last_intro_grammar"])
+
+
+def advance_grammar_seen(user_id: int):
+    conn = connect()
+    with conn:
+        conn.execute(
+            """UPDATE users SET grammar_seen = grammar_seen + 1,
+               last_intro_grammar = 1 WHERE id = ?""",
+            (user_id,),
+        )
+
+
+def clear_last_intro_grammar(user_id: int):
+    conn = connect()
+    with conn:
+        conn.execute(
+            "UPDATE users SET last_intro_grammar = 0 WHERE id = ?", (user_id,)
+        )
+
+
 # --- cards -----------------------------------------------------------------
 
 
@@ -228,12 +259,23 @@ def update_card(card_id: int, fsrs_dict: dict, review_log: dict, rating: int):
 
 
 def user_words(user_id: int):
+    """Words with cards. Grammar cards key on a pattern id, not a word,
+    so they're excluded here and anywhere else words are expected."""
     return [
         row["word"]
         for row in connect().execute(
-            "SELECT DISTINCT word FROM cards WHERE user_id = ?", (user_id,)
+            "SELECT DISTINCT word FROM cards WHERE user_id = ? AND quiz_type != 'grammar'",
+            (user_id,),
         )
     ]
+
+
+def card_id_for(user_id: int, word: str, quiz_type: str):
+    row = connect().execute(
+        "SELECT id FROM cards WHERE user_id = ? AND word = ? AND quiz_type = ?",
+        (user_id, word, quiz_type),
+    ).fetchone()
+    return row["id"] if row else None
 
 
 def known_words(user_id: int, quiz_type: str):
@@ -379,7 +421,9 @@ def all_lexicon_words():
 def all_card_words():
     return [
         row["word"]
-        for row in connect().execute("SELECT DISTINCT word FROM cards ORDER BY word")
+        for row in connect().execute(
+            "SELECT DISTINCT word FROM cards WHERE quiz_type != 'grammar' ORDER BY word"
+        )
     ]
 
 
@@ -406,7 +450,7 @@ def words_learned_by_day(user_id: int):
                   COUNT(*) AS words
            FROM (SELECT MIN(reviewed_at) AS first
                  FROM review_logs JOIN cards ON review_logs.card_id = cards.id
-                 WHERE cards.user_id = ?
+                 WHERE cards.user_id = ? AND cards.quiz_type != 'grammar'
                  GROUP BY cards.word)
            GROUP BY day ORDER BY day""",
         (user_id,),

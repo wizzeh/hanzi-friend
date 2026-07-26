@@ -1,0 +1,6302 @@
+[
+ {
+  "id": "ASGIPYFV",
+  "name": "Standard negation with \"bu\"",
+  "level": "A1",
+  "category": "Adverbs",
+  "pattern": "不 + Verb / Adj.",
+  "example": "他们 不 是 坏 孩子。",
+  "triggers": [
+   "不"
+  ],
+  "position": 44
+ },
+ {
+  "id": "ASGQ2AZA",
+  "name": "Yes-no questions with \"ma\"",
+  "level": "A1",
+  "category": "Question Forms",
+  "pattern": "⋯⋯吗？",
+  "example": "他 是 老板 吗 ?",
+  "triggers": [
+   "吗"
+  ],
+  "position": 46
+ },
+ {
+  "id": "ASGVT2KN",
+  "name": "Expressing \"be going to\" with \"yao\"",
+  "level": "A1",
+  "category": "Auxiliary verbs",
+  "pattern": "Subj. + 要 + Verb (+ 了)",
+  "example": "我 要 去 吃饭，你 去 吗？",
+  "triggers": [
+   "要",
+   "了"
+  ],
+  "position": 48
+ },
+ {
+  "id": "ASGXVEAR",
+  "name": "Wanting to do something with \"yao\"",
+  "level": "A1",
+  "category": "Auxiliary verbs",
+  "pattern": "要 + Verb",
+  "example": "我 要 吃饭 。",
+  "triggers": [
+   "要"
+  ],
+  "position": 50
+ },
+ {
+  "id": "ASGG25MD",
+  "name": "The \"also\" adverb \"ye\"",
+  "level": "A1",
+  "category": "Adverbs",
+  "pattern": "也 + Verb / Adj.",
+  "example": "昨天 很 冷，今天 也 很 冷。",
+  "triggers": [
+   "也"
+  ],
+  "position": 52
+ },
+ {
+  "id": "ASGCRH6P",
+  "name": "Structure of numbers",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "Number + Unit",
+  "example": "三 百 五 十 九。",
+  "triggers": [],
+  "position": 54
+ },
+ {
+  "id": "ASGCI0KG",
+  "name": "Expressing close possession without \"de\"",
+  "level": "A1",
+  "category": "Particles",
+  "pattern": "Pronoun + Noun",
+  "example": "我 女朋友",
+  "triggers": [],
+  "position": 57
+ },
+ {
+  "id": "ASGUHQD2",
+  "name": "Expressing possession with \"de\"",
+  "level": "A1",
+  "category": "Particles",
+  "pattern": "Noun 1 + 的 + Noun 2",
+  "example": "我 的 老师",
+  "triggers": [
+   "的"
+  ],
+  "position": 61
+ },
+ {
+  "id": "ASG17BLH",
+  "name": "Simple \"noun + adjective\" sentences",
+  "level": "A1",
+  "category": "Basics",
+  "pattern": "Noun + 很 + Adj.",
+  "example": "我 很 好。",
+  "triggers": [
+   "很"
+  ],
+  "position": 63
+ },
+ {
+  "id": "ASGLRWT8",
+  "name": "Expressing existence in a place with \"zai\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "在 + Place",
+  "example": "老师 在 上海 。",
+  "triggers": [
+   "在"
+  ],
+  "position": 66
+ },
+ {
+  "id": "ASGMPZ6D",
+  "name": "Suggestions with \"ba\"",
+  "level": "A1",
+  "category": "Particles",
+  "pattern": "Command + 吧",
+  "example": "我们 走 吧 。",
+  "triggers": [
+   "吧"
+  ],
+  "position": 70
+ },
+ {
+  "id": "ASG04ZCI",
+  "name": "Expressing existence with \"you\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "Place + 有 + Obj.",
+  "example": "我们 学校 有 很 多 学生。",
+  "triggers": [
+   "有"
+  ],
+  "position": 72
+ },
+ {
+  "id": "ASGOOCVO",
+  "name": "Expressing possession with \"you\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "Subj. + 有 + Obj.",
+  "example": "我 有 钱。",
+  "triggers": [
+   "有"
+  ],
+  "position": 74
+ },
+ {
+  "id": "ASG9YK09",
+  "name": "The \"all\" adverb \"dou\"",
+  "level": "A1",
+  "category": "Adverbs",
+  "pattern": "都 + Verb / Adj.",
+  "example": "我们 都 住 在 上海。",
+  "triggers": [
+   "都"
+  ],
+  "position": 76
+ },
+ {
+  "id": "ASGPNV3Q",
+  "name": "Negation of \"you\" with \"mei\"",
+  "level": "A1",
+  "category": "Adverbs",
+  "pattern": "没 + 有",
+  "example": "我 没有 钱 。",
+  "triggers": [
+   "没",
+   "有"
+  ],
+  "position": 79
+ },
+ {
+  "id": "ASGRHM0E",
+  "name": "Expressing a learned skill with \"hui\"",
+  "level": "A1",
+  "category": "Auxiliary verbs",
+  "pattern": "会 + Verb",
+  "example": "他 会 说 中文 。",
+  "triggers": [
+   "会"
+  ],
+  "position": 81
+ },
+ {
+  "id": "ASGP0KFF",
+  "name": "Expressing \"and\" with \"he\"",
+  "level": "A1",
+  "category": "Conjunctions",
+  "pattern": "Noun 1 + 和 + Noun 2",
+  "example": "我 和 他 都 不 去。",
+  "triggers": [
+   "和"
+  ],
+  "position": 83
+ },
+ {
+  "id": "ASGETNCO",
+  "name": "Basic sentence order",
+  "level": "A1",
+  "category": "Basics",
+  "pattern": "Subj. + Verb (+ Obj.)",
+  "example": "我 爱 你 。",
+  "triggers": [],
+  "position": 85
+ },
+ {
+  "id": "ASGI0T9S",
+  "name": "Measure word \"ge\"",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "Number + 个 + Noun",
+  "example": "一 个 人 。",
+  "triggers": [
+   "个"
+  ],
+  "position": 87
+ },
+ {
+  "id": "ASGUN7RX",
+  "name": "Connecting nouns with \"shi\"",
+  "level": "A1",
+  "category": "Basics",
+  "pattern": "A + 是 + B",
+  "example": "我 是 学生 。",
+  "triggers": [
+   "是"
+  ],
+  "position": 89
+ },
+ {
+  "id": "ASGSJYZ2",
+  "name": "Tag questions with \"ma\"",
+  "level": "A1",
+  "category": "Question Forms",
+  "pattern": "⋯⋯是吗 / 对吗 / 好吗 ?",
+  "example": "这样 做， 对 吗 ?",
+  "triggers": [
+   "是",
+   "吗",
+   "对",
+   "好"
+  ],
+  "position": 91
+ },
+ {
+  "id": "ASGZH7K3",
+  "name": "Affirmative-negative question",
+  "level": "A1",
+  "category": "Question Forms",
+  "pattern": "Verb + 不 + Verb / Adj. + 不 + Adj.",
+  "example": "去 不 去？好 不 好  ?",
+  "triggers": [
+   "不"
+  ],
+  "position": 93
+ },
+ {
+  "id": "ASGJBZKC",
+  "name": "Expressing \"and also\" with \"hai\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "还 + Verb",
+  "example": "她 有 一个 弟弟，还 有 一个 妹妹。",
+  "triggers": [
+   "还"
+  ],
+  "position": 96
+ },
+ {
+  "id": "ASGEB54D",
+  "name": "Expressing \"then\" with \"jiu\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "就 + Verb Phrase",
+  "example": "我们 现在 有 时间，就 去吧。",
+  "triggers": [
+   "就"
+  ],
+  "position": 101
+ },
+ {
+  "id": "ASGPFUM2",
+  "name": "Expressing \"both A and B\" with \"you\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "又⋯⋯ 又⋯⋯",
+  "example": "他 又 高 又 帅。",
+  "triggers": [
+   "又"
+  ],
+  "position": 105
+ },
+ {
+  "id": "ASGQGV3P",
+  "name": "Expressing experiences with \"guo\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "Verb + 过",
+  "example": "我 去 过 中国 。",
+  "triggers": [
+   "过"
+  ],
+  "position": 109
+ },
+ {
+  "id": "ASGP69JD",
+  "name": "Using \"guo\" with \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "Verb + 过 + 了",
+  "example": "她 吃 过 了 。",
+  "triggers": [
+   "过",
+   "了"
+  ],
+  "position": 111
+ },
+ {
+  "id": "ASGAY164",
+  "name": "Moderating positive adjectives with \"hai\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "还 + Adj.",
+  "example": "还 可以。还 好。",
+  "triggers": [
+   "还"
+  ],
+  "position": 113
+ },
+ {
+  "id": "ASGFYNCL",
+  "name": "Using the verb \"qu\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "去 + Place",
+  "example": "我 去 学校。",
+  "triggers": [
+   "去"
+  ],
+  "position": 115
+ },
+ {
+  "id": "ASGRBKSL",
+  "name": "Directional verbs \"lai\" and \"qu\"",
+  "level": "A2",
+  "category": "Verbs",
+  "pattern": "来 / 去 + Place",
+  "example": "我 来 上海 一 年 了。",
+  "triggers": [
+   "来",
+   "去"
+  ],
+  "position": 117
+ },
+ {
+  "id": "ASGAUCXK",
+  "name": "Negation of past actions with \"meiyou\"",
+  "level": "A1",
+  "category": "Verb phrases",
+  "pattern": "没有 + Verb",
+  "example": "我 没有 去 酒吧。",
+  "triggers": [
+   "没有"
+  ],
+  "position": 119
+ },
+ {
+  "id": "ASGVUFKX",
+  "name": "Modifying nouns with adjective + \"de\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Adj. + 的 + Noun",
+  "example": "好喝 的 啤酒 / 可爱 的 宝宝",
+  "triggers": [
+   "的"
+  ],
+  "position": 121
+ },
+ {
+  "id": "ASGC885D",
+  "name": "Expressing \"really\" with \"zhen\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "真 + Adj.",
+  "example": "你 女朋友 真 漂亮 。",
+  "triggers": [
+   "真"
+  ],
+  "position": 123
+ },
+ {
+  "id": "ASGLQKD2",
+  "name": "Modifying nouns with phrase + \"de\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Phrase + 的 + Noun",
+  "example": "去 北京 的 火车。今天 来 的 人。",
+  "triggers": [
+   "的"
+  ],
+  "position": 125
+ },
+ {
+  "id": "ASGH2MNO",
+  "name": "How to do something with \"zenme\"",
+  "level": "A1",
+  "category": "Verb phrases",
+  "pattern": "怎么 + Verb ?",
+  "example": "怎么 走?",
+  "triggers": [
+   "怎么"
+  ],
+  "position": 127
+ },
+ {
+  "id": "ASGD7NS3",
+  "name": "Asking why with \"zenme\"",
+  "level": "A2",
+  "category": "Question Forms",
+  "pattern": "怎么⋯⋯？",
+  "example": "你 怎么 没 来？",
+  "triggers": [
+   "怎么"
+  ],
+  "position": 129
+ },
+ {
+  "id": "ASG5RWKO",
+  "name": "Time words and word order",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "Subj. + Time⋯⋯ / Time + Subj.⋯⋯",
+  "example": "我 明天 有 空。/ 明天 我 有 空。",
+  "triggers": [],
+  "position": 131
+ },
+ {
+  "id": "ASGWNGEP",
+  "name": "Result complements \"-dao\" and \"-jian\"",
+  "level": "A2",
+  "category": "Complements",
+  "pattern": "Verb + 到 / 见",
+  "example": "听 到 了 吗 ？",
+  "triggers": [
+   "到",
+   "见"
+  ],
+  "position": 133
+ },
+ {
+  "id": "ASGOUD8U",
+  "name": "Approximating with sequential numbers",
+  "level": "A2",
+  "category": "Numbers",
+  "pattern": "Number 1 + Number 2",
+  "example": "三 四个 人。一 两 天。",
+  "triggers": [],
+  "position": 135
+ },
+ {
+  "id": "ASG9PQ40",
+  "name": "Expressing ability or possibility with \"neng\"",
+  "level": "A1",
+  "category": "Auxiliary verbs",
+  "pattern": "能 + Verb",
+  "example": "中文 这么 难，你  能 学 好 吗？",
+  "triggers": [
+   "能"
+  ],
+  "position": 137
+ },
+ {
+  "id": "ASG6SPYK",
+  "name": "Expressing permission with \"keyi\"",
+  "level": "A1",
+  "category": "Auxiliary verbs",
+  "pattern": "可以 + Verb",
+  "example": "这里 可以 吸烟 吗?",
+  "triggers": [
+   "可以"
+  ],
+  "position": 139
+ },
+ {
+  "id": "ASGT185D",
+  "name": "Change of state with \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "⋯⋯了",
+  "example": "我 25 岁 了。",
+  "triggers": [
+   "了"
+  ],
+  "position": 141
+ },
+ {
+  "id": "ASGJIP2E",
+  "name": "Conceding with \"ba\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "⋯⋯吧",
+  "example": "那 好 吧。",
+  "triggers": [
+   "吧"
+  ],
+  "position": 143
+ },
+ {
+  "id": "ASGMJHZO",
+  "name": "Questions with \"ne\"",
+  "level": "A1",
+  "category": "Particles",
+  "pattern": "⋯⋯呢 ?",
+  "example": "我 很 好。你 呢 ?",
+  "triggers": [
+   "呢"
+  ],
+  "position": 145
+ },
+ {
+  "id": "ASGC8CB8",
+  "name": "Modal particle \"ne\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "⋯⋯呢 ?",
+  "example": "我 不 要 回家 。还 早 呢 ！",
+  "triggers": [
+   "呢"
+  ],
+  "position": 147
+ },
+ {
+  "id": "ASGM055L",
+  "name": "Expressing \"already\" with just \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "Subj. + Verb Phrase + 了",
+  "example": "你 应该 问 老师 。我 问 了 。",
+  "triggers": [
+   "了"
+  ],
+  "position": 149
+ },
+ {
+  "id": "ASGN8C8R",
+  "name": "Expressing \"only\" with \"zhi\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "只 + Verb",
+  "example": "我 只 有 一个 妹妹。",
+  "triggers": [
+   "只"
+  ],
+  "position": 151
+ },
+ {
+  "id": "ASGAGDCQ",
+  "name": "Expressing completion with \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "Subj. + Verb + 了 + Obj.",
+  "example": "我 吃 了 两 个 苹果。",
+  "triggers": [
+   "了"
+  ],
+  "position": 153
+ },
+ {
+  "id": "ASG9W0UX",
+  "name": "Negative commands with \"bie\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "别 + Verb",
+  "example": "别走。",
+  "triggers": [
+   "别"
+  ],
+  "position": 155
+ },
+ {
+  "id": "ASGZ8OIF",
+  "name": "Expressing \"stop doing\" with \"bie… le\"",
+  "level": "A2",
+  "category": "Sentence Patterns",
+  "pattern": "别 + Verb + 了",
+  "example": "别 哭 了，烦 死了 。",
+  "triggers": [
+   "别",
+   "了"
+  ],
+  "position": 157
+ },
+ {
+  "id": "ASGFR96B",
+  "name": "Expressing \"not anymore\" with \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "不 / 没(有) + Verb Phrase + 了",
+  "example": "我 不 想 吃 了 。",
+  "triggers": [
+   "不",
+   "没",
+   "有",
+   "了"
+  ],
+  "position": 159
+ },
+ {
+  "id": "ASGE5Q4J",
+  "name": "Expressing \"now\" with \"le\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "New Situation + 了",
+  "example": "吃饭 了！",
+  "triggers": [
+   "了"
+  ],
+  "position": 161
+ },
+ {
+  "id": "ASG8HVFN",
+  "name": "Expressing \"excessively\" with \"tai\"",
+  "level": "A1",
+  "category": "Basics",
+  "pattern": "太 + Adj. + 了",
+  "example": "太 好 了 !",
+  "triggers": [
+   "太",
+   "了"
+  ],
+  "position": 163
+ },
+ {
+  "id": "ASGUNMHU",
+  "name": "Expressing \"not very\" with \"bu tai\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "不太 + Adj.",
+  "example": "他 不太 高兴 。我 不太 喜欢。",
+  "triggers": [
+   "不",
+   "太"
+  ],
+  "position": 165
+ },
+ {
+  "id": "ASGSZ0HP",
+  "name": "Expressing \"with\" with \"gen\"",
+  "level": "A2",
+  "category": "Conjunctions",
+  "pattern": "跟⋯⋯ + Verb",
+  "example": "你 要 跟 我 一起 去 吗？",
+  "triggers": [
+   "跟"
+  ],
+  "position": 167
+ },
+ {
+  "id": "ASGW66JM",
+  "name": "Sentence-final interjection \"a\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "⋯⋯啊",
+  "example": "是 啊！谁 啊？",
+  "triggers": [
+   "啊"
+  ],
+  "position": 169
+ },
+ {
+  "id": "ASGDHC1H",
+  "name": "Softening speech with \"ba\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "⋯⋯吧",
+  "example": "这样 不 太 好 吧。",
+  "triggers": [
+   "吧"
+  ],
+  "position": 171
+ },
+ {
+  "id": "ASGEAH5M",
+  "name": "Basic comparisons with \"meiyou\"",
+  "level": "A2",
+  "category": "Verbs",
+  "pattern": "Noun 1 + 没(有) + Noun 2 + Adj.",
+  "example": "你 没有 我 胖 。",
+  "triggers": [
+   "没",
+   "有"
+  ],
+  "position": 173
+ },
+ {
+  "id": "ASG95AL1",
+  "name": "Auxiliary verb \"yao\" and its multiple meanings",
+  "level": "A2",
+  "category": "Auxiliary verbs",
+  "pattern": "要 + Noun / 要 + Verb",
+  "example": "我 要 一 杯 水。",
+  "triggers": [
+   "要"
+  ],
+  "position": 176
+ },
+ {
+  "id": "ASGW9737",
+  "name": "Expressing \"will\" with \"hui\"",
+  "level": "A2",
+  "category": "Auxiliary verbs",
+  "pattern": "会 + Verb",
+  "example": "明天 你 会 来 吗？",
+  "triggers": [
+   "会"
+  ],
+  "position": 180
+ },
+ {
+  "id": "ASGNGEU8",
+  "name": "Expressing \"about to happen\" with \"le\"",
+  "level": "A2",
+  "category": "Sentence Patterns",
+  "pattern": "快 + Verb / Adj. + 了",
+  "example": "快 下雨 了 。",
+  "triggers": [
+   "快",
+   "了"
+  ],
+  "position": 182
+ },
+ {
+  "id": "ASGT97VF",
+  "name": "Expressing \"would like to\" with \"xiang\"",
+  "level": "A2",
+  "category": "Auxiliary verbs",
+  "pattern": "想 + Verb",
+  "example": "我 想 去。",
+  "triggers": [
+   "想"
+  ],
+  "position": 185
+ },
+ {
+  "id": "ASG9LLJU",
+  "name": "Asking about degree with \"duo\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Subj. + 多 + Adj. ?",
+  "example": "他 多 高？",
+  "triggers": [
+   "多"
+  ],
+  "position": 187
+ },
+ {
+  "id": "ASGGH7RR",
+  "name": "Intensifying with \"duo\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Subj. + 多 + Adj.",
+  "example": "多 好！外面 多 舒服！",
+  "triggers": [
+   "多"
+  ],
+  "position": 189
+ },
+ {
+  "id": "ASGWN185",
+  "name": "Expressing \"when\" with \"de shihou\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "⋯⋯的时候",
+  "example": "你 不在 的 时候，我 会 想 你。",
+  "triggers": [
+   "的",
+   "时候"
+  ],
+  "position": 191
+ },
+ {
+  "id": "ASGPRGAX",
+  "name": "Actions in a row",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "(Verb Phrase 1) + (Verb Phrase 2)",
+  "example": "我们 去 咖啡店 喝 咖啡 吧。",
+  "triggers": [],
+  "position": 193
+ },
+ {
+  "id": "ASGNXI27",
+  "name": "Expressing \"already\" with \"yijing\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "已经⋯⋯了",
+  "example": "他 已经 走 了 。",
+  "triggers": [
+   "已经",
+   "了"
+  ],
+  "position": 195
+ },
+ {
+  "id": "ASGJ36VN",
+  "name": "Expressing duration with \"le\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Verb + 了 + Duration",
+  "example": "他 在 北京 住 了 两 年。",
+  "triggers": [
+   "了"
+  ],
+  "position": 197
+ },
+ {
+  "id": "ASG69RR8",
+  "name": "Expressing ongoing duration with double \"le\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Verb + 了 + Duration + 了",
+  "example": "他 在 北京 住 了 两 年 了。",
+  "triggers": [
+   "了"
+  ],
+  "position": 199
+ },
+ {
+  "id": "ASGX0Z0N",
+  "name": "Indicating location with \"zai\" before verbs",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Subj. + 在 + Place + Verb",
+  "example": "我 在 上海 工作。",
+  "triggers": [
+   "在"
+  ],
+  "position": 204
+ },
+ {
+  "id": "ASGYC77J",
+  "name": "Reduplication of verbs",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Verb + Verb",
+  "example": "你 看看。",
+  "triggers": [],
+  "position": 209
+ },
+ {
+  "id": "ASGGGIW8",
+  "name": "Expressing \"from… to…\" with \"cong… dao…\"",
+  "level": "A2",
+  "category": "Prepositions",
+  "pattern": "从⋯⋯到⋯⋯",
+  "example": "从1 号 到 5 号 我 在 上海。",
+  "triggers": [
+   "从",
+   "到"
+  ],
+  "position": 211
+ },
+ {
+  "id": "ASG90DXK",
+  "name": "Special cases of \"zai\" following verbs",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Verb + 在 + Place",
+  "example": "我 住 在 北京。放 在 这里。",
+  "triggers": [
+   "在"
+  ],
+  "position": 213
+ },
+ {
+  "id": "ASGID0E8",
+  "name": "Special verbs with \"hen\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "很 + Verb",
+  "example": "我 很 喜欢 他。",
+  "triggers": [
+   "很"
+  ],
+  "position": 218
+ },
+ {
+  "id": "ASG3544U",
+  "name": "Superlative \"zui\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "最 + Adj. (+ 了)",
+  "example": "谁 最 有钱 ？",
+  "triggers": [
+   "最",
+   "了"
+  ],
+  "position": 220
+ },
+ {
+  "id": "ASGLFX54",
+  "name": "Using \"dao\" to mean \"to go to\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "到 + Place",
+  "example": "我 到 上海。",
+  "triggers": [
+   "到"
+  ],
+  "position": 223
+ },
+ {
+  "id": "ASGJQU93",
+  "name": "Using \"hao\" to mean \"easy\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "好 + Verb",
+  "example": "好 做。好 买。",
+  "triggers": [
+   "好"
+  ],
+  "position": 227
+ },
+ {
+  "id": "ASGI2OAG",
+  "name": "Verbs that take double objects",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Subj. + Verb + Indirect Obj. + Direct Obj.",
+  "example": "我 问 了 老师 一 个 问题。",
+  "triggers": [],
+  "position": 232
+ },
+ {
+  "id": "ASGLEVUV",
+  "name": "Negative adjectives with \"-si le\"",
+  "level": "A2",
+  "category": "Adjectives",
+  "pattern": "Adj. + 死了",
+  "example": "我 今天 累 死了 。",
+  "triggers": [
+   "死",
+   "了"
+  ],
+  "position": 234
+ },
+ {
+  "id": "ASG64BTE",
+  "name": "Measure words for counting",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "Number + Measure Word + Noun",
+  "example": "一 个 人。一 杯 水。",
+  "triggers": [],
+  "position": 237
+ },
+ {
+  "id": "ASG8VJM8",
+  "name": "The filler word \"neige\"",
+  "level": "A2",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯那个⋯⋯",
+  "example": "那个⋯⋯你 可以 做 我 的 女 朋友 吗？",
+  "triggers": [
+   "那个"
+  ],
+  "position": 240
+ },
+ {
+  "id": "ASGZC42B",
+  "name": "Measure words with \"this\" and \"that\"",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "这 / 那 + Measure Word (+ Noun)",
+  "example": "那 个 人。这 杯 水。",
+  "triggers": [
+   "这",
+   "那"
+  ],
+  "position": 242
+ },
+ {
+  "id": "ASGYKDNF",
+  "name": "Questions with \"le ma\"",
+  "level": "A2",
+  "category": "Question Forms",
+  "pattern": "Verb + 了 + 吗？",
+  "example": "你 吃饭 了 吗 ？",
+  "triggers": [
+   "了",
+   "吗"
+  ],
+  "position": 246
+ },
+ {
+  "id": "ASGAQV6C",
+  "name": "Expressing \"everything\" with \"shenme dou\"",
+  "level": "A2",
+  "category": "Sentence Patterns",
+  "pattern": "什么 + 都 / 也⋯⋯",
+  "example": "爸爸 什么 都 知道。",
+  "triggers": [
+   "什么",
+   "都",
+   "也"
+  ],
+  "position": 251
+ },
+ {
+  "id": "ASGV01X9",
+  "name": "Expressing \"should\" with \"yinggai\"",
+  "level": "A2",
+  "category": "Auxiliary verbs",
+  "pattern": "应该 / 该 + Verb",
+  "example": "你 应该 工作。",
+  "triggers": [
+   "应该",
+   "该"
+  ],
+  "position": 255
+ },
+ {
+  "id": "ASGRJ1BI",
+  "name": "Comparing \"bu\" and \"mei\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "不 vs 没",
+  "example": "我 今天 晚上 不 吃饭。昨天 晚上 我 没 吃饭。",
+  "triggers": [
+   "不",
+   "没"
+  ],
+  "position": 257
+ },
+ {
+  "id": "ASGD88UO",
+  "name": "Comparing \"yao\" and \"xiang\"",
+  "level": "A2",
+  "category": "Auxiliary verbs",
+  "pattern": "要 vs 想",
+  "example": "我 要 一 杯 水 。 我 想 你 。",
+  "triggers": [
+   "要",
+   "想"
+  ],
+  "position": 260
+ },
+ {
+  "id": "ASGTDUJO",
+  "name": "Cause and effect with \"yinwei\" and \"suoyi\"",
+  "level": "A2",
+  "category": "Sentence Patterns",
+  "pattern": "因为⋯⋯ 所以⋯⋯",
+  "example": "因为 饿 了，所以 吃饭。",
+  "triggers": [
+   "因为",
+   "所以"
+  ],
+  "position": 263
+ },
+ {
+  "id": "ASGDHE8S",
+  "name": "Reduplication of adjectives",
+  "level": "B1",
+  "category": "Adjectives",
+  "pattern": "Adj. + Adj.",
+  "example": "你 应该 慢慢 地 走。",
+  "triggers": [],
+  "position": 265
+ },
+ {
+  "id": "ASGIRILI",
+  "name": "Continuation with \"hai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 还 + Verb Phrase / Adj.",
+  "example": "你 还在 看 书 ？",
+  "triggers": [
+   "还"
+  ],
+  "position": 271
+ },
+ {
+  "id": "ASGHQRI1",
+  "name": "Expressing \"in addition\" with \"haiyou\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯ ，还有 ，⋯⋯",
+  "example": "你 需要 吃 药 。还有，要 多 休息 。",
+  "triggers": [
+   "还有"
+  ],
+  "position": 273
+ },
+ {
+  "id": "ASGIZQJ2",
+  "name": "Expressing \"again\" in the future with \"zai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "再 + Verb",
+  "example": "我 下 次 再 来。",
+  "triggers": [
+   "再"
+  ],
+  "position": 275
+ },
+ {
+  "id": "ASGLJM55",
+  "name": "Sequencing with \"xian\" and \"zai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "先⋯⋯ ，再⋯⋯",
+  "example": "先 洗 手 ，再 吃饭 。",
+  "triggers": [
+   "先",
+   "再"
+  ],
+  "position": 277
+ },
+ {
+  "id": "ASGUGWVZ",
+  "name": "Using the verb \"jiao\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "叫 + Name",
+  "example": "你 叫 什么 名字 ？",
+  "triggers": [
+   "叫"
+  ],
+  "position": 279
+ },
+ {
+  "id": "ASGD3C4S",
+  "name": "Emphasizing negation with \"you\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "又 + 不 / 没 + Verb",
+  "example": "又 没 下雨 ，带 伞 干吗 ？",
+  "triggers": [
+   "又",
+   "不",
+   "没"
+  ],
+  "position": 281
+ },
+ {
+  "id": "ASG68F61",
+  "name": "Expressing \"when\" with \"dengdao\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "等(到) + Time / Event ，Subj. + 再 / 就 ⋯⋯",
+  "example": "等到 大学 毕业 ，我 就 不 住 在 学校 了。",
+  "triggers": [
+   "等",
+   "到",
+   "再",
+   "就"
+  ],
+  "position": 283
+ },
+ {
+  "id": "ASGN1JR5",
+  "name": "Expressing \"again\" in the past with \"you\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "又 + Verb + 了",
+  "example": "你 又 迟到 了 。",
+  "triggers": [
+   "又",
+   "了"
+  ],
+  "position": 285
+ },
+ {
+  "id": "ASGNVE15",
+  "name": "Expressing \"together\" with \"yiqi\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "一起 + Verb",
+  "example": "我们 一起 去 吧！要 不 要 一起 吃饭？",
+  "triggers": [
+   "一起"
+  ],
+  "position": 287
+ },
+ {
+  "id": "ASGT1CIR",
+  "name": "Expressing \"already\" with \"dou\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "都 + Time + 了",
+  "example": "都 九点 了 ，快点 起床 ！",
+  "triggers": [
+   "都",
+   "了"
+  ],
+  "position": 291
+ },
+ {
+  "id": "ASGSVF28",
+  "name": "Expressing duration of inaction",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Duration + 没 + Verb + 了",
+  "example": "他 已经 一 个 星期 没 洗澡 了 。",
+  "triggers": [
+   "没",
+   "了"
+  ],
+  "position": 297
+ },
+ {
+  "id": "ASG25C48",
+  "name": "Polite requests with \"qing\"",
+  "level": "A2",
+  "category": "Verbs",
+  "pattern": "请 + Verb",
+  "example": "请 坐 。",
+  "triggers": [
+   "请"
+  ],
+  "position": 301
+ },
+ {
+  "id": "ASGKITRZ",
+  "name": "Expressing earliness with \"jiu\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + Time + 就 + Verb + 了",
+  "example": "我 昨晚 八 点 半 就 睡觉 了 。",
+  "triggers": [
+   "就",
+   "了"
+  ],
+  "position": 304
+ },
+ {
+  "id": "ASG1F4D1",
+  "name": "Expressing \"in this way\" with \"zheyang\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Condition ，这样 + Result / Purpose",
+  "example": "这样 做 不 对 。",
+  "triggers": [
+   "这样"
+  ],
+  "position": 311
+ },
+ {
+  "id": "ASGC06N0",
+  "name": "Basic comparisons with \"yiyang\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Noun 1 + 跟 / 和 + Noun 2 + 一样 + Adj.",
+  "example": "你 跟 他 一样 高 。",
+  "triggers": [
+   "跟",
+   "和",
+   "一样"
+  ],
+  "position": 316
+ },
+ {
+  "id": "ASG3WTCJ",
+  "name": "Expressing lateness with \"cai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + Time + 才 + Verb",
+  "example": "他 二十五 岁 才 上 大学 。",
+  "triggers": [
+   "才"
+  ],
+  "position": 318
+ },
+ {
+  "id": "ASGBC7A0",
+  "name": "Expressing \"one by one\" with \"yi\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "一 + Measure Word + 一 + Measure Word",
+  "example": "宝宝 一 天 一 天 在 长大 。",
+  "triggers": [
+   "一"
+  ],
+  "position": 320
+ },
+ {
+  "id": "ASGYW5RS",
+  "name": "Using \"cai\" for small numbers",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "才 + Number + Measure Word + Noun",
+  "example": "这 个 班 才 两 个 学生 。",
+  "triggers": [
+   "才"
+  ],
+  "position": 322
+ },
+ {
+  "id": "ASGY21RK",
+  "name": "Emphasis with \"jiushi\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "就是 + Verb",
+  "example": "我 父母 就是 不 让 我 一个人 去 。",
+  "triggers": [
+   "就是"
+  ],
+  "position": 324
+ },
+ {
+  "id": "ASGPW8PP",
+  "name": "Expressing \"small quantity\" with \"jiu\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "就 + Subject + Predicate",
+  "example": "这 件 事 就 我 一 个 人 知道 。",
+  "triggers": [
+   "就"
+  ],
+  "position": 326
+ },
+ {
+  "id": "ASGOWBSL",
+  "name": "Expressing \"all\" with \"suoyou\"",
+  "level": "B1",
+  "category": "Noun Phrases",
+  "pattern": "所有 (+ 的) + Noun",
+  "example": "我 喜欢 吃 所有 我 妈妈 做 的 菜 。",
+  "triggers": [
+   "所有",
+   "的"
+  ],
+  "position": 328
+ },
+ {
+  "id": "ASGWCESP",
+  "name": "Verbing briefly with \"yixia\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "Verb + 一下",
+  "example": "你 看 一下 。",
+  "triggers": [
+   "一下"
+  ],
+  "position": 330
+ },
+ {
+  "id": "ASG8GSXY",
+  "name": "Using \"ye\" and \"dou\" together",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "也都 + Verb / Adj.",
+  "example": "他们 也 都 是 法国 人 。",
+  "triggers": [
+   "也",
+   "都"
+  ],
+  "position": 332
+ },
+ {
+  "id": "ASGNKKP6",
+  "name": "Adjectives with \"name\" and \"zheme\"",
+  "level": "B1",
+  "category": "Adverbs with Adjectives",
+  "pattern": "那么 / 这么 + Adj.",
+  "example": "你 怎么 那么 忙 ？",
+  "triggers": [
+   "那么",
+   "这么"
+  ],
+  "position": 337
+ },
+ {
+  "id": "ASGX298Z",
+  "name": "Expressing \"then…\" with \"name\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "那么⋯⋯",
+  "example": "他 不 听 ，那 我 应该 怎么办 ？",
+  "triggers": [
+   "那么"
+  ],
+  "position": 343
+ },
+ {
+  "id": "ASG6120A",
+  "name": "Reduplication of measure words",
+  "level": "B1",
+  "category": "Measure Words",
+  "pattern": "MW + MW",
+  "example": "个 个 都 很 好。",
+  "triggers": [],
+  "position": 349
+ },
+ {
+  "id": "ASGGL59D",
+  "name": "Expressing \"when\" with \"shi\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "Time + 时",
+  "example": "考试 时 不要 说话 。",
+  "triggers": [
+   "时"
+  ],
+  "position": 356
+ },
+ {
+  "id": "ASG004ZK",
+  "name": "Indicating a number in excess",
+  "level": "B1",
+  "category": "Numbers",
+  "pattern": "Number + 多",
+  "example": "三 十 多 岁",
+  "triggers": [
+   "多"
+  ],
+  "position": 363
+ },
+ {
+  "id": "ASGP000J",
+  "name": "Expressing \"all along\" with \"yizhi\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 一直 + Predicate",
+  "example": "我 一直 在 现在 的 公司 工作。",
+  "triggers": [
+   "一直"
+  ],
+  "position": 365
+ },
+ {
+  "id": "ASG5MOMM",
+  "name": "Structural particle \"de\"",
+  "level": "A2",
+  "category": "Particles",
+  "pattern": "的 / 得 / 地",
+  "example": "红色的车，跑得很快，慢慢地走",
+  "triggers": [
+   "的",
+   "得",
+   "地"
+  ],
+  "position": 367
+ },
+ {
+  "id": "ASGMAFSX",
+  "name": "Turning adjectives into adverbs",
+  "level": "B1",
+  "category": "Adjectives",
+  "pattern": "Adj. + 地 + Verb",
+  "example": "你 要 认真 地 学习。",
+  "triggers": [
+   "地"
+  ],
+  "position": 369
+ },
+ {
+  "id": "ASGI9WXT",
+  "name": "Advanced yes-no questions with \"ma\"",
+  "level": "B1",
+  "category": "Particles",
+  "pattern": "Confirmation + Question + 吗 ？",
+  "example": "你 要 什么 吗 ?",
+  "triggers": [
+   "吗"
+  ],
+  "position": 371
+ },
+ {
+  "id": "ASGA0S4T",
+  "name": "A softer \"but\" with \"buguo\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯ ，不过 ⋯⋯",
+  "example": "他 的 汉语 口语 不错 ，不过 不 认识 汉字 。",
+  "triggers": [
+   "不过"
+  ],
+  "position": 373
+ },
+ {
+  "id": "ASGOIDEO",
+  "name": "Aspect particle \"zhe\"",
+  "level": "B1",
+  "category": "Particles",
+  "pattern": "Verb + 着",
+  "example": "我 读 ，你 听 着 。",
+  "triggers": [
+   "着"
+  ],
+  "position": 375
+ },
+ {
+  "id": "ASGELOTT",
+  "name": "Reviewing options with \"ba\"",
+  "level": "B1",
+  "category": "Particles",
+  "pattern": "Option 1吧 ，⋯⋯ ；Option 2 吧 ，⋯⋯",
+  "example": "不 说 吧 ，他 还 会 做 错 ；说 吧，他 肯定 不 高兴 。",
+  "triggers": [
+   "吧"
+  ],
+  "position": 382
+ },
+ {
+  "id": "ASG19S1M",
+  "name": "Using \"de\" (modal particle)",
+  "level": "B1",
+  "category": "Particles",
+  "pattern": "⋯⋯的",
+  "example": "我 不 会 骗 你 的。",
+  "triggers": [
+   "的"
+  ],
+  "position": 389
+ },
+ {
+  "id": "ASGJ46H1",
+  "name": "Comparing \"er\" and \"liang\"",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "二 vs 两",
+  "example": "两 个 人。二 十 二。",
+  "triggers": [
+   "二",
+   "两"
+  ],
+  "position": 392
+ },
+ {
+  "id": "ASG8SI2K",
+  "name": "Basic comparisons with \"bi\"",
+  "level": "A2",
+  "category": "Prepositions",
+  "pattern": "Noun 1 + 比 + Noun 2 + Adj.",
+  "example": "你 比 我 胖 。",
+  "triggers": [
+   "比"
+  ],
+  "position": 394
+ },
+ {
+  "id": "ASG920B7",
+  "name": "Expressing \"compared with\" using \"gen\"",
+  "level": "B1",
+  "category": "Comparison Patterns",
+  "pattern": "跟 + Noun 1 + 比 (起来) ，Noun 2⋯⋯",
+  "example": "跟 上海 比 ，北京 的 冬天 比较 干 。",
+  "triggers": [
+   "跟",
+   "比",
+   "起来"
+  ],
+  "position": 396
+ },
+ {
+  "id": "ASG6KUS5",
+  "name": "Expressing \"much more\" in comparisons",
+  "level": "B1",
+  "category": "Comparison Patterns",
+  "pattern": "Noun 1 + 比 + Noun 2 + Adj. + 多了",
+  "example": "拼音 比 汉字 容易 多了 。",
+  "triggers": [
+   "比",
+   "多",
+   "了"
+  ],
+  "position": 398
+ },
+ {
+  "id": "ASGLHAV3",
+  "name": "Expressing \"for\" with \"gei\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "Subj. + 给 + Recipient + Verb Phrase",
+  "example": "妈妈 在 给 孩子 们 做饭 。",
+  "triggers": [
+   "给"
+  ],
+  "position": 400
+ },
+ {
+  "id": "ASGIVZJU",
+  "name": "Negative commands with \"buyao\"",
+  "level": "A1",
+  "category": "Verb phrases",
+  "pattern": "不要 + Verb",
+  "example": "不要 说 英文！",
+  "triggers": [
+   "不要"
+  ],
+  "position": 402
+ },
+ {
+  "id": "ASG68RBX",
+  "name": "Expressing \"for\" with \"wei\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "为 + Person + Predicate",
+  "example": "为 人民 服务 ！",
+  "triggers": [
+   "为"
+  ],
+  "position": 404
+ },
+ {
+  "id": "ASG59C66",
+  "name": "Comparing \"li\" and \"cong\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "离 vs. 从",
+  "example": "从 明天 开始，我 不 抽烟 了。",
+  "triggers": [
+   "离",
+   "从"
+  ],
+  "position": 406
+ },
+ {
+  "id": "ASGRURCZ",
+  "name": "Expressing \"not at all\" with \"yidianr ye bu\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Subj. + 一点 + 也 / 都 + 不 + Adj.",
+  "example": "你 一点 也 不 胖 。",
+  "triggers": [
+   "一点",
+   "也",
+   "都",
+   "不"
+  ],
+  "position": 408
+ },
+ {
+  "id": "ASGH13JY",
+  "name": "Idiomatic phrases with \"zai\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "在 + Topic + 上 ，Subj. ⋯⋯",
+  "example": "在美国 历史 上 ，最重要 的 总统 是 谁 ？",
+  "triggers": [
+   "在",
+   "上"
+  ],
+  "position": 410
+ },
+ {
+  "id": "ASGA8NIB",
+  "name": "Offering choices with \"haishi\"",
+  "level": "A1",
+  "category": "Conjunctions",
+  "pattern": "A + 还是 + B ?",
+  "example": "你 要 喝 茶 还是 咖啡 ?",
+  "triggers": [
+   "还是"
+  ],
+  "position": 412
+ },
+ {
+  "id": "ASGWAR65",
+  "name": "Expressing \"had better\" with \"haishi\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "还是 + Verb",
+  "example": "我们 还是 先 吃饭 吧。",
+  "triggers": [
+   "还是"
+  ],
+  "position": 414
+ },
+ {
+  "id": "ASG8ICO9",
+  "name": "Using \"dui\" with verbs",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "Subj. + 对 + Person + Verb",
+  "example": "宝宝 对 我 笑 了。",
+  "triggers": [
+   "对"
+  ],
+  "position": 416
+ },
+ {
+  "id": "ASG765HD",
+  "name": "Expressing \"it depends\" with \"kan\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "这 / 那 + 要看 / 得看 + Unclear Situation",
+  "example": "这 得 看 你 的 时间 。",
+  "triggers": [
+   "这",
+   "那",
+   "要",
+   "看",
+   "得"
+  ],
+  "position": 421
+ },
+ {
+  "id": "ASGT3KF6",
+  "name": "Structure of dates",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "Number + 年 + Number + 月 + Number + 日",
+  "example": "今天 是 2011年 11月 11日/号 。",
+  "triggers": [
+   "年",
+   "月",
+   "日"
+  ],
+  "position": 426
+ },
+ {
+  "id": "ASG98FZK",
+  "name": "Using \"lai\" as a dummy verb",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "(让 +) Subj. + 来",
+  "example": "让 我 来 吧。",
+  "triggers": [
+   "让",
+   "来"
+  ],
+  "position": 428
+ },
+ {
+  "id": "ASG4NIPB",
+  "name": "Expressing \"even more\" with \"geng\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "更 + Adj.",
+  "example": "我 想 找 一个 更 有钱 的 男朋友。",
+  "triggers": [
+   "更"
+  ],
+  "position": 430
+ },
+ {
+  "id": "ASG64E96",
+  "name": "Expressing \"even more\" with \"geng\" or \"hai\"",
+  "level": "B1",
+  "category": "Comparison Patterns",
+  "pattern": "Noun 1 + 比 + Noun 2 + 更 / 还 + Adj.",
+  "example": "他 比 姚明 还 高 。",
+  "triggers": [
+   "比",
+   "更",
+   "还"
+  ],
+  "position": 432
+ },
+ {
+  "id": "ASGHC9CA",
+  "name": "Using \"ji\" to mean \"several\"",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "几 + Measure Word + Noun",
+  "example": "桌子 上 有 几 本 书。",
+  "triggers": [
+   "几"
+  ],
+  "position": 434
+ },
+ {
+  "id": "ASGL9KQM",
+  "name": "Measure words in quantity questions",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "几 + Measure Word (+ Noun) ?",
+  "example": "几 个 人？",
+  "triggers": [
+   "几"
+  ],
+  "position": 436
+ },
+ {
+  "id": "ASGPXLP9",
+  "name": "Expressing \"must\" with \"dei\"",
+  "level": "B1",
+  "category": "Auxiliary verbs",
+  "pattern": "得 + Verb",
+  "example": "我们 得 走 了 。",
+  "triggers": [
+   "得"
+  ],
+  "position": 438
+ },
+ {
+  "id": "ASGQGJXT",
+  "name": "Expressing purpose with \"weile\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "为了 + Purpose + Verb",
+  "example": "为了 钱 ，他 什么 都 愿意 做 。",
+  "triggers": [
+   "为了"
+  ],
+  "position": 440
+ },
+ {
+  "id": "ASGLKGZP",
+  "name": "Doing something more with \"duo\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "多 + Verb",
+  "example": "多 吃 点 。",
+  "triggers": [
+   "多"
+  ],
+  "position": 442
+ },
+ {
+  "id": "ASGK904U",
+  "name": "Ordinal numbers with \"di\"",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "第 + Number (+ Measure Word)",
+  "example": "你 是 我 的 第 一 个 朋友。",
+  "triggers": [
+   "第"
+  ],
+  "position": 444
+ },
+ {
+  "id": "ASG1CCAP",
+  "name": "Expressing \"until\" with \"dao\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "Verb + 到 + Time / Event",
+  "example": "我 昨天 晚上 工作 到 十二 点 半 。",
+  "triggers": [
+   "到"
+  ],
+  "position": 447
+ },
+ {
+  "id": "ASGWVZ0T",
+  "name": "Expressing \"some\" with \"yixie\"",
+  "level": "A2",
+  "category": "Noun Phrases",
+  "pattern": "一些 + Noun",
+  "example": "这里 有 一些 咖啡。",
+  "triggers": [
+   "一些"
+  ],
+  "position": 452
+ },
+ {
+  "id": "ASG5AODR",
+  "name": "Measure words for verbs",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "Verb + Number + Measure Word",
+  "example": "做 三 次。读 两 遍 。",
+  "triggers": [],
+  "position": 454
+ },
+ {
+  "id": "ASGRBC43",
+  "name": "Expressing \"mistakenly think that\" with \"yiwei\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "Subj. + 以为⋯⋯",
+  "example": "我 以为 你 不 是 我的 朋友。",
+  "triggers": [
+   "以为"
+  ],
+  "position": 456
+ },
+ {
+  "id": "ASGII66E",
+  "name": "Using \"always\" as a complaint with \"laoshi\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 老 (是 ) + Verb",
+  "example": "你 怎么 老是 加班 ？",
+  "triggers": [
+   "老",
+   "是"
+  ],
+  "position": 458
+ },
+ {
+  "id": "ASG4GVRX",
+  "name": "Separable verb",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "Verb-Obj.",
+  "example": "我们 见 过 面 。",
+  "triggers": [],
+  "position": 460
+ },
+ {
+  "id": "ASGF763H",
+  "name": "Non-exhaustive lists with \"dengdeng\"",
+  "level": "B1",
+  "category": "Auxiliary Words",
+  "pattern": "⋯⋯ 等 / 等等",
+  "example": "长城、故宫 等 地方 都 是 北京 有名 的 景点 。",
+  "triggers": [
+   "等",
+   "等等"
+  ],
+  "position": 464
+ },
+ {
+  "id": "ASGMMHTQ",
+  "name": "Verbs followed by \"gei\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "Subj. + Verb + 给 + Recipient + Obj.",
+  "example": "他 送给 我 一 束 花 。",
+  "triggers": [
+   "给"
+  ],
+  "position": 467
+ },
+ {
+  "id": "ASG3ORNN",
+  "name": "Verbs preceded by \"gei\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "Subj. + 给 + Target + Verb + Obj.",
+  "example": "现在 不要 给 他 打 电话 。",
+  "triggers": [
+   "给"
+  ],
+  "position": 473
+ },
+ {
+  "id": "ASG79STE",
+  "name": "Degree complement",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb + 得⋯⋯",
+  "example": "你 做 得 不错 。",
+  "triggers": [
+   "得"
+  ],
+  "position": 479
+ },
+ {
+  "id": "ASG8LWBJ",
+  "name": "Direction complement",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb (+ Direction) + 来 / 去",
+  "example": "我们 走 过去 吧 。",
+  "triggers": [
+   "来",
+   "去"
+  ],
+  "position": 486
+ },
+ {
+  "id": "ASGWNEYM",
+  "name": "Emphasizing quantity with \"dou\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "大家 / 很多人 + 都⋯⋯",
+  "example": "很 多 地方 都 有 wifi。",
+  "triggers": [
+   "大家",
+   "很多",
+   "人",
+   "都"
+  ],
+  "position": 492
+ },
+ {
+  "id": "ASGJQPSC",
+  "name": "Placement of question words",
+  "level": "A1",
+  "category": "Question Forms",
+  "pattern": "什么 / 什么时候 / 谁 / 哪儿 / 为什么 / 怎么",
+  "example": "你 是 谁 ？你 在 哪儿 ？",
+  "triggers": [
+   "什么",
+   "时候",
+   "谁",
+   "哪儿",
+   "为什么",
+   "怎么"
+  ],
+  "position": 494
+ },
+ {
+  "id": "ASGBPXOB",
+  "name": "Direction complement \"-qilai\"",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb / Adj.+ 起来",
+  "example": "天气 热 起来 了 。",
+  "triggers": [
+   "起来"
+  ],
+  "position": 496
+ },
+ {
+  "id": "ASG7ED89",
+  "name": "Expressing \"some\" with question words",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "在哪儿 / 谁 / 什么 / 什么时候",
+  "example": "这个 人 我 在 哪儿 见 过 。",
+  "triggers": [
+   "在",
+   "哪儿",
+   "谁",
+   "什么",
+   "时候"
+  ],
+  "position": 498
+ },
+ {
+  "id": "ASGCPJPQ",
+  "name": "Potential complement",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb + 得 / 不 + Complement",
+  "example": "做 得 完 / 做 不 完",
+  "triggers": [
+   "得",
+   "不"
+  ],
+  "position": 500
+ },
+ {
+  "id": "ASGD4EC8",
+  "name": "Simple rhetorical questions",
+  "level": "B1",
+  "category": "Question Forms",
+  "pattern": "不 是…… 吗 ？",
+  "example": "不 是 说好 了 吗 ？怎么 会 这样 ？",
+  "triggers": [
+   "不",
+   "是",
+   "吗"
+  ],
+  "position": 505
+ },
+ {
+  "id": "ASGE662E",
+  "name": "The \"shi... de\" construction for emphasizing details",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "是⋯⋯ 的",
+  "example": "你 是 怎么 来 的？",
+  "triggers": [
+   "是",
+   "的"
+  ],
+  "position": 512
+ },
+ {
+  "id": "ASG6HYOU",
+  "name": "Expressing \"or\" in statements",
+  "level": "A2",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯或者⋯⋯",
+  "example": "我 想 去 青岛 或者 南京。",
+  "triggers": [
+   "或者"
+  ],
+  "position": 516
+ },
+ {
+  "id": "ASGQJ5IC",
+  "name": "Comparing \"haishi\" and \"huozhe\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "还是 vs. 或者",
+  "example": "我们 明天 见 还是 后天 见 ？明天 或者 后天 都 可以 。",
+  "triggers": [
+   "还是",
+   "或者"
+  ],
+  "position": 518
+ },
+ {
+  "id": "ASG0UFR4",
+  "name": "The \"shi... de\" construction for indicating purpose",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "是⋯⋯ 的",
+  "example": "我 是 来 上海 旅游 的 。",
+  "triggers": [
+   "是",
+   "的"
+  ],
+  "position": 520
+ },
+ {
+  "id": "ASG8YTSF",
+  "name": "The \"shi... de\" patterns: an overview",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "是⋯⋯ 的",
+  "example": "你 是 哪个 学校 的 ？",
+  "triggers": [
+   "是",
+   "的"
+  ],
+  "position": 525
+ },
+ {
+  "id": "ASG5KNWW",
+  "name": "Topic-comment sentences",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "Topic，Comment",
+  "example": "那 部 电影  ，看 过 的 人 都 喜欢 。",
+  "triggers": [],
+  "position": 531
+ },
+ {
+  "id": "ASGWDWFN",
+  "name": "Making judgments with \"suan\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "Subj. + 算 + Adj. + 的",
+  "example": "在 我们 公司 ，我 算 年轻 的 。",
+  "triggers": [
+   "算",
+   "的"
+  ],
+  "position": 533
+ },
+ {
+  "id": "ASG2UB2B",
+  "name": "Using \"ba\" sentences",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 把 + Obj.+ Verb Phrase",
+  "example": "我 把 书 看 完 了。",
+  "triggers": [
+   "把"
+  ],
+  "position": 538
+ },
+ {
+  "id": "ASG846EA",
+  "name": "Expressing actions in progress with \"zai\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "(正) 在 + Verb",
+  "example": "我们 正在 吃饭。",
+  "triggers": [
+   "正",
+   "在"
+  ],
+  "position": 545
+ },
+ {
+  "id": "ASGHF9F1",
+  "name": "Using \"bei\" sentences",
+  "level": "B1",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 被 + Doer + Verb Phrase",
+  "example": "我 被 他 骗 了 。",
+  "triggers": [
+   "被"
+  ],
+  "position": 547
+ },
+ {
+  "id": "ASGAC619",
+  "name": "Alternative existential sentences",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Place + Verb + 着 + Noun Phrase",
+  "example": "桌子 上 放 着 一 本 书 。",
+  "triggers": [
+   "着"
+  ],
+  "position": 551
+ },
+ {
+  "id": "ASG49BE6",
+  "name": "Expressing \"enough\" with \"gou\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 够 + Predicate (+ 了)",
+  "example": "我们 买 了 很 多 菜 ，够 吃 了 。",
+  "triggers": [
+   "够",
+   "了"
+  ],
+  "position": 554
+ },
+ {
+  "id": "ASGJ2OJC",
+  "name": "Before a specific time with \"yiqian\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "Time / Verb + 以前",
+  "example": "十 点 以前，我 在 家。",
+  "triggers": [
+   "以前"
+  ],
+  "position": 556
+ },
+ {
+  "id": "ASGVCWLU",
+  "name": "Expressing \"before\" in general with \"yiqian\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "以前，⋯⋯",
+  "example": "以前，我 不 会 说 中文。",
+  "triggers": [
+   "以前"
+  ],
+  "position": 558
+ },
+ {
+  "id": "ASGDUZ55",
+  "name": "Expressing \"as one likes\" with \"jiu\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "想 + Question Word + 就 + Question Word",
+  "example": "想 去 哪儿 就 去 哪儿 。",
+  "triggers": [
+   "想",
+   "就"
+  ],
+  "position": 560
+ },
+ {
+  "id": "ASG13ALM",
+  "name": "Expressing \"every\" with question words",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Question Word + 都 + Predicate",
+  "example": "谁 都 可以 进 。",
+  "triggers": [
+   "都"
+  ],
+  "position": 564
+ },
+ {
+  "id": "ASGNQUC1",
+  "name": "Result complement \"-wan\" for finishing",
+  "level": "A2",
+  "category": "Complements",
+  "pattern": "Verb + 完 (+ 了)",
+  "example": "我 说 完 了。",
+  "triggers": [
+   "完",
+   "了"
+  ],
+  "position": 566
+ },
+ {
+  "id": "ASGNNMST",
+  "name": "Result complements",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb + 好 / 完 / 错",
+  "example": "我们 吃 好 了 。",
+  "triggers": [
+   "好",
+   "完",
+   "错"
+  ],
+  "position": 568
+ },
+ {
+  "id": "ASGCPDSR",
+  "name": "Indicating the whole with \"quan\"",
+  "level": "B1",
+  "category": "Adjectives",
+  "pattern": "全 + Noun",
+  "example": "我们 全 家 都 去 旅游 了。",
+  "triggers": [
+   "全"
+  ],
+  "position": 570
+ },
+ {
+  "id": "ASG5DG95",
+  "name": "Expressing comparable degree with \"you\"",
+  "level": "B1",
+  "category": "Comparison Patterns",
+  "pattern": "Noun 1 有 Noun 2 + Adj. + 吗？",
+  "example": "他 有 我 帅 吗 ？",
+  "triggers": [
+   "有",
+   "吗"
+  ],
+  "position": 572
+ },
+ {
+  "id": "ASGUD81S",
+  "name": "Two words for \"but\"",
+  "level": "A2",
+  "category": "Conjunctions",
+  "pattern": "……，可是 / 但是……",
+  "example": "我 喜欢 他，可是/但是 他 不 喜欢 我。",
+  "triggers": [
+   "可是",
+   "但是"
+  ],
+  "position": 577
+ },
+ {
+  "id": "ASGT9Y8P",
+  "name": "Conceding a point with \"shi\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "Adj. + 是 + Adj.， 但是⋯⋯",
+  "example": "这个 东西 好 是 好 ，就是 太 贵 了 。",
+  "triggers": [
+   "是",
+   "但是"
+  ],
+  "position": 579
+ },
+ {
+  "id": "ASGTFUD0",
+  "name": "Events in quick succession with \"yi... jiu...\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "Subj. + 一 + Event 1，就 + Event 2",
+  "example": "他 一 到 家 ，就 去 洗澡  了 。",
+  "triggers": [
+   "一",
+   "就"
+  ],
+  "position": 583
+ },
+ {
+  "id": "ASGGIVT0",
+  "name": "Expressing \"if... then...\" with \"ruguo... jiu...\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "如果 ⋯⋯ ，就 ⋯⋯",
+  "example": "如果 有 困难 ，就 给 我 打 电话 。",
+  "triggers": [
+   "如果",
+   "就"
+  ],
+  "position": 590
+ },
+ {
+  "id": "ASGQUKJF",
+  "name": "Age with \"sui\"",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "Subj. + Number + 岁",
+  "example": "我 20 岁 。",
+  "triggers": [
+   "岁"
+  ],
+  "position": 594
+ },
+ {
+  "id": "ASGZL717",
+  "name": "Comparing \"hui,\" \"neng,\" \"keyi\"",
+  "level": "B1",
+  "category": "Auxiliary Verbs",
+  "pattern": "会 vs. 能 vs. 可以",
+  "example": "我 会 跳舞 。这里 不 能 跳舞 。我 可以 请 你 跳舞 吗 ？",
+  "triggers": [
+   "会",
+   "能",
+   "可以"
+  ],
+  "position": 597
+ },
+ {
+  "id": "ASG3ROPY",
+  "name": "Expressing \"it seems\" with \"haoxiang\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "好像⋯⋯",
+  "example": "他 好像 是 英国 人 。",
+  "triggers": [
+   "好像"
+  ],
+  "position": 599
+ },
+ {
+  "id": "ASGG1ZBL",
+  "name": "Adjectival complement \"de hen\"",
+  "level": "B2",
+  "category": "Adjectives",
+  "pattern": "Adj. + 得 很",
+  "example": "这个 题目 简单 得 很 。",
+  "triggers": [
+   "得",
+   "很"
+  ],
+  "position": 603
+ },
+ {
+  "id": "ASGCED31",
+  "name": "Expressing \"how often\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Subj. + 多长时间 + Verb + 一次 (+ Obj.)",
+  "example": "你 多长时间 剪 一 次 头发 ？",
+  "triggers": [
+   "多",
+   "长",
+   "时间",
+   "一",
+   "次"
+  ],
+  "position": 606
+ },
+ {
+  "id": "ASGTD3L3",
+  "name": "Expressing \"before\" and \"after\" with \"zhiqian\" and \"zhihou\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "Event + 之前 / 之后 ，⋯⋯",
+  "example": "出国 之前 ，他 和 女朋友 分手了 。",
+  "triggers": [
+   "之前",
+   "之后"
+  ],
+  "position": 610
+ },
+ {
+  "id": "ASG84RE9",
+  "name": "Expressing fractions with \"fenzhi\"",
+  "level": "B1",
+  "category": "Numbers",
+  "pattern": "Denominator + 分之 + Numerator",
+  "example": "在 我们 班 ，外国 学生 占 三 分 之 一 。",
+  "triggers": [
+   "分",
+   "之"
+  ],
+  "position": 616
+ },
+ {
+  "id": "ASGN6BBU",
+  "name": "Structure of times (basic)",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "Number + 点(钟)",
+  "example": "现在 十一点 。",
+  "triggers": [
+   "点",
+   "钟"
+  ],
+  "position": 618
+ },
+ {
+  "id": "ASGDTO07",
+  "name": "Structure of times (advanced)",
+  "level": "A2",
+  "category": "Numbers",
+  "pattern": "Number 1 + 点(钟) + Number 2 + 分",
+  "example": "现在 十一点十八分 。",
+  "triggers": [
+   "点",
+   "钟",
+   "分"
+  ],
+  "position": 620
+ },
+ {
+  "id": "ASGQFW44",
+  "name": "Advanced uses of \"dou\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 都 + Predicate",
+  "example": "我都能闻见面包的香味。",
+  "triggers": [
+   "都"
+  ],
+  "position": 622
+ },
+ {
+  "id": "ASGQJJYO",
+  "name": "Expressing \"just\" with \"gang\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 刚 + Verb",
+  "example": "他 刚 走。",
+  "triggers": [
+   "刚"
+  ],
+  "position": 626
+ },
+ {
+  "id": "ASG4807F",
+  "name": "Advanced uses of \"hai\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 还 + Predicate + 呢",
+  "example": "还 好朋友 呢 ，天天 说 我 坏话 。",
+  "triggers": [
+   "还",
+   "呢"
+  ],
+  "position": 640
+ },
+ {
+  "id": "ASGC701A",
+  "name": "Asking how something is with \"zenmeyang\"",
+  "level": "A2",
+  "category": "Question Forms",
+  "pattern": "⋯⋯怎么样？",
+  "example": "你 最近 怎么样 ？",
+  "triggers": [
+   "怎么样"
+  ],
+  "position": 643
+ },
+ {
+  "id": "ASG49889",
+  "name": "Expressing \"about\" with \"guanyu\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "关于 + Obj. ，⋯⋯",
+  "example": "关于 中国 历史 ，我 知道 的 不 多 。",
+  "triggers": [
+   "关于"
+  ],
+  "position": 652
+ },
+ {
+  "id": "ASG35T4H",
+  "name": "Expressing \"difficult\" with \"nan\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "难 + Verb",
+  "example": "难 做。难 买。",
+  "triggers": [
+   "难"
+  ],
+  "position": 654
+ },
+ {
+  "id": "ASGYDKT3",
+  "name": "Expressing \"hard to avoid\" with \"nanmian\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "(Subj. +) 难免 + Verb Phrase",
+  "example": "第 一 次 尝试 ， 难免 失败 。",
+  "triggers": [
+   "难",
+   "免"
+  ],
+  "position": 656
+ },
+ {
+  "id": "ASG98C1A",
+  "name": "Expressing \"as long as\" with \"zhiyao\"",
+  "level": "B2",
+  "category": "Conditional Statements",
+  "pattern": "只要⋯⋯，就⋯⋯",
+  "example": "只要 你 过来 ， 我们 就 很 开心 。",
+  "triggers": [
+   "只要",
+   "就"
+  ],
+  "position": 658
+ },
+ {
+  "id": "ASGSPAKW",
+  "name": "Emphatic adverb \"ke\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "可 + Adj. (+ 了)",
+  "example": "这 件 事情 对 他 造成 的 影响 可 大 了 。",
+  "triggers": [
+   "可",
+   "了"
+  ],
+  "position": 660
+ },
+ {
+  "id": "ASGB6L4M",
+  "name": "Expressing \"every\" with \"mei\"",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "每 + Measure Word (+ Noun)",
+  "example": "每 个 人。每 天。",
+  "triggers": [
+   "每"
+  ],
+  "position": 662
+ },
+ {
+  "id": "ASGTVEHJ",
+  "name": "Expressing \"in the end\" with \"daodi\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "到底",
+  "example": "事情 到底 是 办 成 了 。",
+  "triggers": [
+   "到底"
+  ],
+  "position": 664
+ },
+ {
+  "id": "ASG78FDE",
+  "name": "Expressing a last chance with \"zaibu... jiu...\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "再不…… 就……",
+  "example": "再不 抢 就 没 了 。",
+  "triggers": [
+   "再",
+   "不",
+   "就"
+  ],
+  "position": 677
+ },
+ {
+  "id": "ASG9B0M8",
+  "name": "Doing something less with \"shao\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "少 + Verb",
+  "example": "请 少 放 点 盐 。",
+  "triggers": [
+   "少"
+  ],
+  "position": 685
+ },
+ {
+  "id": "ASG3IR71",
+  "name": "Expressing \"can't do without\" with \"shaobuliao\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 少不了 + Noun / Verb Phrase",
+  "example": "春节 少不了 吃 饺子。",
+  "triggers": [
+   "少",
+   "不",
+   "了"
+  ],
+  "position": 687
+ },
+ {
+  "id": "ASG8QS6H",
+  "name": "Advanced uses of \"zong\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "总 + Verb Phrase",
+  "example": "咱们 总 得 想 个 办法 啊。总 不 能 让 他 一个人 去 吧？",
+  "triggers": [
+   "总"
+  ],
+  "position": 689
+ },
+ {
+  "id": "ASGP6LVA",
+  "name": "Expressing \"over and over again\" with \"zaisan\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "再三 + Verb",
+  "example": "妈妈 再三 叮嘱 我 ， 要 注意 安全 。",
+  "triggers": [
+   "再",
+   "三"
+  ],
+  "position": 696
+ },
+ {
+  "id": "ASGTIMTS",
+  "name": "Expressing wasted efforts with \"bai\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "白 + Verb",
+  "example": "白 花 了 一 百 块 钱，这 件 衣服 不 能 穿。",
+  "triggers": [
+   "白"
+  ],
+  "position": 714
+ },
+ {
+  "id": "ASGS6UKN",
+  "name": "Making \"-ize\" and \"-ify\" verbs with \"hua\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "Noun / Adj. + 化",
+  "example": "KFC 的 中国 本土化 经营 做 得 非常 成功。",
+  "triggers": [
+   "化"
+  ],
+  "position": 718
+ },
+ {
+  "id": "ASGRLQGY",
+  "name": "After a specific time with \"yihou\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "Time / Verb + 以后",
+  "example": "10点 以后 ，我 不 在 家。",
+  "triggers": [
+   "以后"
+  ],
+  "position": 725
+ },
+ {
+  "id": "ASGPVFU1",
+  "name": "In the future in general with \"yihou\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "以后，⋯⋯",
+  "example": "以后，你 不要 问 我。",
+  "triggers": [
+   "以后"
+  ],
+  "position": 727
+ },
+ {
+  "id": "ASGLNKZR",
+  "name": "Comparing \"yihou\" and \"de shihou\"",
+  "level": "B1",
+  "category": "Time Words",
+  "pattern": "以后 vs 的时候",
+  "example": "打 篮球 的 时候 会 出 了 很 多 汗 ，所以 打 完 篮球 以后 我 要 洗澡 。",
+  "triggers": [
+   "以后",
+   "的",
+   "时候"
+  ],
+  "position": 729
+ },
+ {
+  "id": "ASGC3SCN",
+  "name": "Comparing \"yihou\" and \"zhihou\"",
+  "level": "B2",
+  "category": "Time Words",
+  "pattern": "以后 vs. 之后",
+  "example": "我 昨天 吃完 以后 去 了 超市 。之后 我 就 回家 了 。",
+  "triggers": [
+   "以后",
+   "之后"
+  ],
+  "position": 731
+ },
+ {
+  "id": "ASGF08B6",
+  "name": "Repeated actions in the past with \"you\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + Verb + 了 + 又 + Verb",
+  "example": "他 找 了 又 找，还 是 没 找到 他 的 钱 包。",
+  "triggers": [
+   "了",
+   "又"
+  ],
+  "position": 733
+ },
+ {
+  "id": "ASGQXARS",
+  "name": "Expressing \"towards\" with \"xiang\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "向 + Direction / Person + Verb",
+  "example": "你 必须 向 他 道歉！",
+  "triggers": [
+   "向"
+  ],
+  "position": 739
+ },
+ {
+  "id": "ASG8NM5E",
+  "name": "Expressing \"never\" with \"conglai\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "从来 + 不 / 没(有) + Verb",
+  "example": "她 从来 不 喝酒。我 从来 没有 去 过 美国。",
+  "triggers": [
+   "从来",
+   "不",
+   "没",
+   "有"
+  ],
+  "position": 741
+ },
+ {
+  "id": "ASG8KUHG",
+  "name": "Expressing \"always\" with \"conglai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "从来 + 都 (是) + Predicate",
+  "example": "我 从来 都 是 一个人，已经 习惯了。",
+  "triggers": [
+   "从来",
+   "都",
+   "是"
+  ],
+  "position": 743
+ },
+ {
+  "id": "ASGXJPJS",
+  "name": "Expressing \"always\" with \"zongshi\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "总是 + Verb",
+  "example": "他 总是 迟到。",
+  "triggers": [
+   "总是"
+  ],
+  "position": 745
+ },
+ {
+  "id": "ASGGPG97",
+  "name": "Listing things with \"a\"",
+  "level": "B2",
+  "category": "Auxiliary Words",
+  "pattern": "⋯⋯啊，⋯⋯啊",
+  "example": "我们 店里 有 水饺 啊，盖浇饭 啊 ⋯⋯",
+  "triggers": [
+   "啊"
+  ],
+  "position": 751
+ },
+ {
+  "id": "ASGBA782",
+  "name": "Expressing \"no\" (noun) \"to\" (verb) with \"wu... ke...\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "无 + Noun + 可 + Verb",
+  "example": "我 无 话 可 说。",
+  "triggers": [
+   "无",
+   "可"
+  ],
+  "position": 768
+ },
+ {
+  "id": "ASGMX0ZS",
+  "name": "Using \"er\" to explain contrasting ideas",
+  "level": "B2",
+  "category": "Conjunctions",
+  "pattern": "Sentence 1， + 而 + Sentence 2",
+  "example": "以后 后悔 的 人 不 是 我，而 是 你 自己。",
+  "triggers": [
+   "而"
+  ],
+  "position": 770
+ },
+ {
+  "id": "ASGI2KHC",
+  "name": "Inability with \"mei banfa\"",
+  "level": "A2",
+  "category": "Verb phrases",
+  "pattern": "没办法 + Verb",
+  "example": "我 没 办法 帮 你。",
+  "triggers": [
+   "没",
+   "办法"
+  ],
+  "position": 784
+ },
+ {
+  "id": "ASG75EE1",
+  "name": "Expressing \"when\" using \"dang\"",
+  "level": "B2",
+  "category": "Nouns",
+  "pattern": "当……的时候，……",
+  "example": "当 我 见到 他 的 时候 ，我 完全 忘 了 要 问 他 什么 。",
+  "triggers": [
+   "当",
+   "的",
+   "时候"
+  ],
+  "position": 788
+ },
+ {
+  "id": "ASGT0GYL",
+  "name": "Complement \"-huai le\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 坏了",
+  "example": "坏 了。",
+  "triggers": [
+   "坏",
+   "了"
+  ],
+  "position": 796
+ },
+ {
+  "id": "ASG1PTJX",
+  "name": "Result complement \"-xiaqu\"",
+  "level": "B1",
+  "category": "Complements",
+  "pattern": "Verb + 下去",
+  "example": "这个 故事 太 无聊 了 ，我 听 不 下去 了 。",
+  "triggers": [
+   "下去"
+  ],
+  "position": 798
+ },
+ {
+  "id": "ASGNP0WV",
+  "name": "Expressing \"even\" with \"lian\" and \"dou\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "连 + Subj. + 都 (+ 不 / 没) + Verb",
+  "example": "你 连 小狗 都 怕 ？",
+  "triggers": [
+   "连",
+   "都",
+   "不",
+   "没"
+  ],
+  "position": 800
+ },
+ {
+  "id": "ASGF273F",
+  "name": "Advanced uses of \"lian\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "连 + Verb + 都 + 不 / 没 + Verb (，就 ⋯⋯)",
+  "example": "朋友 ？这个 人 我 连 见 都 没 见 过 。",
+  "triggers": [
+   "连",
+   "都",
+   "不",
+   "没",
+   "就"
+  ],
+  "position": 802
+ },
+ {
+  "id": "ASGDF1F7",
+  "name": "Expressing \"quite\" with \"ting\"",
+  "level": "B1",
+  "category": "Adverbs with Adjectives",
+  "pattern": "挺 + Adj. + 的",
+  "example": "你 男朋友 挺 帅 的 。",
+  "triggers": [
+   "挺",
+   "的"
+  ],
+  "position": 804
+ },
+ {
+  "id": "ASGNPO4V",
+  "name": "Name-calling with \"zhege\"",
+  "level": "B2",
+  "category": "Nouns",
+  "pattern": "Noun + 这个 + Category",
+  "example": "你 这个 坏蛋，就 没 做 过 一 件 好 事。",
+  "triggers": [
+   "这个"
+  ],
+  "position": 807
+ },
+ {
+  "id": "ASG1DXUD",
+  "name": "Passive verbs with \"shou\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "受 + Verb",
+  "example": "他 为 人 善良 ， 很 受 尊重 。",
+  "triggers": [
+   "受"
+  ],
+  "position": 819
+ },
+ {
+  "id": "ASG4K5WH",
+  "name": "Advanced \"le\" after an object",
+  "level": "B2",
+  "category": "Particles",
+  "pattern": "Verb + Obj. + 了",
+  "example": "我 吃 了 早饭 。",
+  "triggers": [
+   "了"
+  ],
+  "position": 825
+ },
+ {
+  "id": "ASGJPQ0Q",
+  "name": "Assessing situations with \"kanlai\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "看来 + Judgment to the Situation；在 + Person + 看来",
+  "example": "看来他不来了，都这么晚了。",
+  "triggers": [
+   "看来",
+   "在"
+  ],
+  "position": 827
+ },
+ {
+  "id": "ASG0NDS6",
+  "name": "Expressing \"no matter\" with \"buguan\"",
+  "level": "B2",
+  "category": "\"No Matter\" Statements",
+  "pattern": "不管⋯⋯，都 / 也⋯⋯",
+  "example": "不管 身体 好 坏 ， 他 都 工作 到 深夜 。",
+  "triggers": [
+   "不管",
+   "都",
+   "也"
+  ],
+  "position": 840
+ },
+ {
+  "id": "ASG890CA",
+  "name": "Advanced \"le\" with complements",
+  "level": "B2",
+  "category": "Particles",
+  "pattern": "Subj. + Verb + 了 + Complement",
+  "example": "走 了 上去 。",
+  "triggers": [
+   "了"
+  ],
+  "position": 844
+ },
+ {
+  "id": "ASGKWV6F",
+  "name": "Expressing \"even\" with \"shenzhi\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "甚至",
+  "example": "他们 贡献 出 所有 的 精力 ， 甚至 最 宝贵 的 生命 。",
+  "triggers": [
+   "甚至"
+  ],
+  "position": 849
+ },
+ {
+  "id": "ASG6B21A",
+  "name": "Expressing \"as a result\" with \"jieguo\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Reason / Condition ，结果 + Result",
+  "example": "他 没 好好 复习 ，结果 没 通过 考试。",
+  "triggers": [
+   "结果"
+  ],
+  "position": 853
+ },
+ {
+  "id": "ASGW7YXP",
+  "name": "Softening the tone of questions with \"ne\"",
+  "level": "B2",
+  "category": "Particles",
+  "pattern": "⋯⋯呢？",
+  "example": "他 人 在 哪 呢 ？",
+  "triggers": [
+   "呢"
+  ],
+  "position": 862
+ },
+ {
+  "id": "ASG8R2V8",
+  "name": "Potential complement \"-bu dong\" for not understanding",
+  "level": "A2",
+  "category": "Complements",
+  "pattern": "Verb + 不懂",
+  "example": "我 听不懂 。",
+  "triggers": [
+   "不",
+   "懂"
+  ],
+  "position": 865
+ },
+ {
+  "id": "ASGJDV3Y",
+  "name": "Expressing \"only if\" with \"zhiyou\"",
+  "level": "B2",
+  "category": "Conditional Statements",
+  "pattern": "只有⋯⋯，才⋯⋯",
+  "example": "只有 你 帮忙 ， 我 才 能 完成 任务 。",
+  "triggers": [
+   "只有",
+   "才"
+  ],
+  "position": 867
+ },
+ {
+  "id": "ASGVMC4B",
+  "name": "Expressing the self-evident with \"ma\"",
+  "level": "B1",
+  "category": "Particles",
+  "pattern": "Statement + 嘛",
+  "example": "大家 有 话 就 说 嘛 。",
+  "triggers": [
+   "嘛"
+  ],
+  "position": 869
+ },
+ {
+  "id": "ASGB33AE",
+  "name": "Marking a topic with \"ma\"",
+  "level": "B2",
+  "category": "Particles",
+  "pattern": "Statement + 嘛",
+  "example": "大家 有 话 就 说 嘛 。",
+  "triggers": [
+   "嘛"
+  ],
+  "position": 871
+ },
+ {
+  "id": "ASGLI7GW",
+  "name": "Expressing \"ever since\" with \"zicong\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "(自)从⋯⋯",
+  "example": "自从 来 了 上海 ， 他 就 习惯 了 繁忙 的 生活 。",
+  "triggers": [
+   "自",
+   "从"
+  ],
+  "position": 881
+ },
+ {
+  "id": "ASGEYQ9O",
+  "name": "Expressing actions in progress (full form)",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "正在 + Verb + 着 + 呢",
+  "example": "我 正在 吃饭 呢 。",
+  "triggers": [
+   "正在",
+   "着",
+   "呢"
+  ],
+  "position": 890
+ },
+ {
+  "id": "ASGEZ2HN",
+  "name": "Expressing passive voice with \"gei\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "Receiver + 给 + The Doer + 给 + Verb Phrase",
+  "example": "事情 给 解决 了 吗？",
+  "triggers": [
+   "给"
+  ],
+  "position": 899
+ },
+ {
+  "id": "ASGUQUPG",
+  "name": "Emphasizing a negation with \"bing\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 并 + 不 + Verb / Adj.",
+  "example": "当 金融 分析 人员 并 不是 我 的 梦想。",
+  "triggers": [
+   "并",
+   "不"
+  ],
+  "position": 918
+ },
+ {
+  "id": "ASG5A494",
+  "name": "Expressing \"within\" a period of time using \"zai... nei\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "在 + Time + 内",
+  "example": "你 必须 在 一周 内 完成。",
+  "triggers": [
+   "在",
+   "内"
+  ],
+  "position": 920
+ },
+ {
+  "id": "ASGA0098",
+  "name": "Indicating negative impact with \"haide\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "害得 + Verb Phrase",
+  "example": "老师 给 的 作业 太 难 了 ， 害得 我 浪费 了 一 个 下午 学习 。",
+  "triggers": [
+   "害",
+   "得"
+  ],
+  "position": 931
+ },
+ {
+  "id": "ASG68DA5",
+  "name": "Using \"jiang\" as a formal \"ba\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 将 + Obj. + Verb Phrase",
+  "example": "学校 将 那些 经常 逃学 的 学生 都 开除 了 。",
+  "triggers": [
+   "将"
+  ],
+  "position": 936
+ },
+ {
+  "id": "ASGQ1KOY",
+  "name": "Expressing \"just now\" with \"gangcai\"",
+  "level": "A2",
+  "category": "Nouns",
+  "pattern": "刚才 + Verb",
+  "example": "你 刚才 说 什么 了？",
+  "triggers": [
+   "刚才"
+  ],
+  "position": 950
+ },
+ {
+  "id": "ASGJFFWG",
+  "name": "Comparing \"gang\" and \"gangcai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "刚 vs. 刚才",
+  "example": "你 刚才 去 哪儿 了？我  刚 回来 。",
+  "triggers": [
+   "刚",
+   "刚才"
+  ],
+  "position": 952
+ },
+ {
+  "id": "ASGN3IGH",
+  "name": "Challenging a verb with \"shenme\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "Verb + 什么 + Obj.",
+  "example": "没有 钱 看 什么 电影。",
+  "triggers": [
+   "什么"
+  ],
+  "position": 955
+ },
+ {
+  "id": "ASGBZ578",
+  "name": "Using \"lai\" to connect two verb phrases",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "通过 / 用 + Method + 来 + Verb Phrase",
+  "example": "用 这 种 方法 来 赚钱 ，真 丢人 。",
+  "triggers": [
+   "通过",
+   "用",
+   "来"
+  ],
+  "position": 957
+ },
+ {
+  "id": "ASG9B1E3",
+  "name": "Expressing \"through\" with \"tongguo\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "通过 + Agent / Method ，⋯⋯",
+  "example": "我们 是 通过 他 的 朋友 找到 他 的 。",
+  "triggers": [
+   "通过"
+  ],
+  "position": 959
+ },
+ {
+  "id": "ASG1RE80",
+  "name": "Expressing contrariness with \"dao\"",
+  "level": "B2",
+  "category": "\"But\" Statements",
+  "pattern": "倒⋯⋯",
+  "example": "雨 没有 停 ， 倒 大 起来 了 。",
+  "triggers": [
+   "倒"
+  ],
+  "position": 970
+ },
+ {
+  "id": "ASGAD070",
+  "name": "Expressing \"toward\" with \"wang\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "往 + Direction Word",
+  "example": "往 + Direction / Place + Verb",
+  "triggers": [
+   "往"
+  ],
+  "position": 973
+ },
+ {
+  "id": "ASG1MD4N",
+  "name": "Comparing specifically with \"xiang\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "Noun 1 + 不像 + Noun 2 + 这么 / 那么 + Adj. / Verb",
+  "example": "你 怎么 像 我 妈 一样 啰嗦！",
+  "triggers": [
+   "不",
+   "像",
+   "这么",
+   "那么"
+  ],
+  "position": 975
+ },
+ {
+  "id": "ASGPM3MY",
+  "name": "Expressing \"a little too\" with \"you dian\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "有点(儿) + Adj.",
+  "example": "我 有点 饿 。",
+  "triggers": [
+   "有点",
+   "儿"
+  ],
+  "position": 982
+ },
+ {
+  "id": "ASGV55Y4",
+  "name": "Comparing \"youdian\" and \"yidian\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "有点 vs. 一点",
+  "example": "这 衣服 有点 贵 ，便宜 一点 吧。",
+  "triggers": [
+   "有点",
+   "一点"
+  ],
+  "position": 984
+ },
+ {
+  "id": "ASGMCP9V",
+  "name": "Rhetorical questions with \"nandao\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "难道⋯⋯？",
+  "example": "这 都 是 你 引起 的 ， 难道 你 就 不 内疚 ？",
+  "triggers": [
+   "难道"
+  ],
+  "position": 986
+ },
+ {
+  "id": "ASGE4B94",
+  "name": "Comparisons with \"biqi\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "比起 + B (+ 来) ，A ~",
+  "example": "比起上海 ，我 老家 的 物价 便宜 多 了。",
+  "triggers": [
+   "比",
+   "起",
+   "来"
+  ],
+  "position": 992
+ },
+ {
+  "id": "ASGVME5V",
+  "name": "Adjectives with \"-ji le\"",
+  "level": "B1",
+  "category": "Adjectives",
+  "pattern": "Adj. + 极了",
+  "example": "这个 主意 好 极了 。",
+  "triggers": [
+   "极了"
+  ],
+  "position": 994
+ },
+ {
+  "id": "ASG7AUNJ",
+  "name": "Using \"zhe\" when \"verbing away\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "Verb + 着 + Verb + 着 + 就 + Comment + 了",
+  "example": "走 着 走 着 ， 他们 到 家 了 。",
+  "triggers": [
+   "着",
+   "就",
+   "了"
+  ],
+  "position": 1010
+ },
+ {
+  "id": "ASG16EF6",
+  "name": "Expressing \"once\" with \"cengjing\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 曾经 + Verb + 过 (+ Obj.)",
+  "example": "他 说 他 曾经 做 过 很多 傻事 。",
+  "triggers": [
+   "曾经",
+   "过"
+  ],
+  "position": 1013
+ },
+ {
+  "id": "ASGEG2QB",
+  "name": "The \"however\" adverb \"que\"",
+  "level": "B2",
+  "category": "\"But\" Statements",
+  "pattern": "⋯⋯，却⋯⋯",
+  "example": "他们 一见钟情 ， 却 没有 在 一起 。",
+  "triggers": [
+   "却"
+  ],
+  "position": 1029
+ },
+ {
+  "id": "ASGI96BQ",
+  "name": "Expressing distance with \"li\"",
+  "level": "A2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Place 1 + 离 + Place 2 + Adv. + 近 / 远",
+  "example": "我 家 离 大学 很 近。",
+  "triggers": [
+   "离",
+   "近",
+   "远"
+  ],
+  "position": 1031
+ },
+ {
+  "id": "ASG4OM4T",
+  "name": "Advanced result complements \"zhu\", \"kai\", and \"chulai\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 住 / 开 / 出(来)",
+  "example": "抓住 那个 小偷 ！",
+  "triggers": [
+   "住",
+   "开",
+   "出",
+   "来"
+  ],
+  "position": 1047
+ },
+ {
+  "id": "ASGSCN01",
+  "name": "Advanced uses of direction complement \"-qilai\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 起来",
+  "example": "宝宝，你 应该 把 你 的 玩具 收  起来 。",
+  "triggers": [
+   "起来"
+  ],
+  "position": 1066
+ },
+ {
+  "id": "ASG81QV3",
+  "name": "Expressing difficulty with \"hao (bu) rongyi\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "好(不)容易",
+  "example": "我 好不容易 才 打通 了 银行 的 服务 热线。",
+  "triggers": [
+   "好",
+   "不",
+   "容易"
+  ],
+  "position": 1081
+ },
+ {
+  "id": "ASGM5ZAB",
+  "name": "Complement \"-zhao\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 着",
+  "example": "宝宝 刚 睡 着。",
+  "triggers": [
+   "着"
+  ],
+  "position": 1084
+ },
+ {
+  "id": "ASGXI560",
+  "name": "Expressing \"although\" with \"suiran\" and \"danshi\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "虽然⋯⋯ ，但是 / 可是⋯⋯",
+  "example": "虽然 渴 了，但是 不 想 喝 啤酒。",
+  "triggers": [
+   "虽然",
+   "但是",
+   "可是"
+  ],
+  "position": 1086
+ },
+ {
+  "id": "ASGCUSIV",
+  "name": "Tricky uses of \"dao\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 到",
+  "example": "他 做 到 了 吗 ？",
+  "triggers": [
+   "到"
+  ],
+  "position": 1103
+ },
+ {
+  "id": "ASGYJQAG",
+  "name": "Using \"lai\" and \"qu\" when \"verbing around\"",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 来 + Verb + 去",
+  "example": "他 考虑 来 考虑 去 ， 最后 还是 决定 回 学校 。",
+  "triggers": [
+   "来",
+   "去"
+  ],
+  "position": 1121
+ },
+ {
+  "id": "ASG5T7XC",
+  "name": "Causative verbs",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "Subj. + 让 / 叫 / 请 / 使 + Person + Predicate",
+  "example": "你 为什么 不 让 我 去 ？",
+  "triggers": [
+   "让",
+   "叫",
+   "请",
+   "使"
+  ],
+  "position": 1124
+ },
+ {
+  "id": "ASGC6E1C",
+  "name": "Expressing \"all the way until\" with \"zhidao\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "直到 + Time / Event ，Subj. + 才 ⋯⋯",
+  "example": "直到 十二 点 半 ，我 才 做 完 作业 。",
+  "triggers": [
+   "直到",
+   "才"
+  ],
+  "position": 1130
+ },
+ {
+  "id": "ASG8OLAE",
+  "name": "Expressing \"simply\" with \"jianzhi\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "简直⋯⋯",
+  "example": "她 简直 要 哭 出来 了 。",
+  "triggers": [
+   "简直"
+  ],
+  "position": 1134
+ },
+ {
+  "id": "ASG9E9A6",
+  "name": "Expressing \"only after\" with \"cai\"",
+  "level": "B2",
+  "category": "Conditional Statements",
+  "pattern": "⋯⋯，才⋯⋯",
+  "example": "那 本 书 我 看 了 两 遍 才 看 懂。",
+  "triggers": [
+   "才"
+  ],
+  "position": 1140
+ },
+ {
+  "id": "ASGF1TQ2",
+  "name": "Expressing \"even if…\" with \"jiushi\"",
+  "level": "B2",
+  "category": "\"Even If\" Statements",
+  "pattern": "就是⋯⋯，也⋯⋯",
+  "example": "就是 天气 不 好 ， 我 也 要 出去 玩 。",
+  "triggers": [
+   "就是",
+   "也"
+  ],
+  "position": 1158
+ },
+ {
+  "id": "ASGD1LNT",
+  "name": "Expressing \"within (it/them)\" with \"qizhong\"",
+  "level": "B2",
+  "category": "Nouns",
+  "pattern": "其中",
+  "example": "有 五 个 人 报名 了 ， 其中 两 个 是 女生 。",
+  "triggers": [
+   "其中"
+  ],
+  "position": 1169
+ },
+ {
+  "id": "ASGQRS3P",
+  "name": "Advanced uses of \"ba\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "把 + Noun + Verb⋯⋯",
+  "example": "我 没有 把 它 当回事。",
+  "triggers": [
+   "把"
+  ],
+  "position": 1177
+ },
+ {
+  "id": "ASGEHTV5",
+  "name": "Expressing \"a bit too\"",
+  "level": "B2",
+  "category": "Adjectives",
+  "pattern": "Adj. + 了 + (一) 点儿",
+  "example": "那个 地方 离 我家 远 了 点儿 。",
+  "triggers": [
+   "了",
+   "一",
+   "点儿"
+  ],
+  "position": 1186
+ },
+ {
+  "id": "ASG1CEA8",
+  "name": "Expressing \"to come from\" with \"laizi\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "Subj. + 来自 + Place",
+  "example": "我 来自 美国。",
+  "triggers": [
+   "来自"
+  ],
+  "position": 1188
+ },
+ {
+  "id": "ASGB44F6",
+  "name": "Expressing \"the more... the more...\" with \"yue… yue…\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj.＋越＋Verb＋越 + Adj. / Verb",
+  "example": "她 越 想 越 生气 。",
+  "triggers": [
+   "越"
+  ],
+  "position": 1190
+ },
+ {
+  "id": "ASG8DVSO",
+  "name": "Basic comparisons with \"bu bi\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Noun 1 + 不比 + Noun 2 + Adj.",
+  "example": "你 不 比 别人 笨 。",
+  "triggers": [
+   "不",
+   "比"
+  ],
+  "position": 1195
+ },
+ {
+  "id": "ASG6F157",
+  "name": "Expressing \"originally\" with \"benlai\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "本来⋯⋯",
+  "example": "搬家 本来 就 很 麻烦。",
+  "triggers": [
+   "本来"
+  ],
+  "position": 1198
+ },
+ {
+  "id": "ASGGNXVR",
+  "name": "Emphasizing the doer of an action with \"you\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "由 + Person + Verb",
+  "example": "这个 项目 由 小李 来 完成 。",
+  "triggers": [
+   "由"
+  ],
+  "position": 1200
+ },
+ {
+  "id": "ASG5C89R",
+  "name": "Combining verbs with \"bing\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "Verb Phrase 1 + 并 / 并且 + Verb Phrase 2",
+  "example": "我 同意 并且 支持 你 的 决定 。",
+  "triggers": [
+   "并",
+   "并且"
+  ],
+  "position": 1205
+ },
+ {
+  "id": "ASGB781C",
+  "name": "Expressing \"moreover\" with \"bingqie\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "Verb Phrase 1 + 并 / 并且 + Verb Phrase 2",
+  "example": "我 同意 并且 支持 你 的 决定 。",
+  "triggers": [
+   "并",
+   "并且"
+  ],
+  "position": 1207
+ },
+ {
+  "id": "ASG3JELV",
+  "name": "Comparing \"dui\" and \"duiyu\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "对 vs. 对于",
+  "example": "我 对 她 很 了解 ，她 不 会 这么 做 的 。",
+  "triggers": [
+   "对",
+   "对于"
+  ],
+  "position": 1209
+ },
+ {
+  "id": "ASG1HNBU",
+  "name": "Comparing \"guanyu\" and \"duiyu\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "关于 vs 对于",
+  "example": "对于 那 个 人， 关于 我们 的 学习 方法",
+  "triggers": [
+   "关于",
+   "对于"
+  ],
+  "position": 1211
+ },
+ {
+  "id": "ASGMD0YY",
+  "name": "Expressing \"unless\" with \"chufei\"",
+  "level": "B2",
+  "category": "Conditional Statements",
+  "pattern": "除非⋯⋯ ，才⋯⋯",
+  "example": "除非 你 求情 ，他 才 肯 帮忙 。",
+  "triggers": [
+   "除非",
+   "才"
+  ],
+  "position": 1214
+ },
+ {
+  "id": "ASGXGADL",
+  "name": "Conditions with \"yao\" and \"jiu\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "要 + Verb + 就 + Verb ……",
+  "example": "要 买 就 买 ，我们 快 关门 了 。",
+  "triggers": [
+   "要",
+   "就"
+  ],
+  "position": 1216
+ },
+ {
+  "id": "ASG700A5",
+  "name": "Expressing \"finally\" with \"zhongyu\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 终于 + Predicate + 了",
+  "example": "你 终于 到 了 。",
+  "triggers": [
+   "终于",
+   "了"
+  ],
+  "position": 1223
+ },
+ {
+  "id": "ASGP8DXU",
+  "name": "Expressing \"any\" with \"renhe\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "任何 + Noun + 都 / 也 ……",
+  "example": "我 的 弟弟 特别 顽固，任何 的 人 都 不 能 说服 他。",
+  "triggers": [
+   "任何",
+   "都",
+   "也"
+  ],
+  "position": 1232
+ },
+ {
+  "id": "ASGEB7F5",
+  "name": "Expressing \"from\" with \"cong... zhong\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "从 + noun + 中 + result",
+  "example": "我从 书中学习了很多知识。",
+  "triggers": [
+   "从",
+   "中"
+  ],
+  "position": 1251
+ },
+ {
+  "id": "ASGD19DA",
+  "name": "Expressing \"related to...\" with \"you guan de\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "跟 / 和 + Topic + 有关的 + Noun",
+  "example": "与 他有关的事情，我都不想知道。",
+  "triggers": [
+   "跟",
+   "和",
+   "有关",
+   "的"
+  ],
+  "position": 1261
+ },
+ {
+  "id": "ASG2KQZI",
+  "name": "Expressing \"in addition\" with \"lingwai\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯ ，另外 ，⋯⋯",
+  "example": "希望 你 不要 再 迟到 了。另外，你 应该 穿 得 正式 一点 。",
+  "triggers": [
+   "另外"
+  ],
+  "position": 1266
+ },
+ {
+  "id": "ASGD3FE5",
+  "name": "Expressing \"the other\" with \"lingwai\"",
+  "level": "B1",
+  "category": "Noun Phrases",
+  "pattern": "另外 + Number + Measure Word + Noun",
+  "example": "我 有 两 个 手机 ，一 个 是 小米 ，另 一 个 是 iPhone 。",
+  "triggers": [
+   "另外"
+  ],
+  "position": 1268
+ },
+ {
+  "id": "ASGL4O5E",
+  "name": "Expressing indifference with \"jiu\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Verb + 就 + Verb",
+  "example": "走 就 走 ，我 早就 不 想 干 了 ！",
+  "triggers": [
+   "就"
+  ],
+  "position": 1270
+ },
+ {
+  "id": "ASGUQ861",
+  "name": "Expressing \"not even one\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "一 + Measure Word + (Noun) + 也 / 都 + 不 / 没 + Verb",
+  "example": "一 句 中文 都 不 会 说 。",
+  "triggers": [
+   "一",
+   "也",
+   "都",
+   "不",
+   "没"
+  ],
+  "position": 1288
+ },
+ {
+  "id": "ASG18JOA",
+  "name": "Expressing purpose with \"hao\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Action ，好 + Purpose",
+  "example": "她 睡前 常常 喝 牛奶 ，好 入睡 。",
+  "triggers": [
+   "好"
+  ],
+  "position": 1306
+ },
+ {
+  "id": "ASGECD0E",
+  "name": "Expressing \"don't need to\" with \"buyong\"",
+  "level": "B1",
+  "category": "Auxiliary verbs",
+  "pattern": "Subj. + 不用 + Verb Phrase",
+  "example": "不用 担心 。",
+  "triggers": [
+   "不用"
+  ],
+  "position": 1321
+ },
+ {
+  "id": "ASGYXI5X",
+  "name": "Providing two options with double \"huozhe\"",
+  "level": "B2",
+  "category": "Either… or",
+  "pattern": "或者⋯⋯，或者⋯⋯",
+  "example": "只 有 一 块 蛋糕，或者 你 吃 或者 我 吃。",
+  "triggers": [
+   "或者"
+  ],
+  "position": 1325
+ },
+ {
+  "id": "ASGVH4Q5",
+  "name": "Structure of days of the week",
+  "level": "A1",
+  "category": "Numbers",
+  "pattern": "星期 + Number",
+  "example": "今天 星期三 。",
+  "triggers": [
+   "星期"
+  ],
+  "position": 1330
+ },
+ {
+  "id": "ASGR6Q2J",
+  "name": "Expressing \"let alone\" with \"bie shuo\"",
+  "level": "B2",
+  "category": "Let alone",
+  "pattern": "别说⋯⋯，就是⋯⋯",
+  "example": "别说 一百 ， 就是 一 块 钱 我 也 不 给 你 。",
+  "triggers": [
+   "别",
+   "说",
+   "就是"
+  ],
+  "position": 1343
+ },
+ {
+  "id": "ASGLOS9C",
+  "name": "Comparing \"cai\" and \"jiu\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "才 vs 就",
+  "example": "我 花 了 两 天 才修 好 ，你 一下子 就 弄 坏 了。",
+  "triggers": [
+   "才",
+   "就"
+  ],
+  "position": 1362
+ },
+ {
+  "id": "ASGTBHBG",
+  "name": "Comparing \"zai\" and \"you\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "再 vs 又",
+  "example": "我不能再喝了，你走后我又喝了两瓶 。",
+  "triggers": [
+   "再",
+   "又"
+  ],
+  "position": 1380
+ },
+ {
+  "id": "ASGC5Y86",
+  "name": "Comparing \"gen\" and \"dui\"",
+  "level": "B2",
+  "category": "Conjunctions",
+  "pattern": "跟 vs 对",
+  "example": "那 个 帅哥 在 对 我 招手！那 你 要 跟 他 去 吗？",
+  "triggers": [
+   "跟",
+   "对"
+  ],
+  "position": 1399
+ },
+ {
+  "id": "ASGAC1P9",
+  "name": "Expressing \"half\" with \"ban\"",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "Number + Measure Word + 半 + Noun",
+  "example": "三 个 半 小时",
+  "triggers": [
+   "半"
+  ],
+  "position": 1407
+ },
+ {
+  "id": "ASG863DE",
+  "name": "Comparing \"gei\" and \"wei\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "给 vs. 为",
+  "example": "为 你 准备 的 礼物",
+  "triggers": [
+   "给",
+   "为"
+  ],
+  "position": 1417
+ },
+ {
+  "id": "ASGXXP6M",
+  "name": "Advanced usages of the contrary \"dao\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subject + Verb + 得 + 倒 + Adjective",
+  "example": "你 说 得 倒 容易，那 你来！",
+  "triggers": [
+   "得",
+   "倒"
+  ],
+  "position": 1436
+ },
+ {
+  "id": "ASGBUXN7",
+  "name": "Expressing \"even if…\" with \"jishi\"",
+  "level": "B2",
+  "category": "\"Even If\" Statements",
+  "pattern": "即使⋯⋯，也⋯⋯",
+  "example": "即使 你 没胃口 ， 也 要 吃 一点 。",
+  "triggers": [
+   "即使",
+   "也"
+  ],
+  "position": 1438
+ },
+ {
+  "id": "ASGOR3M4",
+  "name": "Expressing \"I bet\" using \"liang\"",
+  "level": "C1",
+  "category": "Verbs",
+  "pattern": "谅 + Subject + Verb phrase",
+  "example": "谅 他 也 不敢！",
+  "triggers": [
+   "谅"
+  ],
+  "position": 1469
+ },
+ {
+  "id": "ASG72HKP",
+  "name": "Expressing \"rather\" with \"bijiao\"",
+  "level": "B1",
+  "category": "Adverbs with Adjectives",
+  "pattern": "Subj. + 比较 + Adj.",
+  "example": "这个 问题 比较 简单 。",
+  "triggers": [
+   "比较"
+  ],
+  "position": 1476
+ },
+ {
+  "id": "ASGL6JOE",
+  "name": "Counting money",
+  "level": "A2",
+  "category": "Numbers and Measure Words",
+  "pattern": "Number + 块 / 元 (+ Number + 毛 / 角) (+ 钱)",
+  "example": "给 你 五 块 三 毛。",
+  "triggers": [
+   "块",
+   "元",
+   "毛",
+   "角",
+   "钱"
+  ],
+  "position": 1503
+ },
+ {
+  "id": "ASGA1B87",
+  "name": "Emphasizing with \"henshi\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 很是 + Adj.",
+  "example": "这样做 很是 必要 。",
+  "triggers": [
+   "很",
+   "是"
+  ],
+  "position": 1508
+ },
+ {
+  "id": "ASGVRGW2",
+  "name": "Expressing \"if… then…\" with \"jiashi\"",
+  "level": "C1",
+  "category": "\"If\" Statements",
+  "pattern": "假使⋯⋯，就⋯⋯",
+  "example": "假使 你 遇到 坏人 ， 就 报警 。",
+  "triggers": [
+   "假",
+   "使",
+   "就"
+  ],
+  "position": 1510
+ },
+ {
+  "id": "ASGB316B",
+  "name": "Expressing \"as if\" with \"sihu\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 似乎 ⋯⋯",
+  "example": "你 说 得 似乎 很 有道理 。",
+  "triggers": [
+   "似乎"
+  ],
+  "position": 1541
+ },
+ {
+  "id": "ASGJIFI9",
+  "name": "Expressing \"a full\" with \"zuzu\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "足足 + Verb",
+  "example": "姚明 身高 足足 有 2.26米。",
+  "triggers": [
+   "足"
+  ],
+  "position": 1580
+ },
+ {
+  "id": "ASGGJA6A",
+  "name": "Expressing \"to be worth\" doing with \"zhide\"",
+  "level": "B2",
+  "category": "Verb phrases",
+  "pattern": "值得 + Verb",
+  "example": "这个 想法 不错 ， 值得 考虑 。",
+  "triggers": [
+   "值得"
+  ],
+  "position": 1594
+ },
+ {
+  "id": "ASGQAN74",
+  "name": "The opposite of \"chabuduo\" is \"cha hen duo\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 差很多",
+  "example": "中国 文化 和 西方 文化 差 很 多 。",
+  "triggers": [
+   "差",
+   "很多"
+  ],
+  "position": 1600
+ },
+ {
+  "id": "ASGCWHNF",
+  "name": "Expressing various aspects with \"yi fangmian\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "一方面⋯⋯，一方面⋯⋯",
+  "example": "一 方面 他 很 喜欢 这 份 工作 ， 一 方面 他 又 觉得 工资 太 低 。",
+  "triggers": [
+   "一",
+   "方面"
+  ],
+  "position": 1602
+ },
+ {
+  "id": "ASGTKXFR",
+  "name": "Expressing \"all along\" with \"yuanlai\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 原来 + Predicate",
+  "example": "原来 昨天 那个 人 是 你 啊 。",
+  "triggers": [
+   "原来"
+  ],
+  "position": 1610
+ },
+ {
+  "id": "ASG56QKW",
+  "name": "Comparing \"benlai\" and \"yuanlai\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "本来 vs 原来",
+  "example": "他原来的 公司  本来 要 派 他 去 上海，但是 因为 家 里 有事，去 不了 了。",
+  "triggers": [
+   "本来",
+   "原来"
+  ],
+  "position": 1612
+ },
+ {
+  "id": "ASGYYOXD",
+  "name": "Expressing \"could it be possible that\" with \"mofei\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "Subject + 莫非 + rhetorical question",
+  "example": "莫非 你 真的 相信 他？",
+  "triggers": [
+   "莫",
+   "非"
+  ],
+  "position": 1626
+ },
+ {
+  "id": "ASGU3ZV1",
+  "name": "Expressing \"once...then...\" with \"yidan...jiu...\"",
+  "level": "B2",
+  "category": "Conditional Statements",
+  "pattern": "一旦⋯⋯，就⋯⋯",
+  "example": "一旦 我 找 好 的 工作，我 就 会 安心。",
+  "triggers": [
+   "一旦",
+   "就"
+  ],
+  "position": 1640
+ },
+ {
+  "id": "ASGMT1M1",
+  "name": "Expressing \"one of\" with \"zhiyi\"",
+  "level": "B1",
+  "category": "Noun Phrases",
+  "pattern": "⋯⋯之一",
+  "example": "你 是 我 最 好 的 朋友 之一 。",
+  "triggers": [
+   "之一"
+  ],
+  "position": 1650
+ },
+ {
+  "id": "ASG47D26",
+  "name": "Expressing \"again and again\" with \"yizai\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 一再 + Verb",
+  "example": "我 一再  跟 你 说 ，出门在外 要 小心 。",
+  "triggers": [
+   "一",
+   "再"
+  ],
+  "position": 1652
+ },
+ {
+  "id": "ASG9B210",
+  "name": "Expressing \"about to\" with \"jiuyao\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "还有 + Time Period + 就要 + Verb Phrase + 了",
+  "example": "还有 五 天 就要 放假 了 。",
+  "triggers": [
+   "还有",
+   "就要",
+   "了"
+  ],
+  "position": 1661
+ },
+ {
+  "id": "ASGUEFAL",
+  "name": "Expressing \"therefore\" with \"yinci\"",
+  "level": "B2",
+  "category": "Cause/Effect Statements",
+  "pattern": "⋯⋯，因此⋯⋯",
+  "example": "这 家 饭店 涨价 了 ， 因此 顾客 也 少 了 。",
+  "triggers": [
+   "因此"
+  ],
+  "position": 1678
+ },
+ {
+  "id": "ASGXJYJD",
+  "name": "Comparing \"genju\" and \"ju\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "根据 vs 据",
+  "example": "据 他 说，灾情 并 不是 很 严重。根据我的 看法，他 是 个 很 负 责任 的 人。",
+  "triggers": [
+   "根据",
+   "据"
+  ],
+  "position": 1687
+ },
+ {
+  "id": "ASGVA70K",
+  "name": "Expressing \"nearly\" with \"jihu\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 几乎 + Verb",
+  "example": "他 的 头发 几乎 全 白 了 。",
+  "triggers": [
+   "几乎"
+  ],
+  "position": 1689
+ },
+ {
+  "id": "ASGZRPCK",
+  "name": "Expressing \"both… and…\" with \"ji...you\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "既⋯⋯也 / 又⋯⋯",
+  "example": "他 做 事情 既 快 又 好。",
+  "triggers": [
+   "既",
+   "也",
+   "又"
+  ],
+  "position": 1701
+ },
+ {
+  "id": "ASGG4BX9",
+  "name": "Expressing \"since\" with \"jiran\"",
+  "level": "B2",
+  "category": "Cause/Effect Statements",
+  "pattern": "既然⋯⋯，就⋯⋯",
+  "example": "既然 来 了 ， 就 留 下来 吃饭 吧 。",
+  "triggers": [
+   "既然",
+   "就"
+  ],
+  "position": 1703
+ },
+ {
+  "id": "ASG0C825",
+  "name": "Expressing \"have to\" with \"budebu\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 不得不 + Verb",
+  "example": "老板 很 讨厌 应酬，但是 她 不得不 去。",
+  "triggers": [
+   "不得不"
+  ],
+  "position": 1718
+ },
+ {
+  "id": "ASGY0UDC",
+  "name": "Sequencing past events with \"houlai\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "⋯⋯ ，后来 ⋯⋯",
+  "example": "开始 他 不 同意， 但 后来 同意了。",
+  "triggers": [
+   "后来"
+  ],
+  "position": 1721
+ },
+ {
+  "id": "ASGNPJ7T",
+  "name": "Comparing \"yihou\" \"ranhou\" \"houlai\"",
+  "level": "B2",
+  "category": "Time Words",
+  "pattern": "以后 vs. 然后 vs. 后来",
+  "example": "我 以后 想 开 公司 。/ 后来 他 去 了 美国 ，然后 他 的 父母 也 搬 过去 了 。",
+  "triggers": [
+   "以后",
+   "然后",
+   "后来"
+  ],
+  "position": 1723
+ },
+ {
+  "id": "ASGDU0XL",
+  "name": "Expressing \"always previously\" with \"xianglai\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subject + 向来（都） + Verb/Verb Phrase",
+  "example": "我 向来 努力，所以 我 每 一 次 考试 都 获得 满分。",
+  "triggers": [
+   "向",
+   "来",
+   "都"
+  ],
+  "position": 1725
+ },
+ {
+  "id": "ASGN4S8O",
+  "name": "Expressing \"if… then…\" with \"yaoshi\"",
+  "level": "B2",
+  "category": "\"If\" Statements",
+  "pattern": "要是⋯⋯，就⋯⋯",
+  "example": "你 要是 真 想 我，就 给 我 打 电话 。",
+  "triggers": [
+   "要是",
+   "就"
+  ],
+  "position": 1732
+ },
+ {
+  "id": "ASGOB1BF",
+  "name": "Expressing good luck with \"haihao\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "还好 + Lucky Incident ，不然 + Bad Outcome",
+  "example": "还好 有 你 在 ，不然 我 真 不 知道 怎么办 。",
+  "triggers": [
+   "还",
+   "好",
+   "不然"
+  ],
+  "position": 1745
+ },
+ {
+  "id": "ASG626D3",
+  "name": "Expressing \"feel free\" with \"jinguan\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "尽管 + Verb",
+  "example": "有 什么 事 ，尽管 找 我 。",
+  "triggers": [
+   "尽管"
+  ],
+  "position": 1749
+ },
+ {
+  "id": "ASGW863F",
+  "name": "Expressing \"although\" with \"jinguan\"",
+  "level": "B2",
+  "category": "\"But\" Statements",
+  "pattern": "尽管⋯⋯，但是⋯⋯",
+  "example": "尽管 我 很 生气 ，但是\n我 没 发脾气 。",
+  "triggers": [
+   "尽管",
+   "但是"
+  ],
+  "position": 1751
+ },
+ {
+  "id": "ASG30A60",
+  "name": "Expressing \"either... or...\" with \"yaome\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "要么⋯⋯，要么⋯⋯",
+  "example": "要么 你 去，要么 他 去 。",
+  "triggers": [
+   "要么"
+  ],
+  "position": 1763
+ },
+ {
+  "id": "ASG2ZC5S",
+  "name": "Simultaneous tasks with \"yibian\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "一边 + Verb 1 (，) 一边 + Verb 2",
+  "example": "不要 一边 说话 ，一边 吃 东西。",
+  "triggers": [
+   "一边"
+  ],
+  "position": 1769
+ },
+ {
+  "id": "ASGD60A6",
+  "name": "Phrases using \"laishuo\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "对 + Person + 来说 / 一般 来说",
+  "example": "一般 来说 ，私立 学校 都 比较 贵 。",
+  "triggers": [
+   "对",
+   "来说",
+   "一般"
+  ],
+  "position": 1776
+ },
+ {
+  "id": "ASGZVM27",
+  "name": "Expressing \"anyway\" with \"fanzheng\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "反正",
+  "example": "随便 你 信 不 信 ， 反正 我 不 信 。",
+  "triggers": [
+   "反正"
+  ],
+  "position": 1786
+ },
+ {
+  "id": "ASGAA381",
+  "name": "Expressing \"even so\" with \"zaibu... ye...\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "再不…… 也……",
+  "example": "再不 也。",
+  "triggers": [
+   "再",
+   "不",
+   "也"
+  ],
+  "position": 1795
+ },
+ {
+  "id": "ASGIHS2L",
+  "name": "Comparing \"chao\" \"xiang\" and \"wang\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "朝 vs 向 vs 往",
+  "example": "往 前 走 十 分 钟。向 雷锋 同志 学习！他 朝 我 笑 了 笑。",
+  "triggers": [
+   "朝",
+   "向",
+   "往"
+  ],
+  "position": 1855
+ },
+ {
+  "id": "ASGC8A38",
+  "name": "Expressing \"no exception\" with \"yilu\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "一律 + Predicate",
+  "example": "明天 的 部门 会议 一律 都 要 参加 。",
+  "triggers": [
+   "一",
+   "律"
+  ],
+  "position": 1867
+ },
+ {
+  "id": "ASGVDOXL",
+  "name": "Comparing \"shihe\" and \"heshi\"",
+  "level": "B2",
+  "category": "Separate Functions",
+  "pattern": "适合 vs 合适",
+  "example": "这 个 颜色 不 适合 他 ， 黑色 才 是 最 合适 的。",
+  "triggers": [
+   "适合",
+   "合适"
+  ],
+  "position": 1889
+ },
+ {
+  "id": "ASG6ESWW",
+  "name": "Expressing \"almost\" using \"chadian\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 差点 + Predicate",
+  "example": "我 今天 差点儿 迟到 了 。",
+  "triggers": [
+   "差点"
+  ],
+  "position": 1923
+ },
+ {
+  "id": "ASGGOUJB",
+  "name": "Expressing \"almost\" using \"chadian mei\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 差点没 + Verb",
+  "example": "路 这么 滑，我 差点没 摔倒。",
+  "triggers": [
+   "差点",
+   "没"
+  ],
+  "position": 1925
+ },
+ {
+  "id": "ASGW0911",
+  "name": "Expressing \"nothing but\" with \"wufei\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "无非 + 是 + Verb / Noun",
+  "example": "我 无非 是 想 要 一 台 电脑 ！",
+  "triggers": [
+   "无",
+   "非",
+   "是"
+  ],
+  "position": 1939
+ },
+ {
+  "id": "ASG11DA8",
+  "name": "Expressing \"through\" with \"jingguo\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "经过 + Event / Time ，⋯⋯",
+  "example": "经过 自己 的 努力 ，她 考上 了 北京 大学 。",
+  "triggers": [
+   "经过"
+  ],
+  "position": 1941
+ },
+ {
+  "id": "ASGATDLX",
+  "name": "Expressing \"in addition\" with \"zaishuo\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯ ，再说 ，⋯⋯",
+  "example": "这么 晚 ，别 走 了 。再说 ，外面 还 在 下雨 。",
+  "triggers": [
+   "再说"
+  ],
+  "position": 1959
+ },
+ {
+  "id": "ASGDK0BR",
+  "name": "Expressing \"in the end\" with \"jiujing\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "究竟",
+  "example": "你 究竟 喜 不 喜欢 我？",
+  "triggers": [
+   "究竟"
+  ],
+  "position": 1961
+ },
+ {
+  "id": "ASGD4BA3",
+  "name": "Expressing concern with \"kongpa\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "恐怕 + Subj. ⋯⋯",
+  "example": "恐怕 今天 做 不 完。",
+  "triggers": [
+   "恐怕"
+  ],
+  "position": 1966
+ },
+ {
+  "id": "ASG7UE4H",
+  "name": "Expressing \"more and more\" with \"yuelaiyue\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Subj. + 越来越 + Adj. + 了",
+  "example": "天气 越来越 冷 了。",
+  "triggers": [
+   "越来越",
+   "了"
+  ],
+  "position": 1976
+ },
+ {
+  "id": "ASGGXSIR",
+  "name": "Comparing \"huifu\" and \"huanyuan\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "恢复 vs 还原",
+  "example": "中国 1977年 恢复 了 高考。他 想 把 这个 应用程序 还原 成 代码。",
+  "triggers": [
+   "恢复",
+   "还",
+   "原"
+  ],
+  "position": 1981
+ },
+ {
+  "id": "ASGMDJTD",
+  "name": "Expressing \"when the time comes\" with \"dao shihou\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "A, 到时候 + B",
+  "example": "现在 不 好好 准备 考试，到时候 又 要 后悔 了。",
+  "triggers": [
+   "到",
+   "时候"
+  ],
+  "position": 2011
+ },
+ {
+  "id": "ASGUD25J",
+  "name": "Coincidence with \"zhenghao\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 正好 + Verb Phrase",
+  "example": "他 正好 问 了 我 想 问 的 问题 。",
+  "triggers": [
+   "正好"
+  ],
+  "position": 2050
+ },
+ {
+  "id": "ASGFBWZL",
+  "name": "Expressing location with \"zai... shang / xia / li\"",
+  "level": "A2",
+  "category": "Sentence Patterns",
+  "pattern": "在 + Place + 上 / 下 / 里 / 旁边",
+  "example": "你 的 手机 在 桌子 上。",
+  "triggers": [
+   "在",
+   "上",
+   "下",
+   "里",
+   "旁边"
+  ],
+  "position": 2069
+ },
+ {
+  "id": "ASG3GX2H",
+  "name": "Indicating contrast with \"ze\"",
+  "level": "C1",
+  "category": "Conjunctions",
+  "pattern": "Clause 1，+ 则 + Clause 2",
+  "example": "南方 人 喜欢 吃 甜 的 东西，北方 人 则 喜欢 吃 咸 的 东西。",
+  "triggers": [
+   "则"
+  ],
+  "position": 2083
+ },
+ {
+  "id": "ASGPY23Z",
+  "name": "Expressing \"stuff like that\" with \"zhileide\"",
+  "level": "B1",
+  "category": "Auxiliary Words",
+  "pattern": "像 ⋯⋯ 之类的 + Category",
+  "example": "你 喜欢《星球大战》之类的 电影 吗 ？",
+  "triggers": [
+   "像",
+   "之类",
+   "的"
+  ],
+  "position": 2098
+ },
+ {
+  "id": "ASG4FB55",
+  "name": "Expressing \"and then\" with \"yushi\"",
+  "level": "B2",
+  "category": "Conjunctions",
+  "pattern": "⋯⋯ ，于是 ⋯⋯",
+  "example": "他 实在 太 懒 了 ，于是 老板 把 他 辞 了 。",
+  "triggers": [
+   "于是"
+  ],
+  "position": 2149
+ },
+ {
+  "id": "ASGH4A7W",
+  "name": "Expressing \"your side\" with \"ben\"",
+  "level": "C1",
+  "category": "Nouns",
+  "pattern": "本 + Noun",
+  "example": "是 本 公司 的 商业 模式。",
+  "triggers": [
+   "本"
+  ],
+  "position": 2154
+ },
+ {
+  "id": "ASGF205D",
+  "name": "Expressing \"each other\" with \"bici\"",
+  "level": "B2",
+  "category": "Nouns",
+  "pattern": "彼此 + Verb",
+  "example": "太 吵 了，我们 都 听不到 对方 在 说 什么。",
+  "triggers": [
+   "彼此"
+  ],
+  "position": 2169
+ },
+ {
+  "id": "ASG84D65",
+  "name": "Comparing \"bici\" and \"duifang\"",
+  "level": "C1",
+  "category": "Nouns",
+  "pattern": "彼此 + Verb",
+  "example": "太 吵 了，我们 都 听不到 对方 在 说 什么。",
+  "triggers": [
+   "彼此"
+  ],
+  "position": 2171
+ },
+ {
+  "id": "ASG5334C",
+  "name": "Expressing \"while you're at it\" with \"shunbian\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. ＋Verb Phrase 1，顺便 + Verb Phrase 2",
+  "example": "你 出去 的 时候顺便 帮 我 买 杯 咖啡。",
+  "triggers": [
+   "顺便"
+  ],
+  "position": 2226
+ },
+ {
+  "id": "ASGDZIO0",
+  "name": "Indicating a characteristic with \"xing\"",
+  "level": "C1",
+  "category": "Nouns",
+  "pattern": "Word + 性",
+  "example": "发生 地震 的 可能性 较 大。",
+  "triggers": [
+   "性"
+  ],
+  "position": 2228
+ },
+ {
+  "id": "ASGA77KW",
+  "name": "Expressing \"similar to\" with \"gen... shide\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "跟 + Noun/Pronoun/Adjective + 似的",
+  "example": "他们 俩 好 得 跟 亲 姐妹 似的。",
+  "triggers": [
+   "跟",
+   "似的"
+  ],
+  "position": 2242
+ },
+ {
+  "id": "ASG87D22",
+  "name": "Expressing \"especially\" with \"gewai\"",
+  "level": "B2",
+  "category": "Adverbs with Adjectives",
+  "pattern": "格外 + verb",
+  "example": "他今天格外 忙.",
+  "triggers": [
+   "格",
+   "外"
+  ],
+  "position": 2278
+ },
+ {
+  "id": "ASG0D90L",
+  "name": "Expressing the unexpected with \"jingran\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 竟然 ⋯⋯",
+  "example": "我们 要 出发 的 时候，他 竟然 说 不 去 了 。",
+  "triggers": [
+   "竟然"
+  ],
+  "position": 2282
+ },
+ {
+  "id": "ASGNLGGX",
+  "name": "Expressing \"is or is not\" with \"shifou\"",
+  "level": "C1",
+  "category": "Particles",
+  "pattern": "是否 + Verb/Adjective",
+  "example": "我 不 知道 如果 那 个 房间 是否 有 足够 空间。",
+  "triggers": [
+   "是否"
+  ],
+  "position": 2298
+ },
+ {
+  "id": "ASG0EQQJ",
+  "name": "Expressing not knowing how to do something using \"hao\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Subj. + 不知道 + Verb Phrase + 好",
+  "example": "我 真的 不 知道 怎么办才 好 。",
+  "triggers": [
+   "不知",
+   "道",
+   "好"
+  ],
+  "position": 2316
+ },
+ {
+  "id": "ASGXHQEF",
+  "name": "Expressing \"every time\" with \"mei\" and \"dou\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "每次 + Event 1 + 都 + Event 2",
+  "example": "为什么 每 次 我 来 他 都 不 在。",
+  "triggers": [
+   "每次",
+   "都"
+  ],
+  "position": 2324
+ },
+ {
+  "id": "ASGF00B7",
+  "name": "Expressing \"each other\" with \"huxiang\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "互相 + Verb Phrase",
+  "example": "互相 帮助",
+  "triggers": [
+   "互相"
+  ],
+  "position": 2349
+ },
+ {
+  "id": "ASGBAIMA",
+  "name": "Expressing possession with \"zhi\"",
+  "level": "C1",
+  "category": "Particles",
+  "pattern": "Noun + 之 + Noun",
+  "example": "这些 解决 问题 的 方式 仍然 有 不足 之 处。",
+  "triggers": [
+   "之"
+  ],
+  "position": 2370
+ },
+ {
+  "id": "ASG1NAXO",
+  "name": "Approximations with \"chabuduo\"",
+  "level": "A2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 差不多",
+  "example": "我们 的 中文 水平 差不多。",
+  "triggers": [
+   "差不多"
+  ],
+  "position": 2375
+ },
+ {
+  "id": "ASGNEMXP",
+  "name": "Expressing \"ever since\" with \"yilai\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "Time / Event + 以来 ，⋯⋯",
+  "example": "今年 八月 以来 ，这里 一直 没 下 过 雨 。",
+  "triggers": [
+   "以来"
+  ],
+  "position": 2424
+ },
+ {
+  "id": "ASGN6O6J",
+  "name": "Comparing \"zhijian\" and “zhongjian\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "之间 vs. 中间",
+  "example": "八 点 到 十 点 之间 我 都 有空 。客厅 的 中间 有 一 个 沙发 。",
+  "triggers": [
+   "之间",
+   "中间"
+  ],
+  "position": 2437
+ },
+ {
+  "id": "ASGKU8FU",
+  "name": "Expressing \"at the same time\" with \"jian\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "Subject + 兼 + Verb + A + 和 + B",
+  "example": "这 首 歌 的 主唱 兼  词 作者 就 是 他 。",
+  "triggers": [
+   "兼",
+   "和"
+  ],
+  "position": 2442
+ },
+ {
+  "id": "ASGIVGZO",
+  "name": "Expressing \"to make certain\" with \"qianwan\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "千万 + Verb/Verb Phrase",
+  "example": "千万 别 泄露 出 去。",
+  "triggers": [
+   "千万"
+  ],
+  "position": 2458
+ },
+ {
+  "id": "ASGLQNS3",
+  "name": "Expressing \"from this\" with \"youci\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "由此 + Verb",
+  "example": "人们 滥 用 农药 和 其他 化学 原料，由此 产生 了 一系列 严重 的 食品 安全 问题。",
+  "triggers": [
+   "由",
+   "此"
+  ],
+  "position": 2514
+ },
+ {
+  "id": "ASGL90MR",
+  "name": "Expressing \"due to…\" with \"youyu\"",
+  "level": "B2",
+  "category": "Cause/Effect Statements",
+  "pattern": "由于⋯⋯，⋯⋯",
+  "example": "由于 天气 原因， 我们 的 航班 取消了。",
+  "triggers": [
+   "由于"
+  ],
+  "position": 2521
+ },
+ {
+  "id": "ASGD2A08",
+  "name": "Expressing \"for…\" with \"eryan\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "对 + Person / Group + 而言 ，⋯⋯",
+  "example": "对 消费者 而言 ，促销 活动 很 有 吸引力 。",
+  "triggers": [
+   "对",
+   "而言"
+  ],
+  "position": 2541
+ },
+ {
+  "id": "ASG8RW47",
+  "name": "Limiting scope with \"jiu\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "就⋯⋯ (来说 / 而言)",
+  "example": "就 我 而言 ， 兴趣 最 重要 。",
+  "triggers": [
+   "就",
+   "来说",
+   "而言"
+  ],
+  "position": 2543
+ },
+ {
+  "id": "ASG7D4EC",
+  "name": "Expressing \"multiples\" with \"bei\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Noun 1 + 是 + Noun 2 + 的 + Number + 倍",
+  "example": "他 现在 的 工资 是 两 年 前 的 三 倍 。",
+  "triggers": [
+   "是",
+   "的",
+   "倍"
+  ],
+  "position": 2545
+ },
+ {
+  "id": "ASG10CAE",
+  "name": "Expressing \"less than\" with \"budao\"",
+  "level": "B1",
+  "category": "Prepositions",
+  "pattern": "不到 + Number + Measure Word + Noun",
+  "example": "我 女儿 不到 三 岁 。",
+  "triggers": [
+   "不到"
+  ],
+  "position": 2555
+ },
+ {
+  "id": "ASGWSSQL",
+  "name": "Using \"yi... wei...\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "以 + A + 为 + B",
+  "example": "我们 公司 是 以 亚洲 市场  为 主，以 欧美 市场  为 辅。",
+  "triggers": [
+   "以",
+   "为"
+  ],
+  "position": 2586
+ },
+ {
+  "id": "ASGINBWJ",
+  "name": "Expressing \"as much as possible\" with \"jinliang\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "尽量 + Verb",
+  "example": "我 会 尽量 想 办法 帮 你 的。",
+  "triggers": [
+   "尽量"
+  ],
+  "position": 2605
+ },
+ {
+  "id": "ASG4NDHB",
+  "name": "Using \"youde\" to mean \"some\"",
+  "level": "A2",
+  "category": "Noun Phrases",
+  "pattern": "有的 + Noun",
+  "example": "派对的时候，有的人在喝酒，有的人在跳舞，还有的人在聊天。",
+  "triggers": [
+   "有的"
+  ],
+  "position": 2634
+ },
+ {
+  "id": "ASGVACYB",
+  "name": "Saying \"a lot\" with \"youdeshi\"",
+  "level": "B2",
+  "category": "Adjectives",
+  "pattern": "Subj. + 有的是 + Noun",
+  "example": "川菜 上海 有的是。",
+  "triggers": [
+   "有的",
+   "是"
+  ],
+  "position": 2636
+ },
+ {
+  "id": "ASGL1V0A",
+  "name": "Using \"because\" with \"er\" to indicate effect",
+  "level": "C1",
+  "category": "Cause/Effect Statements",
+  "pattern": "因为⋯⋯ ，而⋯⋯",
+  "example": "饭店 因为 物价 上涨 而 涨价 。",
+  "triggers": [
+   "因为",
+   "而"
+  ],
+  "position": 2657
+ },
+ {
+  "id": "ASGC4C1F",
+  "name": "Expressing \"so-called\" with \"suowei\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "所谓 + (的) Noun Phrase",
+  "example": "所谓 “小意思” 就 是 指 礼物。",
+  "triggers": [
+   "所谓",
+   "的"
+  ],
+  "position": 2690
+ },
+ {
+  "id": "ASG6TB4J",
+  "name": "Expressing \"that's all\" with \"eryi\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + (仅仅) + 是 + Obj. + 而已",
+  "example": "他 只 是 开 个 玩笑 而已，不 要 当 真。",
+  "triggers": [
+   "仅仅",
+   "是",
+   "而已"
+  ],
+  "position": 2695
+ },
+ {
+  "id": "ASG6509E",
+  "name": "Explaining purpose with \"wei... er...\"",
+  "level": "C1",
+  "category": "Sentence Patterns",
+  "pattern": "为⋯⋯ ，而⋯⋯",
+  "example": "不 为 朋友圈 而 运动",
+  "triggers": [
+   "为",
+   "而"
+  ],
+  "position": 2729
+ },
+ {
+  "id": "ASGGB3IV",
+  "name": "Expressing \"on the basis of\" with \"ping\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "凭⋯⋯",
+  "example": "他 凭 自己 的 努力 成功 。",
+  "triggers": [
+   "凭"
+  ],
+  "position": 2740
+ },
+ {
+  "id": "ASG9JK0B",
+  "name": "Comparing \"genben\" and \"daodi\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "根本 vs 到底",
+  "example": "我 根本 不知道 女朋友 为什么 生气。我们 到底 什么时候 结束？",
+  "triggers": [
+   "根本",
+   "到底"
+  ],
+  "position": 2801
+ },
+ {
+  "id": "ASGIKHUH",
+  "name": "Comparing \"buduan\" and \"buting\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "不断 vs 不停",
+  "example": "她 不断 地 找 我，每次 都 说 个 不停。",
+  "triggers": [
+   "不断",
+   "不",
+   "停"
+  ],
+  "position": 2834
+ },
+ {
+  "id": "ASGEA938",
+  "name": "Comparing \"anzhao\" and \"genju\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "按照 vs 根据",
+  "example": "按照，根据",
+  "triggers": [
+   "按照",
+   "根据"
+  ],
+  "position": 2874
+ },
+ {
+  "id": "ASGF561D",
+  "name": "Expressing \"in short\" with \"zongzhi\"",
+  "level": "C1",
+  "category": "Conjunctions",
+  "pattern": "（⋯⋯ ，）总之 ，⋯⋯",
+  "example": "不管 他 的 理由 是 什么 ，总之 ，我 不会 再 相信 他 了 。",
+  "triggers": [
+   "总之"
+  ],
+  "position": 2904
+ },
+ {
+  "id": "ASG50DR1",
+  "name": "Adding emphasis with \"fei....buke\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "Subj. + 非(要) + Verb Phrase (+ 不可)",
+  "example": "我 非 学 好 汉语 不可 。",
+  "triggers": [
+   "非",
+   "要",
+   "不可"
+  ],
+  "position": 2928
+ },
+ {
+  "id": "ASGA632B",
+  "name": "Expressing \"lies in\" with \"zaiyu\"",
+  "level": "C1",
+  "category": "Verbs",
+  "pattern": "⋯⋯ 在于 ⋯⋯",
+  "example": "我们 服务 的 特色 在于 个性化 。",
+  "triggers": [
+   "在于"
+  ],
+  "position": 2949
+ },
+ {
+  "id": "ASGN4VUU",
+  "name": "Expressing \"if\" with \"ruguo... dehua\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "如果⋯⋯ (的话) ，(就) ⋯⋯",
+  "example": "如果 明天 下雨 的话 ，我们 就  不 去 了 。",
+  "triggers": [
+   "如果",
+   "的话",
+   "就"
+  ],
+  "position": 3026
+ },
+ {
+  "id": "ASGB0MXK",
+  "name": "Marking a topic with \"de hua\"",
+  "level": "B2",
+  "category": "\"If\" Statements",
+  "pattern": "Topic + 的话 ，Comment",
+  "example": "北京 的话 ，秋天 去 最好 。",
+  "triggers": [
+   "的话"
+  ],
+  "position": 3028
+ },
+ {
+  "id": "ASGHNDX4",
+  "name": "Expressing \"if… then…\" with \"jiaru\"",
+  "level": "B2",
+  "category": "\"If\" Statements",
+  "pattern": "假如⋯⋯，就⋯⋯",
+  "example": "假如 下雨 了 ， 就 收 衣服 。",
+  "triggers": [
+   "假如",
+   "就"
+  ],
+  "position": 3145
+ },
+ {
+  "id": "ASGPINA4",
+  "name": "Comparing \"renjia\" and \"bieren\"",
+  "level": "B1",
+  "category": "Nouns",
+  "pattern": "人家 vs. 别人",
+  "example": "因为 人家 喜欢 你 啊 。我 不 在乎 别人 怎么 说 。",
+  "triggers": [
+   "人家",
+   "别人"
+  ],
+  "position": 3164
+ },
+ {
+  "id": "ASGPS9NY",
+  "name": "Using the verb \"xing\"",
+  "level": "A1",
+  "category": "Verbs",
+  "pattern": "姓 + Surname",
+  "example": "你 姓 什么 ？",
+  "triggers": [
+   "姓"
+  ],
+  "position": 3223
+ },
+ {
+  "id": "ASG25773",
+  "name": "Expressing \"what if\" with \"wanyi\"",
+  "level": "B2",
+  "category": "\"If\" Statements",
+  "pattern": "万一 ⋯⋯ 怎么办 ？",
+  "example": "万一 被 发现 了 怎么办 ？",
+  "triggers": [
+   "万一",
+   "怎么办"
+  ],
+  "position": 3295
+ },
+ {
+  "id": "ASGS4DBY",
+  "name": "Expressing \"among\" with \"dangzhong\"",
+  "level": "B2",
+  "category": "Nouns",
+  "pattern": "当中",
+  "example": "他们 当中 有 温州 人 ， 有 宁波 人 。",
+  "triggers": [
+   "当中"
+  ],
+  "position": 3334
+ },
+ {
+  "id": "ASG35CD7",
+  "name": "Expressing \"had better\" with \"zuihao\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 最好 + Predicate",
+  "example": "你 最好 先 休息 一下 。",
+  "triggers": [
+   "最好"
+  ],
+  "position": 3400
+ },
+ {
+  "id": "ASG1QB4K",
+  "name": "Expressing simultaneous actions with \"yimian\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "一面⋯⋯，一面⋯⋯",
+  "example": "他 喜欢 一面 吃 东西 ， 一面 看 电影。",
+  "triggers": [
+   "一面"
+  ],
+  "position": 3453
+ },
+ {
+  "id": "ASGHFPGG",
+  "name": "Expressing \"except\" and \"in addition\" with \"chule… yiwai\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "除了 ⋯⋯ (+ 以外) ，Subj. + 都 / 也 / 还 ⋯⋯",
+  "example": "除了 他 ，我们 都 去 过 。",
+  "triggers": [
+   "除了",
+   "以外",
+   "都",
+   "也",
+   "还"
+  ],
+  "position": 3708
+ },
+ {
+  "id": "ASG4V36Q",
+  "name": "Expressing \"after all\" with \"bijing\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "毕竟",
+  "example": "别 怪 他 了 ， 毕竟 他 还 小 。",
+  "triggers": [
+   "毕竟"
+  ],
+  "position": 3738
+ },
+ {
+  "id": "ASGI9PNV",
+  "name": "Opportune timing with \"chen\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "趁 + Situation / Opportunity……",
+  "example": "趁 老板 不 在，我们 出去 吃饭 吧。",
+  "triggers": [
+   "趁"
+  ],
+  "position": 3808
+ },
+ {
+  "id": "ASGE8FLP",
+  "name": "Comparing \"changchang\" and \"jingchang\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "常常 vs. 经常",
+  "example": "我 不 常  运动 ，我 需要 经常 运动 。",
+  "triggers": [
+   "常常",
+   "经常"
+  ],
+  "position": 3822
+ },
+ {
+  "id": "ASGZRKTG",
+  "name": "Expressing \"with regards to\" with \"zhiyu\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "至于 + Topic， Comment",
+  "example": "你 先 看 产品 。 至于 价格 ， 我们 再 商量 。",
+  "triggers": [
+   "至于"
+  ],
+  "position": 3871
+ },
+ {
+  "id": "ASGC01S0",
+  "name": "Comparing \"duiyu\" and \"zhiyu\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "关于 vs 对于 vs 至于",
+  "example": "关于 放假， 对于 怎么解决，至于另外一份工作 。",
+  "triggers": [
+   "关于",
+   "对于",
+   "至于"
+  ],
+  "position": 3873
+ },
+ {
+  "id": "ASG6ZI8L",
+  "name": "Expressing \"no matter\" with \"wulun\"",
+  "level": "B2",
+  "category": "\"No Matter\" Statements",
+  "pattern": "无论 / 不论⋯⋯，都 / 也⋯⋯",
+  "example": "无论 天 多 热 ， 都 要 坚持 。",
+  "triggers": [
+   "无论",
+   "不论",
+   "都",
+   "也"
+  ],
+  "position": 3923
+ },
+ {
+  "id": "ASGHVFRA",
+  "name": "Expressing \"along with…\" with \"suizhe\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "随着 A + 的 + Verb， Subj. + Predicate",
+  "example": "随着 经济 的 发展，人们 的 生活 越 来 越 好。",
+  "triggers": [
+   "随着",
+   "的"
+  ],
+  "position": 3948
+ },
+ {
+  "id": "ASGIM3AX",
+  "name": "Big numbers in Chinese",
+  "level": "A2",
+  "category": "Numbers",
+  "pattern": "Number + 万 / 亿",
+  "example": "五 万",
+  "triggers": [
+   "万",
+   "亿"
+  ],
+  "position": 4069
+ },
+ {
+  "id": "ASGB449A",
+  "name": "Expressing \"equal to\" with \"dengyu\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "A, 等于 B",
+  "example": "今天吃了炸鸡等于白跑步了。",
+  "triggers": [
+   "等于"
+  ],
+  "position": 4074
+ },
+ {
+  "id": "ASGXX3NY",
+  "name": "Expressing \"even if…\" with \"napa\"",
+  "level": "B2",
+  "category": "\"Even If\" Statements",
+  "pattern": "哪怕⋯⋯，也⋯⋯",
+  "example": "哪怕 第 一 次 失败 了 ， 也 要 继续 研究 。",
+  "triggers": [
+   "哪怕",
+   "也"
+  ],
+  "position": 4123
+ },
+ {
+  "id": "ASGJOGGG",
+  "name": "Comparing \"pingshi\" and \"pingchang\"",
+  "level": "B2",
+  "category": "Time Words",
+  "pattern": "平时 vs. 平常",
+  "example": "你 平时 / 平常 做饭 吗 ？",
+  "triggers": [
+   "平时",
+   "平常"
+  ],
+  "position": 4201
+ },
+ {
+  "id": "ASGT8AUA",
+  "name": "Comparing \"zongsuan\" and “zhongyu\"",
+  "level": "B2",
+  "category": "Auxiliary Words",
+  "pattern": "总算 vs 终于",
+  "example": "今天 的 会 终于 开 完 了！你 总算 来 了。",
+  "triggers": [
+   "总算",
+   "终于"
+  ],
+  "position": 4399
+ },
+ {
+  "id": "ASGPV5Z2",
+  "name": "Expressing that something has already happened with \"laizhe\"",
+  "level": "C1",
+  "category": "Auxiliary Words",
+  "pattern": "Sentence + 来着",
+  "example": "刘老师 说 课本 在 桌子 上 来着。",
+  "triggers": [
+   "来着"
+  ],
+  "position": 4413
+ },
+ {
+  "id": "ASG767A2",
+  "name": "Declaring the only option with \"zhihao\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "只好 + Verb Phrase",
+  "example": "上 个 周末 下雨 了 ，我们 只好 待 在 家。",
+  "triggers": [
+   "只好"
+  ],
+  "position": 4422
+ },
+ {
+  "id": "ASG73H8K",
+  "name": "Comparing \"budebu\" and \"zhihao\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "不得不 vs 只好",
+  "example": "刚 下 飞机，还 没 找到 宾馆，行李 不得不/只好 寄存 在 朋友 那。",
+  "triggers": [
+   "不得不",
+   "只好"
+  ],
+  "position": 4424
+ },
+ {
+  "id": "ASGZ8MJM",
+  "name": "Expressing \"just\" do it with \"gancui\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 干脆 + Verb Phrase",
+  "example": "家里什么都没有，干脆出去吃吧。",
+  "triggers": [
+   "干脆"
+  ],
+  "position": 4445
+ },
+ {
+  "id": "ASGBVSWQ",
+  "name": "Comparing \"yishi\" and \"yidu\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "一度 vs 一时",
+  "example": "他 过去 一度 想 自杀。这 雨 一时 半会儿 停 不 了。",
+  "triggers": [
+   "一",
+   "度",
+   "一时"
+  ],
+  "position": 4491
+ },
+ {
+  "id": "ASGWH1D5",
+  "name": "Comparisons with \"buru\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "不如⋯⋯",
+  "example": "我的 汉语 不如 他的。",
+  "triggers": [
+   "不如"
+  ],
+  "position": 4533
+ },
+ {
+  "id": "ASGK0ZG7",
+  "name": "Expressing “must\" with \"feidei\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "非得 + Action + 不可/不行/不成",
+  "example": "现在 是 紧急 情况，医生 非得 马上 开 刀 不可。",
+  "triggers": [
+   "非得",
+   "不可",
+   "不行",
+   "不",
+   "成"
+  ],
+  "position": 4692
+ },
+ {
+  "id": "ASG9D48A",
+  "name": "Expressing \"in the name of\" with \"yi... de mingyi\"",
+  "level": "C1",
+  "category": "Sentence Patterns",
+  "pattern": "以 + Subject + 名义",
+  "example": "不要 以 我的 名义 给公司写信.",
+  "triggers": [
+   "以",
+   "名义"
+  ],
+  "position": 4760
+ },
+ {
+  "id": "ASG516F9",
+  "name": "Advanced potential complements",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Verb + 得了 / 不了",
+  "example": "今晚 我 有事 ，去 不 了 。",
+  "triggers": [
+   "得了",
+   "不",
+   "了"
+  ],
+  "position": 4798
+ },
+ {
+  "id": "ASGACMNQ",
+  "name": "Expressing \"since the beginning\" with \"yixiang\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "一向 + Verb",
+  "example": "他 做 事情 一向 踏实 。",
+  "triggers": [
+   "一向"
+  ],
+  "position": 4890
+ },
+ {
+  "id": "ASGVEP8S",
+  "name": "Comparing \"yizhi\" and \"yixiang\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "一直 vs. 一向",
+  "example": "我 一直 在 现在 的 公司 工作 。他 一向 不 迟到 。",
+  "triggers": [
+   "一直",
+   "一向"
+  ],
+  "position": 4892
+ },
+ {
+  "id": "ASGGI66V",
+  "name": "Expressing \"nothing is more...than\" with \"moguoyu\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "Object 1 + 莫过于 + Object 2",
+  "example": "美国 最 好 的 大学 莫过于 哈佛大学。",
+  "triggers": [
+   "莫",
+   "过于"
+  ],
+  "position": 5053
+ },
+ {
+  "id": "ASGLI513",
+  "name": "Expressing \"even if…\" with \"jiusuan\"",
+  "level": "B2",
+  "category": "\"Even If\" Statements",
+  "pattern": "就算⋯⋯ ，也⋯⋯",
+  "example": "就算 再 困难 ， 我们 也 要 坚持 到底 。",
+  "triggers": [
+   "就算",
+   "也"
+  ],
+  "position": 5097
+ },
+ {
+  "id": "ASG44TBS",
+  "name": "Expressing \"thanks to\" with \"duokui\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Good Outcome ，多亏 (了) + Lucky Incident",
+  "example": "我 没 迟到 ，多亏了 你 开车 送 我 。",
+  "triggers": [
+   "多亏",
+   "了"
+  ],
+  "position": 5180
+ },
+ {
+  "id": "ASGC11D0",
+  "name": "Expressing \"as expected\" with \"guoran\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "果然 + Predicate",
+  "example": "第一名 果然 是 她 ！我 就 知道 。",
+  "triggers": [
+   "果然"
+  ],
+  "position": 5209
+ },
+ {
+  "id": "ASGIQPUJ",
+  "name": "Expressing future with \"jiang\"",
+  "level": "B2",
+  "category": "Auxiliary verbs",
+  "pattern": "Subj. + 将 / 将要 / 将会 + Verb Phrase",
+  "example": "比赛 结果 将 在 月底 公布 。",
+  "triggers": [
+   "将",
+   "将要",
+   "会"
+  ],
+  "position": 5312
+ },
+ {
+  "id": "ASGYKH5G",
+  "name": "Using \"nanguai\" as a verb",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "难怪 + Specific Person / People ……",
+  "example": "难怪 他，他还是个孩子呢，什么都不懂。",
+  "triggers": [
+   "难怪"
+  ],
+  "position": 5317
+ },
+ {
+  "id": "ASG4D8XB",
+  "name": "Tag questions with \"bu\"",
+  "level": "A1",
+  "category": "Question Forms",
+  "pattern": "⋯⋯是不是 / 对不对 / 好不好 ?",
+  "example": "你们 明天 来，好 不 好 ?",
+  "triggers": [
+   "是不是",
+   "对",
+   "不对",
+   "好",
+   "不好"
+  ],
+  "position": 5338
+ },
+ {
+  "id": "ASGDIDAC",
+  "name": "Ending a non-exhaustive list with \"shenme de\"",
+  "level": "B1",
+  "category": "Auxiliary Words",
+  "pattern": "Noun 1, Noun 2 + 什么的",
+  "example": "明天 去 野餐 ，我们 要 不 要 买 一些 水果 ，零食 什么的 。",
+  "triggers": [
+   "什么的"
+  ],
+  "position": 5580
+ },
+ {
+  "id": "ASGX5QTV",
+  "name": "Expressing \"on the contrary\" with \"fan'er\"",
+  "level": "B2",
+  "category": "\"But\" Statements",
+  "pattern": "⋯⋯，反而 ⋯⋯",
+  "example": "他 没有 放弃 ，反而 更加 努力 了 ！",
+  "triggers": [
+   "反而"
+  ],
+  "position": 5695
+ },
+ {
+  "id": "ASG0K25S",
+  "name": "Comparing \"fan'er\" and “que\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "反而 vs 却",
+  "example": "她反而 有点不高兴。他 却 没 带 伞。",
+  "triggers": [
+   "反而",
+   "却"
+  ],
+  "position": 5697
+ },
+ {
+  "id": "ASGCZ37R",
+  "name": "Comparing \"juran\" and \"fan'er\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "居然 vs 反而",
+  "example": "雨 不仅 没 停，反而 越 下 越 大 了 – 他 居然 就 住在 我们家 隔壁，真是 缘分 呐！",
+  "triggers": [
+   "居然",
+   "反而"
+  ],
+  "position": 5699
+ },
+ {
+  "id": "ASGFNS52",
+  "name": "Comparing \"fan'er\" and “xiangfan\"",
+  "level": "C1",
+  "category": "Separate Functions",
+  "pattern": "反而 vs 相反",
+  "example": "吃 水果 不但 对 他 没 好处，反而 有 坏处。 老板 的 想法 跟 我 的 相反。",
+  "triggers": [
+   "反而",
+   "相反"
+  ],
+  "position": 5701
+ },
+ {
+  "id": "ASGC1BI5",
+  "name": "Expressing \"in light of\" with \"jianyu\"",
+  "level": "C1",
+  "category": "Prepositions",
+  "pattern": "鉴于 + observation, conclusion/suggestion",
+  "example": "鉴于 是 紧急 情况，我们 应该 尽快 做出 决定。",
+  "triggers": [
+   "鉴于"
+  ],
+  "position": 5769
+ },
+ {
+  "id": "ASGEEA2D",
+  "name": "Expressing \"double negation\"",
+  "level": "B1",
+  "category": "Basic/Simple Sentence Patterns",
+  "pattern": "Subj. + 不是 + 不 / 没 + Predicate",
+  "example": "我 不 是 不 知道 怎么 做 。",
+  "triggers": [
+   "不是",
+   "不",
+   "没"
+  ],
+  "position": 5851
+ },
+ {
+  "id": "ASGEXR6R",
+  "name": "Expressing the only two possibilities",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "不是⋯⋯，就是⋯⋯",
+  "example": "不是 成功，就是 失败。",
+  "triggers": [
+   "不是",
+   "就是"
+  ],
+  "position": 5853
+ },
+ {
+  "id": "ASG9K0F8",
+  "name": "Appearance with \"kanqilai\"",
+  "level": "B1",
+  "category": "Verbs",
+  "pattern": "看起来⋯⋯",
+  "example": "这 家 餐厅 看起来 不错 。",
+  "triggers": [
+   "看起来"
+  ],
+  "position": 5987
+ },
+ {
+  "id": "ASG54932",
+  "name": "Comparing \"kanqilai\" and \"kanlai\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "看起来 vs. 看来",
+  "example": "这 家 餐厅 看起来 不错 。 看来 你 喜欢。",
+  "triggers": [
+   "看起来",
+   "看来"
+  ],
+  "position": 5989
+ },
+ {
+  "id": "ASGKQEG9",
+  "name": "Comparing \"xiande\" and \"kanqilai\"",
+  "level": "B2",
+  "category": "Verbs",
+  "pattern": "显得 vs 看起来",
+  "example": "你 看起来 很 苗条 ，可能 是 这 件 衣服 显得 你 很 苗条 。",
+  "triggers": [
+   "显得",
+   "看起来"
+  ],
+  "position": 5991
+ },
+ {
+  "id": "ASGMCX2H",
+  "name": "Expressing \"to be worthy of\" with \"bukuishi\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "不愧是（不愧为）+ N",
+  "example": "他 不愧是 一名 光荣的 人民 教师。",
+  "triggers": [
+   "不",
+   "愧",
+   "是",
+   "为"
+  ],
+  "position": 6072
+ },
+ {
+  "id": "ASGXU2H4",
+  "name": "Facilitating an outcome with \"yibian\"",
+  "level": "C1",
+  "category": "Verb phrases",
+  "pattern": "以便 + Verb",
+  "example": "用 普通话 说 ， 以便 我 能 听懂 。",
+  "triggers": [
+   "以便"
+  ],
+  "position": 6263
+ },
+ {
+  "id": "ASGDFQP7",
+  "name": "Expressing \"how about\" with \"yaobu\"",
+  "level": "B1",
+  "category": "Conjunctions",
+  "pattern": "Reason / Situation，要不 + Suggestion + 吧",
+  "example": "下雨 了，要不 明天 再 去 吧 。",
+  "triggers": [
+   "要不",
+   "吧"
+  ],
+  "position": 6304
+ },
+ {
+  "id": "ASG8F7D4",
+  "name": "Expressing \"if it were not for\" with \"yaobushi\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "要不是 ⋯⋯ ( 的话 )，⋯⋯",
+  "example": "要不是 你们 迟到 的话，我们 早就 到 了。",
+  "triggers": [
+   "要不",
+   "是",
+   "的话"
+  ],
+  "position": 6306
+ },
+ {
+  "id": "ASGF3F2Y",
+  "name": "Expressing \"would rather\" with \"ningke\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "宁可⋯⋯，也⋯⋯",
+  "example": "他 宁可 输，也 不 放弃。",
+  "triggers": [
+   "宁可",
+   "也"
+  ],
+  "position": 6416
+ },
+ {
+  "id": "ASGWI5CV",
+  "name": "Expressing \"rather than...\" with \"yuqi... buru\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "与其 + A，宁可 / 宁愿 / 宁肯）+ B",
+  "example": "与其 这样 等着，不如 找点 事 做做。",
+  "triggers": [
+   "与",
+   "其",
+   "宁可",
+   "宁愿",
+   "宁",
+   "肯"
+  ],
+  "position": 6418
+ },
+ {
+  "id": "ASG38F8A",
+  "name": "Expressing \"all\" with \"fanshi\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "凡是 + Noun 都 / 就 / 一律 + Predicate",
+  "example": "凡是 不 听话 的 孩子 都 没有 糖 吃 。",
+  "triggers": [
+   "凡",
+   "是",
+   "都",
+   "就",
+   "一",
+   "律"
+  ],
+  "position": 6497
+ },
+ {
+  "id": "ASG7AE5C",
+  "name": "Defining upper and lower limits",
+  "level": "B2",
+  "category": "Prepositional Phrase",
+  "pattern": "级别 / 次序 / 数目 + 以上 / 以下",
+  "example": "十 岁 以下 的 孩子 不用 买 票 。",
+  "triggers": [
+   "级别",
+   "次",
+   "序",
+   "数目",
+   "以上",
+   "以下"
+  ],
+  "position": 6524
+ },
+ {
+  "id": "ASGTYJ3E",
+  "name": "Expressing \"not only... but also\" with \"budan... erqie...\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "不但⋯⋯，而且⋯⋯",
+  "example": "他 不但 聪明，而且 勤劳。",
+  "triggers": [
+   "不但",
+   "而且"
+  ],
+  "position": 7239
+ },
+ {
+  "id": "ASGF9320",
+  "name": "Expressing \"not only..., even...\" using \"budan..., shenzhi lian\"",
+  "level": "B2",
+  "category": "Sentence Patterns",
+  "pattern": "Subj. + 不但 ⋯⋯ ，甚至连 + New Subject + 也 + Matching Situation",
+  "example": "不但，甚至连。",
+  "triggers": [
+   "不但",
+   "甚至",
+   "连",
+   "也"
+  ],
+  "position": 7241
+ },
+ {
+  "id": "ASGJ1VZQ",
+  "name": "Many types of \"not only... but also...\"",
+  "level": "B2",
+  "category": "Not only… but also…",
+  "pattern": "不但 / 不只 / 不仅⋯⋯，而且 / 还 / 也 ⋯⋯",
+  "example": "他 不仅 喜欢 吃 中国 菜，而且  也 会 做 几 个 中国 菜！",
+  "triggers": [
+   "不但",
+   "不",
+   "只",
+   "不仅",
+   "而且",
+   "还",
+   "也"
+  ],
+  "position": 7243
+ },
+ {
+  "id": "ASGE09B4",
+  "name": "Comparing \"changchang\" and \"wangwang\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "常常 vs. 往往",
+  "example": "我 不 常  运动 ，我 往往 呆在 家里 。",
+  "triggers": [
+   "常常",
+   "往往"
+  ],
+  "position": 7622
+ },
+ {
+  "id": "ASG7R8US",
+  "name": "Expressing \"never again\" with \"zai ye bu\"",
+  "level": "B2",
+  "category": "Adverbs",
+  "pattern": "Subj. + 再也 + 不 + Verb Phrase + 了",
+  "example": "我 再也 不 想 跟 你 说话 了 。",
+  "triggers": [
+   "再也",
+   "不",
+   "了"
+  ],
+  "position": 7656
+ },
+ {
+  "id": "ASG3ZS9G",
+  "name": "Expressing \"let alone\" with \"hekuang\"",
+  "level": "C1",
+  "category": "Let alone",
+  "pattern": "连⋯⋯都（也）⋯⋯，何况⋯⋯",
+  "example": "连 小李 都 同意 了 ， 何况 小张。",
+  "triggers": [
+   "连",
+   "都",
+   "也",
+   "何况"
+  ],
+  "position": 7770
+ },
+ {
+  "id": "ASGTVKAR",
+  "name": "Expressing \"whether or not\" with \"yufou\"",
+  "level": "C1",
+  "category": "Particles",
+  "pattern": "Verb/Adjective + 与否",
+  "example": "成功 与否，都 靠 自己。",
+  "triggers": [
+   "与否"
+  ],
+  "position": 7907
+ },
+ {
+  "id": "ASG0A67E",
+  "name": "\"In order to avoid\" with \"yimian\"",
+  "level": "C1",
+  "category": "Conjunctions",
+  "pattern": "以免 + Verb Phrase",
+  "example": "这儿 有 高压电线，请 不要 靠近，以免 发生 危险。",
+  "triggers": [
+   "以免"
+  ],
+  "position": 8059
+ },
+ {
+  "id": "ASG3AD49",
+  "name": "Expressing \"why\" with \"hebi\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 何必 + Predicate",
+  "example": "都是 一家人 ，你们 何必 这么 客气 ？",
+  "triggers": [
+   "何必"
+  ],
+  "position": 8153
+ },
+ {
+  "id": "ASGCC713",
+  "name": "Expressing \"as well as\" with \"yiji\"",
+  "level": "C1",
+  "category": "Conjunctions",
+  "pattern": "Subj. + 何必 + Predicate",
+  "example": "A ，B + 以及 + C",
+  "triggers": [
+   "何必"
+  ],
+  "position": 8155
+ },
+ {
+  "id": "ASGVBH2H",
+  "name": "Using the particle \"bei\"",
+  "level": "C1",
+  "category": "Particles",
+  "pattern": "Sentence + 呗",
+  "example": "如果 你 不 想 去 就 不 去 呗。",
+  "triggers": [
+   "呗"
+  ],
+  "position": 8452
+ },
+ {
+  "id": "ASG06EA8",
+  "name": "Expressing \"all at once\" with \"yixiazi\"",
+  "level": "B1",
+  "category": "Adverbs",
+  "pattern": "Subj. + 一下子 + Verb + 了",
+  "example": "天气 一下子 变 冷 了 。",
+  "triggers": [
+   "一下子",
+   "了"
+  ],
+  "position": 8506
+ },
+ {
+  "id": "ASG50341",
+  "name": "Expressing \"including\" with \"zainei\"",
+  "level": "B2",
+  "category": "Prepositions",
+  "pattern": "(包括)⋯⋯ 在内 ，⋯⋯",
+  "example": "包括 水 电 费 在内 ，我 每 个 月 的 房租 三千 五 。",
+  "triggers": [
+   "包括",
+   "在内"
+  ],
+  "position": 8697
+ },
+ {
+  "id": "ASGK4CGK",
+  "name": "Stating two or more reasons with \"yilai...erlai\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "一来 + Reason 1 ，二来 + Reason 2",
+  "example": "一来 是那边 的 宾馆 很 贵，二来 也那边 没有 什么 好看 的 风景。",
+  "triggers": [
+   "一来",
+   "二",
+   "来"
+  ],
+  "position": 9267
+ },
+ {
+  "id": "ASGFZOLQ",
+  "name": "Expressing \"contrary to expectations\" with \"pianpian\"",
+  "level": "C1",
+  "category": "Adverbs",
+  "pattern": "A ,Subject + 偏偏 + B",
+  "example": "不 叫 他 去，他 偏偏 要 去。",
+  "triggers": [
+   "偏偏"
+  ],
+  "position": 9530
+ },
+ {
+  "id": "ASG5HZG6",
+  "name": "\"Could it be that\" with \"qibushi\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "岂不是 + rhetorical question",
+  "example": "如果 他 要 来， 岂不是 一 件 好 事？",
+  "triggers": [
+   "岂",
+   "不是"
+  ],
+  "position": 9582
+ },
+ {
+  "id": "ASGFPV2C",
+  "name": "Expressing \"no wonder\"",
+  "level": "B1",
+  "category": "Complex Sentence Patterns",
+  "pattern": "Reason ，怪不得 / 难怪 + Observation",
+  "example": "小张 请假 了，难怪 今天 没有 看到 他。",
+  "triggers": [
+   "怪不得",
+   "难怪"
+  ],
+  "position": 9975
+ },
+ {
+  "id": "ASGU98B7",
+  "name": "Expressing who is in charge with \"you... zuozhu\"",
+  "level": "C1",
+  "category": "Sentence patterns",
+  "pattern": "Area of responsibility + 由 + Person(s) + 做主",
+  "example": "作为 商店 经理，所有 的 事情 都 由 你 做主，出 了 事情 也 由 你 负责。",
+  "triggers": [
+   "由",
+   "做主"
+  ],
+  "position": 9997
+ },
+ {
+  "id": "ASGE2U25",
+  "name": "Expressing something is \"not worth doing\" with \"buxie\"",
+  "level": "C1",
+  "category": "Verb phrases",
+  "pattern": "Subject + 不屑(于) + Verb",
+  "example": "我 的 同事 是 一位 很 诚实 的 人 ，他 不屑 说谎。",
+  "triggers": [
+   "不",
+   "屑",
+   "于"
+  ],
+  "position": 10089
+ },
+ {
+  "id": "ASGB8BWA",
+  "name": "Adjectival complement \"de budeliao\"",
+  "level": "B2",
+  "category": "Adjectives",
+  "pattern": "Adj. + 得不得了",
+  "example": "爸爸 气  得 不得了，你 要 倒霉 啦。",
+  "triggers": [
+   "得",
+   "不得了"
+  ],
+  "position": 10639
+ },
+ {
+  "id": "ASG9E5BB",
+  "name": "Advanced degree complements",
+  "level": "B2",
+  "category": "Complements",
+  "pattern": "Adj. + 得 + 很 / 不得了 / 要命 / 不行",
+  "example": "我 老婆 的 工作 轻松  得很 。",
+  "triggers": [
+   "得",
+   "很",
+   "不得了",
+   "要命",
+   "不行"
+  ],
+  "position": 10641
+ },
+ {
+  "id": "ASGVYIZT",
+  "name": "Expressing \"not very\" with \"bu zenme\"",
+  "level": "B1",
+  "category": "Adjectives",
+  "pattern": "不怎么 + Adj.",
+  "example": "这里 的 菜 他 不怎么 好吃 ！",
+  "triggers": [
+   "不怎么"
+  ],
+  "position": 10721
+ },
+ {
+  "id": "ASG5BOGP",
+  "name": "Expressing \"not often\" with \"bu zenme\"",
+  "level": "B1",
+  "category": "Verb phrases",
+  "pattern": "不怎么 + Verb",
+  "example": "我 儿子 不怎么 吃 零食 。",
+  "triggers": [
+   "不怎么"
+  ],
+  "position": 10723
+ },
+ {
+  "id": "ASGHOI8S",
+  "name": "Expressing \"let alone\" with \"geng buyong shuo\"",
+  "level": "B2",
+  "category": "Let alone",
+  "pattern": "⋯⋯，更不用说⋯⋯",
+  "example": "她 会 说 法语 ， 更 不用 说 英语 了 。",
+  "triggers": [
+   "更",
+   "不用说"
+  ],
+  "position": 10971
+ },
+ {
+  "id": "ASGTPGXK",
+  "name": "Stating the effect before the cause",
+  "level": "B2",
+  "category": "Cause/Effect Statements",
+  "pattern": "之所以 ⋯⋯ ，是因为 / 是为了 / 是想 ⋯⋯",
+  "example": "我 之 所以 来 晚 了 是 因为 路上 堵车 。",
+  "triggers": [
+   "之所以",
+   "是因为",
+   "是",
+   "为了",
+   "想"
+  ],
+  "position": 11007
+ }
+]

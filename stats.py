@@ -6,6 +6,7 @@ import time
 from datetime import date, timedelta
 
 import db as store
+import grammar
 
 HEATMAP_WEEKS = 52
 FORECAST_DAYS = 14
@@ -237,8 +238,15 @@ def page_data(user_id: int, describe):
         if len(hardest) == 10:
             break
 
+    grammar_seen, _ = store.grammar_state(user_id)
+    grammar_backlog = len(
+        grammar.backlog(grammar_seen, store.characters_seen(user_id))
+    )
+
     return {
         "words_known": len(store.user_words(user_id)),
+        "grammar_seen": grammar_seen,
+        "grammar_backlog": grammar_backlog,
         "total_reviews": total_reviews,
         "review_days": len(days),
         "pass_rate": pass_rate,
