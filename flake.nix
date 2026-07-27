@@ -81,12 +81,14 @@
                         ./translation.py
                         ./tts.py
                         ./filter_defs.py
+                        ./grammar.py
                         ./loach_word_order.py
                         ./radicals.py
                         ./data/confusion/same_stroke.txt
                         ./data/confusion/llm_confusables.txt
                         ./data/chunks/chunk_svgs.json
                         ./data/chunks/glyph_svgs.json.gz
+                        ./data/grammar/grammar.json
                         ./migrate
                         ./templates
                         ./static/pow.js
