@@ -98,6 +98,9 @@
                         ./static/vendor
                         ./static/success.wav
                         ./static/failure.wav
+                        ./static/favicon.svg
+                        ./static/favicon-32.png
+                        ./static/apple-touch-icon.png
                     ];
                 };
             in {

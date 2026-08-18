@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <!-- Seal (印章) mark: 友 knocked out of our ink-indigo square. -->
+  <style>
+    :root { --accent: #3d5fa6; --on-accent: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      :root { --accent: #92abe8; --on-accent: #171b26; }
+    }
+  </style>
+  <rect x="2" y="2" width="92" height="92" rx="24" fill="var(--accent)"/>
+  <line x1="12.6" y1="48" x2="83.4" y2="48" stroke="var(--on-accent)" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="5 5"/>
+  <line x1="48" y1="12.6" x2="48" y2="83.4" stroke="var(--on-accent)" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="5 5"/>
+  <path fill="var(--on-accent)" transform="translate(17.53 71.62) scale(0.062 -0.062)" d="M300 855C298 822 298 774 294 716H60V575H279C252 399 187 189 17 48C67 19 112 -18 142 -57C245 40 313 161 358 285C390 225 428 172 471 125C408 83 336 51 257 30C286 0 321 -56 339 -93C431 -63 513 -23 585 28C664 -25 759 -64 872 -90C892 -50 934 13 966 44C863 62 775 91 701 131C775 214 831 320 866 452L766 494L740 488H414C420 518 424 547 429 575H938V716H444C449 771 450 819 452 855ZM579 216C537 255 502 299 473 348H670C646 299 615 255 579 216Z"/>
+</svg>
