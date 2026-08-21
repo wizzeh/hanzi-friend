@@ -25,10 +25,16 @@ def pronounce(text: str, key: str, region: str):
     """Return mp3 audio for our text, from the cache when we have it,
     else fetched on the user's own Azure Speech key.
 
-    Single words get cached on first fetch; full sentences are streamed
-    through without caching."""
+    Single words and short counted phrases (一只狗, which drills the
+    measure word for free) get cached on first fetch; full sentences
+    are streamed through without caching."""
     cache = False
-    if text in word_order:
+    # A phrase is only worth caching if it's short and unpunctuated --
+    # a fixed little chunk we'll replay often, not a one-off sentence.
+    short_phrase = len(text) <= 8 and not any(
+        c in text for c in "。，、；：！？"
+    )
+    if text in word_order or short_phrase:
         try:
             with open(audio_path(text), "rb") as f:
                 data = f.read()
@@ -38,7 +44,7 @@ def pronounce(text: str, key: str, region: str):
                 return data
         except FileNotFoundError:
             pass
-        cache = not text.strip().endswith("。")
+        cache = True
 
     def cache_as_stream(content, do_cache):
         if not do_cache:

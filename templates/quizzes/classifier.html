@@ -1,16 +1,19 @@
-<article id="contrast-quiz">
+<article id="classifier-quiz">
   {% include 'count.html' %}
-  <h5 class="quiz-kind">Which one?</h5>
-  <p class="pinyin">{{pinyin}}</p>
+  <h5 class="quiz-kind">Measure word</h5>
+  {% with glyph = hanzi %}{% include 'quizzes/glyph.html' %}{% endwith %}
+  {% if reading_display %}
+  <p class="pinyin">{{reading_display}}</p>
+  {% endif %}
   <ul class="gloss-list">
     {% for item in meaning %}
     <li>{{item}}</li>
     {% endfor %}
   </ul>
   <div class="answer-row">
-  {% for choice in choices %}
-  {% if choice == hanzi %}
-  <button class="answer large-answer" id="contrast-correct" _="
+  {% for c in choices %}
+  {% if c.is_answer %}
+  <button class="answer large-answer classifier-correct" _="
     on click
     add @disabled to .answer
     add .green to me
@@ -23,13 +26,13 @@
     on click
     add @disabled to .answer
     add .red to me
-    add .green to #contrast-correct
+    add .green to .classifier-correct
     js play_failure() end
     js play_pronounce() end
     show .feedback
   ">
   {% endif %}
-    {{choice}}
+    {{c.hanzi}}<small class="cls-py">{{c.pinyin_display}}</small>
   </button>
   {% endfor %}
   </div>

@@ -278,6 +278,16 @@ def card_id_for(user_id: int, word: str, quiz_type: str):
     return row["id"] if row else None
 
 
+def card_users(word: str):
+    """Users with any card for our word."""
+    return [
+        row["user_id"]
+        for row in connect().execute(
+            "SELECT DISTINCT user_id FROM cards WHERE word = ?", (word,)
+        )
+    ]
+
+
 def known_words(user_id: int, quiz_type: str):
     return [
         row["word"]

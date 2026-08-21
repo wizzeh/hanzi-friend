@@ -436,6 +436,16 @@ button.answer:hover:not(:disabled) {
     min-width: 64px;
 }
 
+/* Measure-word answers carry their reading under the character. */
+.answer small.cls-py {
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--hf-muted);
+}
+
 /* Chunks with no codepoint of their own (the top of 学 is ⺍ over 冖)
    render as the true shape carved from stroke data, sized and colored
    like a glyph... */

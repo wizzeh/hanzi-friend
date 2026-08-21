@@ -20,6 +20,7 @@ from hanzi import (
     is_known_word,
 )
 from translation import Translation
+import classifiers
 import similarity
 
 app = Flask(__name__)
@@ -113,6 +114,10 @@ def render_quiz(pick: quiz.QuizPick):
         lookalikes=lookalikes_for(user, pick.word)
         if pick.quiz_type in ("intro", "meaning")
         else [],
+        # Wherever we say our word out loud, say it counted: 一只狗
+        # drills the measure word for free. Bare word when it has no
+        # distinctive classifier.
+        speak=classifiers.speak_phrase(pick.word) or pick.word,
     )
 
     if pick.quiz_type == "contrast":
@@ -130,6 +135,13 @@ def render_quiz(pick: quiz.QuizPick):
             "quizzes/contrast.html",
             choices=choices,
             words_known=store.characters_seen(user),
+            **common,
+        )
+
+    if pick.quiz_type == "classifier":
+        return render_template(
+            "quizzes/classifier.html",
+            choices=classifiers.quiz_choices(pick.word),
             **common,
         )
 

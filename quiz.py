@@ -5,6 +5,7 @@ import json
 
 import fsrs
 
+import classifiers
 import db as store
 import grammar
 import hanzi
@@ -82,6 +83,11 @@ def learn_word(user_id: int, word: str, reading: Optional[str] = None):
     store.insert_card(user_id, word, "component", None, fsrs.Card().to_dict())
     for quiz_type in PER_READING_QUIZZES:
         store.insert_card(user_id, word, quiz_type, primary, fsrs.Card().to_dict())
+
+    # A noun whose measure words aren't just the generic 个 gets a
+    # pairing card: 三本书 needs 本, not any old counter.
+    if classifiers.classifiers_for(word):
+        store.insert_card(user_id, word, "classifier", None, fsrs.Card().to_dict())
 
     # If this word has a known lookalike, quiz them against each other.
     if len(word) == 1:
