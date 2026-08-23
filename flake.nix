@@ -63,44 +63,22 @@
                 appEnv = pkgs.python312.withPackages appPackages;
 
                 # Just the app; our db, caches, and experiments stay out
-                # of the nix store.
+                # of the nix store. These are rules rather than a file
+                # list so new modules, data files, and assets ship
+                # without touching the flake. The flake source is
+                # already git-filtered, so untracked inputs under
+                # data/ and migrate/ never reach these rules.
                 appSrc = pkgs.lib.fileset.toSource {
                     root = ./.;
-                    fileset = pkgs.lib.fileset.unions [
-                        ./app.py
-                        ./auth.py
-                        ./chunking.py
-                        ./db.py
-                        ./enrich.py
-                        ./hanzi.py
-                        ./pow.py
-                        ./quiz.py
-                        ./serve.py
-                        ./similarity.py
-                        ./stats.py
-                        ./translation.py
-                        ./tts.py
-                        ./filter_defs.py
-                        ./grammar.py
-                        ./loach_word_order.py
-                        ./radicals.py
-                        ./data/confusion/same_stroke.txt
-                        ./data/confusion/llm_confusables.txt
-                        ./data/chunks/chunk_svgs.json
-                        ./data/chunks/glyph_svgs.json.gz
-                        ./data/grammar/grammar.json
-                        ./migrate
+                    fileset = with pkgs.lib.fileset; unions [
+                        # Every Python module, minus the offline build
+                        # scripts under data/.
+                        (difference (fileFilter (f: f.hasExt "py") ./.) ./data)
+                        # What those build scripts produce.
+                        (fileFilter (f: !(f.hasExt "py" || f.hasExt "done")) ./data)
                         ./templates
-                        ./static/pow.js
-                        ./static/quiz.js
-                        ./static/style.css
-                        ./static/fonts
-                        ./static/vendor
-                        ./static/success.wav
-                        ./static/failure.wav
-                        ./static/favicon.svg
-                        ./static/favicon-32.png
-                        ./static/apple-touch-icon.png
+                        # All static assets except the TTS audio cache.
+                        (difference ./static (maybeMissing ./static/audio))
                     ];
                 };
             in {
