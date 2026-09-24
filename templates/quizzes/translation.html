@@ -25,7 +25,7 @@
 </article>
 
 {% if is_english %}
-<audio src="pronounce/{{translation}}" id="pronounce"></audio>
+<audio src="{{url_for('pronounce', text=translation)}}" id="pronounce"></audio>
 {% else %}
-<audio src="pronounce/{{to_translate}}" id="pronounce"></audio>
+<audio src="{{url_for('pronounce', text=to_translate)}}" id="pronounce"></audio>
 {% endif %} {% include 'quizzes/feedback.html' %}

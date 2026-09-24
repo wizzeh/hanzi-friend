@@ -25,5 +25,5 @@
   </form>
 </article>
 
-<audio src="pronounce/{{translation}}" id="pronounce"></audio>
+<audio src="{{url_for('pronounce', text=translation)}}" id="pronounce"></audio>
 {% include 'quizzes/feedback.html' %}

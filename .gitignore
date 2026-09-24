@@ -10,4 +10,6 @@
 .vscode
 __pycache__
 static/audio/*.mp3
+static/audio/v2/
 result
+tts-comparison/

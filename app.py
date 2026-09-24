@@ -2,7 +2,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, redirect
+from flask import Flask, Response, render_template, request, redirect, url_for
 
 load_dotenv()
 
@@ -94,6 +94,14 @@ def render_quiz(pick: quiz.QuizPick):
         return render_grammar(pick, user)
 
     info = hanzi_info(pick.word, pick.reading, user_id=user)
+    # Keep the counted phrase, but apply the card's reading only to its word.
+    # 一 and the classifier retain their surrounding pronunciation context.
+    speak = classifiers.speak_phrase(pick.word) or pick.word
+    speech_url = url_for(
+        "pronounce", text=speak,
+        reading=pick.reading or None,
+        word=pick.word if pick.reading else None,
+    )
 
     common = dict(
         hanzi=info.hanzi,
@@ -114,10 +122,7 @@ def render_quiz(pick: quiz.QuizPick):
         lookalikes=lookalikes_for(user, pick.word)
         if pick.quiz_type in ("intro", "meaning")
         else [],
-        # Wherever we say our word out loud, say it counted: 一只狗
-        # drills the measure word for free. Bare word when it has no
-        # distinctive classifier.
-        speak=classifiers.speak_phrase(pick.word) or pick.word,
+        speech_url=speech_url,
     )
 
     if pick.quiz_type == "contrast":
@@ -300,11 +305,17 @@ def set_definition(hanzi):
 def pronounce(text):
     keys = store.user_keys(current_user())
     try:
-        return tts.pronounce(text, keys["speech_key"], keys["speech_region"])
-    except requests.HTTPError as e:
+        audio = tts.pronounce(
+            text, keys["speech_key"], keys["speech_region"],
+            reading=request.args.get("reading"), word=request.args.get("word"),
+        )
+        return Response(audio, mimetype="audio/mpeg")
+    except ValueError:
+        return "invalid pronunciation request", 400
+    except requests.RequestException:
         # Bad key, rate limit, etc. The audio element ignores failures,
         # so a quiet 502 is the right shape for the client.
-        return "speech synthesis failed: {}".format(e), 502
+        return "speech synthesis failed", 502
 
 
 if __name__ == "__main__":

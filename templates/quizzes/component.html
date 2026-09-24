@@ -56,5 +56,5 @@
   </div>
 </article>
 
-<audio src="pronounce/{{hanzi}}" id="pronounce"></audio>
+<audio src="{{url_for('pronounce', text=hanzi)}}" id="pronounce"></audio>
 {% include 'quizzes/feedback.html' %}

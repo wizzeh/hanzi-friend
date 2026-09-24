@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mandarin listening comparison</title>
+<style>
+  :root { color-scheme: light dark; font: 17px/1.55 system-ui, sans-serif; }
+  body { max-width: 920px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  h2 { font-size: 2rem; font-weight: 500; }
+  .muted { opacity: .75; } .toolbar { display: flex; gap: .7rem; flex-wrap: wrap; align-items: center; }
+  button, select, textarea { font: inherit; padding: .5rem; border: 1px solid #8888; border-radius: .4rem; }
+  button { cursor: pointer; } button:disabled { cursor: default; opacity: .5; }
+  .clips { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.5rem 0; }
+  @media (max-width: 650px) { .clips { grid-template-columns: 1fr; } }
+  article { border: 1px solid #8887; padding: 1rem; border-radius: .6rem; }
+  article h3 { margin-top: 0; } audio, textarea { width: 100%; box-sizing: border-box; }
+  label { display: block; margin-top: .8rem; } select { max-width: 100%; }
+  progress { width: 100%; } table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th, td { text-align: left; border-bottom: 1px solid #8887; padding: .6rem; overflow-wrap: anywhere; }
+  .table-wrap { overflow-x: auto; } [hidden] { display: none !important; }
+  #save-status { font-size: .85rem; } #results { margin-top: 2rem; }
+</style>
+<h1>Mandarin listening comparison</h1>
+<p>Which voices would you enjoy learning from? Listen to every version, then rate how natural each sounds.
+  Judge pronunciation separately. A voice can sound pleasant and still read a word incorrectly.</p>
+<p class="muted">Labels change for every example. Record your first impressions before revealing identities.
+  Audio is matched for loudness; keep your playback volume steady. No data leaves this page.</p>
+<div class="toolbar">
+  <button id="export">Download ratings</button>
+  <button id="reveal">Finish and reveal voices</button>
+  <span id="save-status" role="status"></span>
+</div>
+<p id="progress-text"></p><progress id="progress" value="0" max="20"></progress>
+<main id="trial"></main>
+<div class="toolbar">
+  <button id="previous">← Previous</button>
+  <span id="position"></span>
+  <button id="next">Next →</button>
+</div>
+<section id="results" hidden></section>
+<script id="comparison-data" type="application/json">__COMPARISON_DATA__</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('comparison-data').textContent);
+const storageKey = 'mandarin-comparison-' + data.id;
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const byId = id => document.getElementById(id);
+const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state = {position: 0, revealed: false, ratings: {}};
+try { const saved = JSON.parse(localStorage.getItem(storageKey)); if (saved) state = saved; } catch (_) {}
+function save() {
+  try { localStorage.setItem(storageKey, JSON.stringify(state)); byId('save-status').textContent = 'Saved in this browser'; }
+  catch (_) { byId('save-status').textContent = 'Browser storage unavailable — download ratings before closing.'; }
+}
+function answers(trial) {
+  return state.ratings[trial.id] ||= {clips: trial.clips.map(() => ({naturalness: '', accuracy: '', note: ''})), preference: ''};
+}
+function complete(trial) {
+  const a = state.ratings[trial.id];
+  return !!a && a.preference !== '' && a.clips.every(c => c.naturalness && c.accuracy);
+}
+function options(items, chosen) {
+  return items.map(([value, label]) => `<option value="${esc(value)}" ${String(value) === String(chosen) ? 'selected' : ''}>${esc(label)}</option>`).join('');
+}
+function updateProgress() {
+  const count = data.trials.filter(complete).length;
+  byId('progress').max = data.trials.length; byId('progress').value = count;
+  byId('progress-text').textContent = `${count} of ${data.trials.length} examples rated`;
+}
+function render() {
+  const trial = data.trials[state.position], a = answers(trial);
+  const disabled = state.revealed ? 'disabled' : '';
+  byId('trial').innerHTML = `<p class="muted">${esc(trial.category)}</p><h2 lang="zh-CN">${esc(trial.text)}</h2>
+    <p>${esc(trial.note)}</p><div class="clips">${trial.clips.map((clip, i) => `<article>
+      <h3>Voice ${letters[i]}</h3>${state.revealed ? `<p class="muted">${esc(clip.voice)}</p>` : ''}
+      <audio controls preload="metadata" aria-label="Play voice ${letters[i]}"></audio>
+      <label>Naturalness <select data-index="${i}" data-field="naturalness" ${disabled}>
+        ${options([['','Choose…'],['1','1 — Very artificial'],['2','2 — Somewhat artificial'],['3','3 — Acceptable'],['4','4 — Natural'],['5','5 — Very natural']], a.clips[i].naturalness)}</select></label>
+      <label>Pronunciation <select data-index="${i}" data-field="accuracy" ${disabled}>
+        ${options([['','Choose…'],['correct','Sounds correct'],['wrong','Something sounds wrong'],['unsure','Unsure']], a.clips[i].accuracy)}</select></label>
+      <label>Notes <textarea rows="2" data-index="${i}" data-field="note" placeholder="Optional: tones, pauses, missing words…" ${disabled}>${esc(a.clips[i].note)}</textarea></label>
+    </article>`).join('')}</div>
+    <label>Your preferred version <select id="preference" ${disabled}>${options([['','Choose…'], ...trial.clips.map((_,i) => [letters[i],`Voice ${letters[i]}`]),['tie','No clear preference'],['none','None are suitable']], a.preference)}</select></label>
+    <p class="muted">Pronunciation hints are reference notes; they were not supplied to the voices.</p>`;
+  const audios = [...byId('trial').querySelectorAll('audio')];
+  audios.forEach((audio, i) => {
+    audio.src = trial.clips[i].audio;
+    audio.addEventListener('play', () => audios.forEach(other => { if (other !== audio) other.pause(); }));
+  });
+  byId('trial').querySelectorAll('[data-field]').forEach(control => control.addEventListener('input', () => {
+    a.clips[Number(control.dataset.index)][control.dataset.field] = control.value; save(); updateProgress();
+  }));
+  byId('preference').addEventListener('change', event => { a.preference = event.target.value; save(); updateProgress(); });
+  byId('previous').disabled = state.position === 0;
+  byId('next').disabled = state.position === data.trials.length - 1;
+  byId('position').textContent = `Example ${state.position + 1} / ${data.trials.length}`;
+  byId('reveal').disabled = state.revealed;
+  updateProgress(); if (state.revealed) showResults();
+}
+function summarize(category) {
+  const tally = {};
+  data.trials.filter(t => !category || t.category === category).forEach(trial => {
+    const a = state.ratings[trial.id];
+    trial.clips.forEach((clip, i) => {
+      const row = tally[clip.voice] ||= {sum: 0, count: 0, wins: 0, wrong: 0, checked: 0};
+      const rating = a?.clips[i];
+      if (rating?.naturalness) { row.sum += Number(rating.naturalness); row.count++; }
+      if (rating?.accuracy === 'wrong') row.wrong++;
+      if (rating?.accuracy && rating.accuracy !== 'unsure') row.checked++;
+      if (a?.preference === letters[i]) row.wins++;
+    });
+  });
+  return Object.entries(tally).sort((a,b) => (b[1].sum / (b[1].count || 1)) - (a[1].sum / (a[1].count || 1)));
+}
+function showResults() {
+  byId('results').hidden = false;
+  byId('results').innerHTML = '<h2>Your results</h2><p>Ratings are now locked to preserve your blind impressions. These are preferences for this set, not a general model ranking. “Flagged” excludes unsure answers; preference counts exclude ties and “none”.</p>' +
+    [null, ...new Set(data.trials.map(t => t.category))].map(category => `<h3>${esc(category || 'All examples')}</h3><div class="table-wrap"><table><thead><tr><th>Voice</th><th>Naturalness / 5</th><th>Rated</th><th>Preferred</th><th>Flagged / checked</th></tr></thead><tbody>${summarize(category).map(([voice, s]) => `<tr><td>${esc(voice)}</td><td>${s.count ? (s.sum/s.count).toFixed(2) : '—'}</td><td>${s.count}</td><td>${s.wins}</td><td>${s.wrong} / ${s.checked}</td></tr>`).join('')}</tbody></table></div>`).join('');
+}
+function navigate(delta) {
+  byId('trial').querySelectorAll('audio').forEach(audio => audio.pause());
+  state.position += delta; save(); render(); byId('trial').scrollIntoView({behavior: 'smooth'});
+}
+byId('previous').onclick = () => navigate(-1);
+byId('next').onclick = () => navigate(1);
+byId('reveal').onclick = () => {
+  const remaining = data.trials.filter(t => !complete(t)).length;
+  if (!confirm(`${remaining ? `${remaining} examples still have missing ratings. ` : ''}Reveal voice identities and lock your ratings?`)) return;
+  state.revealed = true; save(); render(); byId('results').scrollIntoView({behavior: 'smooth'});
+};
+byId('export').onclick = () => {
+  const metadata = {...data, trials: data.trials.map(t => ({...t, clips: t.clips.map(({audio, ...clip}) => clip)}))};
+  const blob = new Blob([JSON.stringify({comparison: metadata, ...state}, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob), link = document.createElement('a');
+  link.href = url; link.download = `mandarin-ratings-${data.id}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
+render(); save();
+</script>
+</html>
